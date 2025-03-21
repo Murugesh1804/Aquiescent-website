@@ -1,7 +1,0 @@
-<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M18.5 10L0 40H37L18.5 10Z" fill="#0066CC"/>
-  <path d="M37 40L55.5 10L74 40H37Z" fill="#0066CC"/>
-  <text x="80" y="30" font-family="Arial" font-weight="bold" font-size="24" fill="#0066CC">Acquiescent</text>
-  <text x="80" y="45" font-family="Arial" font-size="12" fill="#0066CC">Consultancy Services</text>
-</svg>
-

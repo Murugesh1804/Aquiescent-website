@@ -40,9 +40,9 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src="/logo.svg" alt="Acquiescent Logo" width={200} height={50} className="h-auto w-auto" />
-          </Link>
+            <Link href="/" className="flex items-center space-x-2">
+            <Image src="/logo.png" alt="Acquiescent Logo" width={160} height={60} className="" />
+            </Link>
           <nav className="hidden md:flex items-center space-x-6">
             {navLinks.map((link, index) => (
               <motion.div
