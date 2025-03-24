@@ -12,12 +12,14 @@ import { StatsSection } from "@/components/stats-section"
 import { LatestBlogs } from "@/components/latest-blogs"
 import { CourseCard } from "@/components/course-card"
 import { ChevronRight } from "lucide-react"
+import  PopupImage  from "@/components/popup-img";
 
 const montserrat = Montserrat({ subsets: ["latin"] })
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
+      <PopupImage />
       <HeroSection />
 
       {/* Featured Courses Section */}
