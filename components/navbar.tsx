@@ -42,11 +42,11 @@ export function Navbar() {
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <Image
-              src="/logo.svg"
+              src="/logo.png"
               alt="ACQUIESCENT Technologies Logo"
-              width={200}
+              width={160}
               height={50}
-              className="h-auto w-auto"
+              
             />
           </Link>
           <nav className="hidden md:flex items-center space-x-6">

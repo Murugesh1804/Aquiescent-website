@@ -14,17 +14,17 @@ export function HeroSection() {
     {
       title: "ACQUIESCENT Technologies",
       subtitle: "Professional IT training, staffing and consultancy services since 2010",
-      image: "/hero-1.jpg",
+      image: "https://i.pinimg.com/736x/4a/92/b1/4a92b113112c103c8a4d7129c39c4c88.jpg",
     },
     {
       title: "Expert Training & Staffing Solutions",
       subtitle: "Providing skilled professionals to major corporations across the globe",
-      image: "/hero-2.jpg",
+      image: "https://i.pinimg.com/736x/22/c2/c5/22c2c520f3dfead37f645e9d9974fb3c.jpg",
     },
     {
       title: "Advance Your Career with Us",
       subtitle: "Comprehensive training programs in the latest technologies",
-      image: "/hero-3.jpg",
+      image: "https://i.pinimg.com/736x/6e/0c/89/6e0c8951f19312694fdc01c79c881aaf.jpg",
     },
   ]
 
@@ -41,7 +41,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-primary/70 z-10" />
         <Image
-          src={slides[currentSlide].image || "/placeholder.svg?height=700&width=1920"}
+          src={slides[currentSlide].image || "/hero-1.jpg"}
           alt="Hero Background"
           fill
           priority

@@ -12,12 +12,14 @@ import { CoursesSection } from "@/components/courses-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { StatsSection } from "@/components/stats-section"
 import { LatestBlogs } from "@/components/latest-blogs"
+import  PopupImg  from "@/components/popup-img"
 
 const montserrat = Montserrat({ subsets: ["latin"] })
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
+      <PopupImg />
       <HeroSection />
 
       {/* Company Overview Section */}

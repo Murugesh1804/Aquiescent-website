@@ -10,7 +10,7 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <Image
-                src="/logo-white.svg"
+                src="/logo.png"
                 alt="ACQUIESCENT Technologies Logo"
                 width={180}
                 height={45}
