@@ -7,17 +7,17 @@ export function StatsSection() {
   const stats = [
     {
       icon: <Users className="h-8 w-8 text-primary" />,
-      value: "10,000+",
-      label: "Students Trained",
+      value: "5,000+",
+      label: "Professionals Placed",
     },
     {
       icon: <Award className="h-8 w-8 text-primary" />,
-      value: "95%",
-      label: "Placement Rate",
+      value: "13+",
+      label: "Years of Excellence",
     },
     {
       icon: <BookOpen className="h-8 w-8 text-primary" />,
-      value: "25+",
+      value: "10+",
       label: "Training Programs",
     },
     {

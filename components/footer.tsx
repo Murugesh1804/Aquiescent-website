@@ -9,11 +9,17 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <Link href="/" className="inline-block">
-              <Image src="/logo.png" alt="Acquiescent Logo" width={180} height={45} className="h-auto w-auto" />
+              <Image
+                src="/logo-white.svg"
+                alt="ACQUIESCENT Technologies Logo"
+                width={180}
+                height={45}
+                className="h-auto w-auto"
+              />
             </Link>
             <p className="text-gray-400 max-w-xs">
-              Acquiescent Consultancy Services India Pvt. Ltd. provides professional IT training and consultancy
-              services to help advance your career.
+              ACQUIESCENT Technologies provides professional IT training, staffing and consultancy services to help
+              advance your career since 2010.
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="text-gray-400 hover:text-white transition-colors">

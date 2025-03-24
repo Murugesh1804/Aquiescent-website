@@ -1,122 +1,193 @@
-"use client";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { CheckCircle } from "lucide-react"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { motion } from "framer-motion";
+export const metadata = {
+  title: "About Us | ACQUIESCENT Technologies",
+  description:
+    "Learn about ACQUIESCENT Technologies and our mission to provide professional IT training and staffing services",
+}
 
 export default function AboutPage() {
+  const domains = [
+    "Telecom domain",
+    "Corporate Training",
+    "Retail domain",
+    "Banking domain",
+    "Financial domain",
+    "Insurance domain",
+  ]
+
+  const preScreeningServices = [
+    "Skill Assessments",
+    "Resume sourcing",
+    "Interviewing",
+    "Drug Testing",
+    "Background Checks",
+  ]
+
+  const actionPlans = [
+    {
+      title: "Recruiting",
+      description:
+        "Our Goal is to develop a true partnership with your company and become extension of Human Resources.",
+    },
+    {
+      title: "Retention",
+      description:
+        "Our Goal is to manage the temporary workforce and offer initiatives that help in creating & maintaining a positive working atmosphere.",
+    },
+    {
+      title: "Customer Service",
+      description:
+        "Our Goal is to solidify a strong working relationship with all levels of supervision. This will be accomplished through continuous communication with ACQUIESCENT Technologies POC and supervisors who have direct contact with temporary staff.",
+    },
+  ]
+
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
       <section className="w-full py-20 bg-primary text-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl"
-            >
-              About Us
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mx-auto max-w-[700px] text-white/80 md:text-xl"
-            >
-              Empowering Businesses Through Training & Outsourcing Excellence
-            </motion.p>
+            <div className="space-y-2">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+                About ACQUIESCENT Technologies
+              </h1>
+              <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
+                Established in 2010, providing professional IT training and staffing services
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
-        <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              <h2 className="text-3xl font-bold tracking-tighter text-primary">Our Story</h2>
-              <p className="text-gray-600">
-                Established in 2010 in Bangalore, Acquiescent Technologies has been a trusted partner for corporations worldwide, delivering high-quality staffing and training solutions.
-              </p>
-              <p className="text-gray-600">
-                We specialize in manpower recruitment, corporate training, and psychometric assessment, ensuring organizations build skilled and efficient teams.
-              </p>
-              <p className="text-gray-600">
-                Our mission is to empower businesses by providing them with the tools and expertise needed to thrive in a competitive market.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="h-[400px] bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center text-gray-500"
-            >
-              <img src="/images/company-image.jpg" alt="Company Image" className="object-cover w-full h-full" />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Services Section */}
+      {/* Company Overview */}
       <section className="w-full py-12 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
-          <div className="text-center mb-12">
-            <motion.h2
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold tracking-tighter text-primary"
-            >
-              Our Services
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="mt-4 text-gray-600 max-w-[700px] mx-auto"
-            >
-              Comprehensive solutions tailored to your business needs
-            </motion.p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tighter text-primary mb-6">Company Overview</h2>
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  ACQUIESCENT (ACQUIESCENT Technologies) was established in 2010 in Bangalore. All offices of
+                  ACQUIESCENT staffing and training solutions are owned and operated by experienced business executives
+                  who have provided staffing to major corporations.
+                </p>
+                <p>
+                  ACQUIESCENT Technologies is into the business of providing manpower recruitment services and
+                  psychometric assessment to various clients across the globe.
+                </p>
+                <p>
+                  ACQUIESCENT Technologies undertakes recruitment of all verticals in almost all the Training sectors
+                  like IT, Non-IT Banking and Embedded System.
+                </p>
+              </div>
+            </div>
+            <div className="rounded-lg overflow-hidden shadow-lg">
+              <img src="/placeholder.svg?height=400&width=600" alt="ACQUIESCENT Office" className="w-full h-auto" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Domain Specialization */}
+      <section className="w-full py-12 md:py-24 bg-gray-50">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter text-primary">Areas of Domain Specialization</h2>
+              <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
+                Our expertise spans across multiple industry domains
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {domains.map((domain, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-xl">{domain}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base">
+                    Specialized expertise and solutions tailored for the {domain.toLowerCase()} sector.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pre-Screening Services */}
+      <section className="w-full py-12 md:py-24 bg-white">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter text-primary">Pre-Screening Services</h2>
+              <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
+                Comprehensive screening to ensure the highest quality candidates
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              {preScreeningServices.map((service, index) => (
+                <div key={index} className="flex items-start">
+                  <CheckCircle className="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">{service}</h3>
+                    <p className="text-gray-600">
+                      {service === "Skill Assessments" &&
+                        "Thorough evaluation of technical and soft skills relevant to the position."}
+                      {service === "Resume sourcing" &&
+                        "Identifying qualified candidates through multiple channels and databases."}
+                      {service === "Interviewing" &&
+                        "Structured interviews to assess candidate suitability and cultural fit."}
+                      {service === "Drug Testing" &&
+                        "Comprehensive drug screening as per industry standards and requirements."}
+                      {service === "Background Checks" &&
+                        "Detailed verification of employment history, education, and credentials."}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-lg overflow-hidden shadow-lg">
+              <img src="/placeholder.svg?height=500&width=600" alt="Pre-Screening Process" className="w-full h-auto" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Action Plan */}
+      <section className="w-full py-12 md:py-24 bg-gray-50">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter text-primary">Action Plan</h2>
+              <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
+                Our strategic approach to ensure successful partnerships
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: "Training & Development", content: "Comprehensive corporate training tailored to industry needs." },
-              { title: "Recruitment & Staffing Solutions", content: "Permanent & Direct Hire Recruitment – Connecting businesses with top-tier talent." },
-              { title: "Pre-Screening & Assessment", content: "Skill Assessments to ensure role-fit candidates." },
-              { title: "Consulting Services", content: "Expert advice to optimize your business processes and strategies." },
-              { title: "Outsourcing Solutions", content: "Efficient outsourcing services to enhance your operational capabilities." },
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">{service.content}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+            {actionPlans.map((plan, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all">
+                <CardHeader>
+                  <CardTitle className="text-xl">{plan.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">{plan.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
     </main>
-  );
+  )
 }
+

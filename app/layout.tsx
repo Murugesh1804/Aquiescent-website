@@ -13,8 +13,8 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: "Acquiescent Consultancy Services India Pvt. Ltd.",
-  description: "Professional IT training and consultancy services for career advancement",
+  title: "ACQUIESCENT Technologies",
+  description: "Professional IT training, staffing and consultancy services since 2010",
     generator: 'v0.dev'
 }
 

@@ -2,45 +2,42 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { BookOpen, Code, Database, Server, Users, Award } from "lucide-react"
+import { BookOpen, Users, Briefcase, Clock, DollarSign, FileText } from "lucide-react"
 
 export function ServicesSection() {
   const services = [
     {
       icon: <BookOpen className="h-10 w-10 text-primary" />,
-      title: "Professional Training",
+      title: "Training & Deployment",
       description:
         "Comprehensive training programs designed by industry experts to help you master the latest technologies and advance your career.",
     },
     {
-      icon: <Code className="h-10 w-10 text-primary" />,
-      title: "Software Development",
-      description:
-        "Custom software development services tailored to meet your business needs with cutting-edge technologies and best practices.",
-    },
-    {
-      icon: <Database className="h-10 w-10 text-primary" />,
-      title: "Data Solutions",
-      description:
-        "End-to-end data solutions including data warehousing, analytics, and business intelligence to help you make data-driven decisions.",
-    },
-    {
-      icon: <Server className="h-10 w-10 text-primary" />,
-      title: "Cloud Services",
-      description:
-        "Expert cloud migration, management, and optimization services to help you leverage the full potential of cloud technologies.",
-    },
-    {
       icon: <Users className="h-10 w-10 text-primary" />,
-      title: "IT Consulting",
+      title: "Corporate Training",
       description:
-        "Strategic IT consulting services to help businesses optimize their technology infrastructure, improve efficiency, and drive innovation.",
+        "Specialized training programs tailored to meet the specific needs of corporate clients and enhance employee skills.",
     },
     {
-      icon: <Award className="h-10 w-10 text-primary" />,
-      title: "Certification Programs",
+      icon: <Briefcase className="h-10 w-10 text-primary" />,
+      title: "Permanent & Direct Hire Recruiting",
+      description: "Professional recruitment services to help companies find the right talent for permanent positions.",
+    },
+    {
+      icon: <Clock className="h-10 w-10 text-primary" />,
+      title: "Temporary/Contract Staffing",
       description:
-        "Industry-recognized certification programs to validate your skills and enhance your career prospects in the competitive job market.",
+        "Flexible staffing solutions including temporary, temp-to-hire, and contract niche staffing to meet your business needs.",
+    },
+    {
+      icon: <DollarSign className="h-10 w-10 text-primary" />,
+      title: "Pay Rolling Services",
+      description: "Comprehensive payroll management services for your temporary and contract workforce.",
+    },
+    {
+      icon: <FileText className="h-10 w-10 text-primary" />,
+      title: "Consulting/Project Based Engagement",
+      description: "Expert consulting services and project-based solutions to help businesses achieve their goals.",
     },
   ]
 
@@ -55,7 +52,9 @@ export function ServicesSection() {
             viewport={{ once: true }}
             className="space-y-2"
           >
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">Our Services</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
+              Services Offered
+            </h2>
             <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
               Comprehensive solutions to help you achieve your professional and business goals
             </p>

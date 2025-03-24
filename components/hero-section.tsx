@@ -12,19 +12,19 @@ export function HeroSection() {
 
   const slides = [
     {
-      title: "Advance Your Career with Expert Training",
-      subtitle: "Industry-leading courses designed to help you succeed",
-      image: "https://i.pinimg.com/736x/fa/71/fe/fa71fed4e50aa2bc4f76dc4f59b4204c.jpg",
+      title: "ACQUIESCENT Technologies",
+      subtitle: "Professional IT training, staffing and consultancy services since 2010",
+      image: "/hero-1.jpg",
     },
     {
-      title: "Master the Latest Technologies",
-      subtitle: "Hands-on training with real-world projects",
-      image: "https://i.pinimg.com/736x/fa/71/fe/fa71fed4e50aa2bc4f76dc4f59b4204c.jpg",
+      title: "Expert Training & Staffing Solutions",
+      subtitle: "Providing skilled professionals to major corporations across the globe",
+      image: "/hero-2.jpg",
     },
     {
-      title: "Learn from Industry Experts",
-      subtitle: "Gain insights from professionals with years of experience",
-      image: "https://i.pinimg.com/736x/fa/71/fe/fa71fed4e50aa2bc4f76dc4f59b4204c.jpg",
+      title: "Advance Your Career with Us",
+      subtitle: "Comprehensive training programs in the latest technologies",
+      image: "/hero-3.jpg",
     },
   ]
 
@@ -70,7 +70,12 @@ export function HeroSection() {
             <p className="text-xl md:text-2xl text-white/90 mb-8">{slides[currentSlide].subtitle}</p>
           </motion.div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
             <Button size="lg" asChild>
               <Link href="/courses">
                 Explore Courses <ChevronRight className="ml-2 h-4 w-4" />
@@ -84,7 +89,7 @@ export function HeroSection() {
             >
               <Link href="/contact">Contact Us</Link>
             </Button>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Slide Indicators */}
