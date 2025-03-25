@@ -2,9 +2,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { CheckCircle } from "lucide-react"
 
 export const metadata = {
-  title: "About Us | ACQUIESCENT Technologies",
+  title: "About Us | Acquiescent Technologies",
   description:
-    "Learn about ACQUIESCENT Technologies and our mission to provide professional IT training and staffing services",
+    "Learn about Acquiescent Technologies and our mission to provide professional IT training and staffing services",
 }
 
 export default function AboutPage() {
@@ -39,7 +39,7 @@ export default function AboutPage() {
     {
       title: "Customer Service",
       description:
-        "Our Goal is to solidify a strong working relationship with all levels of supervision. This will be accomplished through continuous communication with ACQUIESCENT Technologies POC and supervisors who have direct contact with temporary staff.",
+        "Our Goal is to solidify a strong working relationship with all levels of supervision. This will be accomplished through continuous communication with Acquiescent Technologies POC and supervisors who have direct contact with temporary staff.",
     },
   ]
 
@@ -51,7 +51,7 @@ export default function AboutPage() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                About ACQUIESCENT Technologies
+                About Acquiescent Technologies
               </h1>
               <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
                 Established in 2010, providing professional IT training and staffing services
@@ -69,22 +69,22 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold tracking-tighter text-primary mb-6">Company Overview</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  ACQUIESCENT (ACQUIESCENT Technologies) was established in 2010 in Bangalore. All offices of
-                  ACQUIESCENT staffing and training solutions are owned and operated by experienced business executives
+                  Acquiescent (Acquiescent Technologies) was established in 2010 in Bangalore. All offices of
+                  Acquiescent staffing and training solutions are owned and operated by experienced business executives
                   who have provided staffing to major corporations.
                 </p>
                 <p>
-                  ACQUIESCENT Technologies is into the business of providing manpower recruitment services and
+                  Acquiescent Technologies is into the business of providing manpower recruitment services and
                   psychometric assessment to various clients across the globe.
                 </p>
                 <p>
-                  ACQUIESCENT Technologies undertakes recruitment of all verticals in almost all the Training sectors
+                  Acquiescent Technologies undertakes recruitment of all verticals in almost all the Training sectors
                   like IT, Non-IT Banking and Embedded System.
                 </p>
               </div>
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
-              <img src="/placeholder.svg?height=400&width=600" alt="ACQUIESCENT Office" className="w-full h-auto" />
+              <img src="/placeholder.svg?height=400&width=600" alt="Acquiescent Office" className="w-full h-auto" />
             </div>
           </div>
         </div>

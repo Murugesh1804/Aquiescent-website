@@ -41,7 +41,7 @@ export default function PopupCourse() {
             {/* Contact Information */}
             <div className="mt-6">
               <p className="text-gray-700 font-semibold">📞 91770 89287</p>
-              <p className="text-gray-700 font-semibold">🌐 www.acquiescent.in</p>
+              <p className="text-gray-700 font-semibold">🌐 www.Acquiescent.in</p>
             </div>
           </div>
         </motion.div>
