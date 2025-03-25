@@ -1,0 +1,177 @@
+"use client"
+
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { CheckCircle2 } from "lucide-react"
+
+export function EnrollmentForm({ courseName = "" }) {
+  const [formState, setFormState] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    course: courseName || "",
+    message: "",
+  })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormState((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSelectChange = (value) => {
+    setFormState((prev) => ({ ...prev, course: value }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1500))
+
+    setIsSubmitting(false)
+    setIsSubmitted(true)
+
+    // Reset form after 5 seconds
+    setTimeout(() => {
+      setIsSubmitted(false)
+      setFormState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        course: courseName || "",
+        message: "",
+      })
+    }, 5000)
+  }
+
+  const courses = [
+    "Java",
+    "Software Testing",
+    "Apache Kafka",
+    "MQ",
+    "DevOps",
+    "Data Engineer",
+    "Data Scientist",
+    "Salesforce",
+    "Python",
+    "Power BI",
+    "AWS Cloud Practitioner",
+  ]
+
+  return (
+    <div className="w-full max-w-md mx-auto">
+      {!isSubmitted ? (
+        <motion.form
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          onSubmit={handleSubmit}
+          className="space-y-6"
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="first-name">First Name</Label>
+              <Input
+                id="first-name"
+                name="firstName"
+                value={formState.firstName}
+                onChange={handleChange}
+                placeholder="Enter your first name"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="last-name">Last Name</Label>
+              <Input
+                id="last-name"
+                name="lastName"
+                value={formState.lastName}
+                onChange={handleChange}
+                placeholder="Enter your last name"
+                required
+              />
+            </div>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              name="email"
+              value={formState.email}
+              onChange={handleChange}
+              type="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="phone">Phone</Label>
+            <Input
+              id="phone"
+              name="phone"
+              value={formState.phone}
+              onChange={handleChange}
+              placeholder="Enter your phone number"
+              required
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="course">Course</Label>
+            <Select value={formState.course} onValueChange={handleSelectChange}>
+              <SelectTrigger>
+                <SelectValue placeholder="Select a course" />
+              </SelectTrigger>
+              <SelectContent>
+                {courses.map((course) => (
+                  <SelectItem key={course} value={course}>
+                    {course}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="message">Message (Optional)</Label>
+            <Textarea
+              id="message"
+              name="message"
+              value={formState.message}
+              onChange={handleChange}
+              placeholder="Any specific requirements or questions?"
+              rows={3}
+            />
+          </div>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Enroll Now"}
+            </Button>
+          </motion.div>
+        </motion.form>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-green-50 border border-green-200 rounded-lg p-6 text-center"
+        >
+          <CheckCircle2 className="h-12 w-12 text-green-500 mx-auto mb-4" />
+          <h3 className="text-xl font-bold text-green-800 mb-2">Enrollment Successful!</h3>
+          <p className="text-green-700">
+            Thank you for enrolling. We'll contact you shortly with more details about your course.
+          </p>
+        </motion.div>
+      )}
+    </div>
+  )
+}
+

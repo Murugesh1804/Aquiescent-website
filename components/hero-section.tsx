@@ -41,7 +41,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-primary/70 z-10" />
         <Image
-          src={slides[currentSlide].image || "/hero-1.jpg"}
+          src={slides[currentSlide].image || "/placeholder.svg?height=700&width=1920"}
           alt="Hero Background"
           fill
           priority
@@ -76,9 +76,9 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" asChild>
+            <Button size="lg" asChild className="bg-white text-blue-1600 hover:bg-gray-100">
               <Link href="/courses">
-                Explore Courses <ChevronRight className="ml-2 h-4 w-4" />
+              Explore Courses <ChevronRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button
