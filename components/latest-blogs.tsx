@@ -13,16 +13,16 @@ export function LatestBlogs() {
       title: "Top 5 Skills Every Data Engineer Needs in 2025",
       excerpt:
         "Discover the essential skills that will make you stand out as a data engineer in today's competitive job market.",
-      image: "/placeholder.svg?height=300&width=600",
+        image: "https://plus.unsplash.com/premium_photo-1661265902815-162b20274c88?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       date: "March 15, 2025",
       author: "Rajesh Kumar",
       slug: "top-5-skills-data-engineer-2025",
-    },
+    },  
     {
       title: "The Future of Automation Testing: AI and Beyond",
       excerpt:
         "Explore how artificial intelligence is revolutionizing the field of automation testing and what it means for QA professionals.",
-      image: "/placeholder.svg?height=300&width=600",
+        image: "https://plus.unsplash.com/premium_photo-1683121710572-7723bd2e235d?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       date: "March 10, 2025",
       author: "Priya Sharma",
       slug: "future-automation-testing-ai-beyond",
@@ -31,7 +31,7 @@ export function LatestBlogs() {
       title: "How to Prepare for a Successful Career in Cloud Computing",
       excerpt:
         "Learn the steps you need to take to build a rewarding career in the rapidly growing field of cloud computing.",
-      image: "/placeholder.svg?height=300&width=600",
+        image: "https://images.unsplash.com/photo-1561736778-92e52a7769ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       date: "March 5, 2025",
       author: "Vikram Singh",
       slug: "prepare-successful-career-cloud-computing",

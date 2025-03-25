@@ -46,15 +46,33 @@ export default function AboutPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <section className="w-full py-20 bg-primary text-white">
+      {/* <section
+        className="w-full py-20 bg-primary text-white"
+        style={{
+          // backgroundImage: "url('https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20%281%20of%201%29-5.jpg?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundBlendMode: "overlay",
+          opacity: 0.9,
+        }}
+      >
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="space-y-2">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+            About Us
+          </h1>
+        </div>
+          </div>
+        </div>
+      </section> */}
+         <section className="w-full py-20 bg-primary text-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                About Acquiescent Technologies
-              </h1>
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">About Us</h1>
               {/* <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
-                Established in 2010, providing professional IT training and staffing services
+                Explore exciting career opportunities at Acquiescent Consultancy Services
               </p> */}
             </div>
           </div>
@@ -84,7 +102,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
-              <img src="/placeholder.svg?height=400&width=600" alt="Acquiescent Office" className="w-full h-auto" />
+              <img src="https://content.jdmagicbox.com/v2/comp/bangalore/w6/080pxx80.xx80.170901162023.f6w6/catalogue/acquiescent-technologies-btm-layout-1st-stage-bangalore-computer-training-institutes-34o7tmc.jpg" alt="Acquiescent Office" className="w-full h-auto" />
             </div>
           </div>
         </div>
@@ -154,8 +172,8 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <img src="https://www.sapschool.in/wp-content/uploads/acquiescent-technologies-btm-layout-1st-stage-bangalore-sap-training-institutes-gf22r.jpg" alt="Pre-Screening Process" className="w-full h-auto" />
+            <div className="rounded-lg overflow-hidden shadow-lg h-full flex items-center justify-center">
+              <img src="https://www.sapschool.in/wp-content/uploads/acquiescent-technologies-btm-layout-1st-stage-bangalore-sap-training-institutes-gf22r.jpg" alt="Pre-Screening Process" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

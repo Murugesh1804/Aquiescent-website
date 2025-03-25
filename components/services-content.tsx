@@ -41,14 +41,34 @@ export function ServicesContent() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <section className="w-full py-20 bg-primary text-white">
+      {/* <section
+        className="w-full py-20 bg-primary text-white"
+        style={{
+          // backgroundImage: "url('https://plus.unsplash.com/premium_photo-1661962390087-073ff5d75554?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundBlendMode: "overlay",
+          opacity: 0.9,
+        }}
+      >
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="space-y-2">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+            Our Services
+          </h1>
+        </div>
+          </div>
+        </div>
+      </section> */}
+         <section className="w-full py-20 bg-primary text-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Our Services</h1>
-              <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
-                Comprehensive solutions to help businesses grow and individuals advance their careers
-              </p>
+              {/* <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
+                Explore exciting career opportunities at Acquiescent Consultancy Services
+              </p> */}
             </div>
           </div>
         </div>

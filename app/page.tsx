@@ -71,7 +71,7 @@ export default function Home() {
               className="rounded-lg overflow-hidden shadow-lg"
             >
               <Image
-                src="/images/office.jpg"
+                src="https://content.jdmagicbox.com/v2/comp/bangalore/w6/080pxx80.xx80.170901162023.f6w6/catalogue/acquiescent-technologies-btm-layout-1st-stage-bangalore-computer-training-institutes-34o7tmc.jpg"
                 alt="Acquiescent Office"
                 width={600}
                 height={400}

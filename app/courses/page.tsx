@@ -136,14 +136,34 @@ export default function CoursesPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <section className="w-full py-20 bg-primary text-white">
+      {/* <section
+        className="w-full py-20 bg-primary text-white"
+        style={{
+          // backgroundImage: "url('https://images.unsplash.com/photo-1508830524289-0adcbe822b40?q=80&w=2025&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundBlendMode: "overlay",
+          opacity: 0.9,
+        }}
+      >
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="space-y-2">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+            Our Courses
+          </h1>
+        </div>
+          </div>
+        </div>
+      </section> */}
+         <section className="w-full py-20 bg-primary text-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Our Courses</h1>
-              <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
-                Advance your career with our industry-leading training programs
-              </p>
+              {/* <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
+                Explore exciting career opportunities at Acquiescent Consultancy Services
+              </p> */}
             </div>
           </div>
         </div>
