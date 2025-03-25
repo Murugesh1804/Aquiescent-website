@@ -43,7 +43,7 @@ const CoursesContent = () => {
                 ]}
                 date="24 MAR | 7:00 PM"
                 phone="91770 89287"
-                website="www.acquiescent.in"
+                website="www.Acquiescent.in"
               />
             </motion.div>
 
@@ -67,7 +67,7 @@ const CoursesContent = () => {
                 ]}
                 date="24 MAR | 10:00 AM"
                 phone="91770 89287"
-                website="www.acquiescent.in"
+                website="www.Acquiescent.in"
               />
             </motion.div>
 
@@ -91,7 +91,7 @@ const CoursesContent = () => {
                 ]}
                 date="28 MAR | 6:00 PM"
                 phone="91770 89287"
-                website="www.acquiescent.in"
+                website="www.Acquiescent.in"
               />
             </motion.div>
 
@@ -115,7 +115,7 @@ const CoursesContent = () => {
                 ]}
                 date="30 MAR | 6:00 PM"
                 phone="91770 89287"
-                website="www.acquiescent.in"
+                website="www.Acquiescent.in"
               />
             </motion.div>
           </div>

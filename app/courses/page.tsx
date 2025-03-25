@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Clock, Calendar, Users, ChevronRight } from "lucide-react"
 
 export const metadata = {
-  title: "Courses | ACQUIESCENT Technologies",
+  title: "Courses | Acquiescent Technologies",
   description: "Explore our comprehensive training programs to advance your career in IT and technology",
 }
 
@@ -149,7 +149,7 @@ export default function CoursesPage() {
         </div>
       </section>
 
-      {/* Featured Courses */}
+      {/* Featured Courses
       {featuredCourses.length > 0 && (
         <section className="w-full py-12 md:py-24 bg-yellow-50">
           <div className="container px-4 md:px-6">
@@ -167,59 +167,59 @@ export default function CoursesPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {featuredCourses.map((course) => (
-                <Card
-                  key={course.slug}
-                  className="overflow-hidden hover:shadow-xl transition-all border-2 border-yellow-200"
-                >
-                  <div className="md:flex">
-                    <div className="md:w-2/5 relative">
-                      <div className="aspect-[4/3] md:h-full relative">
-                        <Image
-                          src={course.image || "/placeholder.svg?height=300&width=400"}
-                          alt={course.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="absolute top-2 left-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">
-                        Featured
-                      </div>
+              <Card
+                key={course.slug}
+                className="overflow-hidden hover:shadow-xl transition-all border-2 border-yellow-200"
+              >
+                <div className="flex flex-col md:flex-row">
+                <div className="w-full md:w-2/5 relative">
+                  <div className="aspect-[4/3] relative">
+                  <Image
+                    src={course.image || "/placeholder.svg?height=300&width=400"}
+                    alt={course.title}
+                    fill
+                    className="object-cover"
+                  />
+                  </div>
+                  <div className="absolute top-2 left-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">
+                  Featured
+                  </div>
+                </div>
+                <div className="w-full md:w-3/5">
+                  <CardHeader>
+                  <CardTitle className="text-2xl">{course.title}</CardTitle>
+                  <CardDescription className="text-base">{course.subtitle}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                  <p className="text-gray-700 mb-4">{course.description}</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm mb-4">
+                    <div className="flex items-center">
+                    <Clock className="h-4 w-4 mr-1 text-primary" />
+                    <span>{course.duration}</span>
                     </div>
-                    <div className="md:w-3/5">
-                      <CardHeader>
-                        <CardTitle className="text-2xl">{course.title}</CardTitle>
-                        <CardDescription className="text-base">{course.subtitle}</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-700 mb-4">{course.description}</p>
-                        <div className="grid grid-cols-2 gap-2 text-sm mb-4">
-                          <div className="flex items-center">
-                            <Clock className="h-4 w-4 mr-1 text-primary" />
-                            <span>{course.duration}</span>
-                          </div>
-                          <div className="flex items-center">
-                            <Calendar className="h-4 w-4 mr-1 text-primary" />
-                            <span>{course.schedule}</span>
-                          </div>
-                          <div className="flex items-center">
-                            <Users className="h-4 w-4 mr-1 text-primary" />
-                            <span>{course.level}</span>
-                          </div>
-                        </div>
-                      </CardContent>
-                      <CardFooter>
-                        <Button asChild>
-                          <Link href={`/courses/${course.slug}`}>View Course Details</Link>
-                        </Button>
-                      </CardFooter>
+                    <div className="flex items-center">
+                    <Calendar className="h-4 w-4 mr-1 text-primary" />
+                    <span>{course.schedule}</span>
+                    </div>
+                    <div className="flex items-center">
+                    <Users className="h-4 w-4 mr-1 text-primary" />
+                    <span>{course.level}</span>
                     </div>
                   </div>
-                </Card>
+                  </CardContent>
+                  <CardFooter>
+                  <Button asChild>
+                    <Link href={`/courses/${course.slug}`}>View Course Details</Link>
+                  </Button>
+                  </CardFooter>
+                </div>
+                </div>
+              </Card>
               ))}
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
       {/* All Courses */}
       <section className="w-full py-12 md:py-24 bg-white">

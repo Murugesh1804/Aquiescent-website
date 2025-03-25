@@ -49,16 +49,16 @@ export default function Home() {
               className="space-y-6"
             >
               <p className="text-lg text-gray-700">
-                ACQUIESCENT (ACQUIESCENT Technologies) was established in 2010 in Bangalore. All offices of ACQUIESCENT
+                Acquiescent (Acquiescent Technologies) was established in 2010 in Bangalore. All offices of Acquiescent
                 staffing and training solutions are owned and operated by experienced business executives who have
                 provided staffing to major corporations.
               </p>
               <p className="text-lg text-gray-700">
-                ACQUIESCENT Technologies is into the business of providing manpower recruitment services and
+                Acquiescent Technologies is into the business of providing manpower recruitment services and
                 psychometric assessment to various clients across the globe.
               </p>
               <p className="text-lg text-gray-700">
-                ACQUIESCENT Technologies undertakes recruitment of all verticals in almost all the Training sectors like
+                Acquiescent Technologies undertakes recruitment of all verticals in almost all the Training sectors like
                 IT, Non-IT Banking and Embedded System.
               </p>
             </motion.div>
@@ -72,7 +72,7 @@ export default function Home() {
             >
               <Image
                 src="/images/office.jpg"
-                alt="ACQUIESCENT Office"
+                alt="Acquiescent Office"
                 width={600}
                 height={400}
                 className="w-full h-auto"

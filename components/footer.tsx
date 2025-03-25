@@ -10,15 +10,15 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <Image
-                src="/logo-white.svg"
-                alt="ACQUIESCENT Technologies Logo"
+                src="/logo.png"
+                alt="Acquiescent Technologies Logo"
                 width={180}
                 height={45}
                 className="h-auto w-auto"
               />
             </Link>
             <p className="text-gray-400 max-w-xs">
-              ACQUIESCENT Technologies provides professional IT training, staffing and consultancy services to help
+              Acquiescent Technologies provides professional IT training, staffing and consultancy services to help
               advance your career since 2010.
             </p>
             <div className="flex space-x-4">
@@ -120,8 +120,8 @@ export function Footer() {
               </li>
               <li className="flex">
                 <Mail className="h-5 w-5 mr-2 text-gray-400 flex-shrink-0" />
-                <Link href="mailto:info@acquiescent.in" className="text-gray-400 hover:text-white transition-colors">
-                  info@acquiescent.in
+                <Link href="mailto:info@Acquiescent.in" className="text-gray-400 hover:text-white transition-colors">
+                  info@Acquiescent.in
                 </Link>
               </li>
             </ul>

@@ -12,7 +12,7 @@ export function HeroSection() {
 
   const slides = [
     {
-      title: "ACQUIESCENT Technologies",
+      title: "Acquiescent Technologies",
       subtitle: "Professional IT training, staffing and consultancy services since 2010",
       image: "https://i.pinimg.com/736x/4a/92/b1/4a92b113112c103c8a4d7129c39c4c88.jpg",
     },

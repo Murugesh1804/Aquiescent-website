@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: "ACQUIESCENT Technologies",
+  title: "Acquiescent Technologies",
   description: "Professional IT training, staffing and consultancy services since 2010",
     generator: 'v0.dev'
 }

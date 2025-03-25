@@ -43,7 +43,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/logo.png"
-              alt="ACQUIESCENT Technologies Logo"
+              alt="Acquiescent Technologies Logo"
               width={200}
               height={200}
               className="h-100 w-100"
