@@ -51,11 +51,11 @@ export default function AboutPage() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                About ACQUIESCENT Technologies
+                About Us
               </h1>
-              <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
+              {/* <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
                 Established in 2010, providing professional IT training and staffing services
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
-              <img src="/placeholder.svg?height=400&width=600" alt="ACQUIESCENT Office" className="w-full h-auto" />
+              <img src="https://content3.jdmagicbox.com/v2/comp/bangalore/w6/080pxx80.xx80.170901162023.f6w6/catalogue/acquiescent-technologies-btm-layout-1st-stage-bangalore-computer-training-institutes-6818p.jpg" alt="ACQUIESCENT Office" className="w-full h-auto" />
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@ export default function AboutPage() {
               ))}
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
-              <img src="/placeholder.svg?height=500&width=600" alt="Pre-Screening Process" className="w-full h-auto" />
+              <img src="https://www.sapschool.in/wp-content/uploads/acquiescent-technologies-btm-layout-1st-stage-bangalore-sap-training-institutes-gf22r.jpg" alt="Pre-Screening Process" className="w-full h-auto" />
             </div>
           </div>
         </div>
