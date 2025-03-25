@@ -11,58 +11,68 @@ export function CoursesSection() {
     {
       icon: <FileCode className="h-10 w-10 text-primary" />,
       title: "Java",
+      slug: "java",
       description:
         "Comprehensive Java programming from basics to advanced concepts including Spring, Hibernate, and microservices architecture.",
     },
     {
       icon: <Terminal className="h-10 w-10 text-primary" />,
       title: "Software Testing",
+      slug: "software-testing",
       description:
         "Learn manual and automation testing methodologies, tools, and best practices for quality assurance.",
     },
     {
       icon: <Server className="h-10 w-10 text-primary" />,
       title: "Apache Kafka",
+      slug: "apache-kafka",
       description:
         "Master distributed event streaming platform for high-performance data pipelines and streaming analytics.",
     },
     {
       icon: <Cloud className="h-10 w-10 text-primary" />,
       title: "MQ",
+      slug: "mq",
       description: "Learn message queuing technologies for reliable, secure messaging and integration solutions.",
     },
     {
       icon: <Code className="h-10 w-10 text-primary" />,
       title: "DevOps",
+      slug: "devops",
       description:
         "Comprehensive training on DevOps practices, tools, and methodologies for continuous integration and deployment.",
     },
     {
       icon: <Database className="h-10 w-10 text-primary" />,
       title: "Data Engineer",
+      slug: "data-engineer",
       description:
         "Learn to design, build and maintain data pipelines and infrastructure for efficient data processing.",
     },
     {
       icon: <Brain className="h-10 w-10 text-primary" />,
       title: "Data Scientist",
+      slug: "data-scientist",
       description:
         "Master data analysis, machine learning, and statistical modeling to extract insights from complex datasets.",
     },
     {
       icon: <Cloud className="h-10 w-10 text-primary" />,
       title: "Salesforce",
+      slug: "salesforce",
       description: "Comprehensive training on Salesforce CRM platform, administration, and development.",
     },
     {
       icon: <Terminal className="h-10 w-10 text-primary" />,
       title: "Python",
+      slug: "python",
       description:
         "Learn Python programming for web development, data analysis, automation, and artificial intelligence.",
     },
     {
       icon: <PieChart className="h-10 w-10 text-primary" />,
       title: "Power BI",
+      slug: "power-bi",
       description: "Master data visualization and business intelligence using Microsoft Power BI tools and techniques.",
     },
   ]
@@ -95,24 +105,35 @@ export function CoursesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               viewport={{ once: true }}
+              whileHover={{ y: -8 }}
+              className="h-full"
             >
-              <Card className="h-full transition-all hover:shadow-lg hover:-translate-y-1">
-                <CardHeader className="pb-2">
-                  <div className="mb-4">{course.icon}</div>
-                  <CardTitle className="text-xl">{course.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">{course.description}</CardDescription>
-                </CardContent>
-              </Card>
+              <Link href={`/courses/${course.slug}`} className="block h-full">
+                <Card className="h-full transition-all hover:shadow-lg border-2 border-transparent hover:border-primary/20">
+                  <CardHeader className="pb-2">
+                    <div className="mb-4">{course.icon}</div>
+                    <CardTitle className="text-xl">{course.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base">{course.description}</CardDescription>
+                    <div className="mt-4 pt-4 border-t border-gray-100">
+                      <Button variant="link" className="p-0 h-auto font-semibold text-primary">
+                        View Course Details
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             </motion.div>
           ))}
         </div>
 
         <div className="flex justify-center mt-12">
-          <Button asChild>
-            <Link href="/courses">View Course Details</Link>
-          </Button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button asChild>
+              <Link href="/courses">View All Courses</Link>
+            </Button>
+          </motion.div>
         </div>
       </div>
     </section>

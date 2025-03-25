@@ -44,9 +44,9 @@ export function Navbar() {
             <Image
               src="/logo.png"
               alt="ACQUIESCENT Technologies Logo"
-              width={160}
-              height={50}
-              
+              width={200}
+              height={200}
+              className="h-100 w-100"
             />
           </Link>
           <nav className="hidden md:flex items-center space-x-6">

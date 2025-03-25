@@ -9,17 +9,17 @@ import { Button } from "@/components/ui/button"
 import { HeroSection } from "@/components/hero-section"
 import { ServicesSection } from "@/components/services-section"
 import { CoursesSection } from "@/components/courses-section"
+import { ClientsCarousel } from "@/components/clients-carousel"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { StatsSection } from "@/components/stats-section"
 import { LatestBlogs } from "@/components/latest-blogs"
-import  PopupImg  from "@/components/popup-img"
+import { CoursePopup } from "@/components/course-popup"
 
 const montserrat = Montserrat({ subsets: ["latin"] })
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
-      <PopupImg />
       <HeroSection />
 
       {/* Company Overview Section */}
@@ -71,7 +71,7 @@ export default function Home() {
               className="rounded-lg overflow-hidden shadow-lg"
             >
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="/images/office.jpg"
                 alt="ACQUIESCENT Office"
                 width={600}
                 height={400}
@@ -84,6 +84,7 @@ export default function Home() {
 
       <ServicesSection />
       <CoursesSection />
+      <ClientsCarousel />
       <StatsSection />
       <TestimonialsSection />
       <LatestBlogs />
@@ -111,6 +112,8 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Button size="lg" variant="secondary" asChild>
                 <Link href="/contact">Enroll For Free Demo</Link>
@@ -119,6 +122,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <CoursePopup />
     </main>
   )
 }
