@@ -1,60 +1,94 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const cors = require('cors');
+import express from "express"
+import mongoose from "mongoose"
+import cors from "cors"
+import dotenv from "dotenv"
+import multer from "multer"
+import path from "path"
+import { fileURLToPath } from "url"
+import authRoutes from "./routes/auth.routes.js"
+import courseRoutes from "./routes/course.routes.js"
+import blogRoutes from "./routes/blog.routes.js"
+import userRoutes from "./routes/user.routes.js"
 
-const app = express();
-const port = process.env.PORT || 3500;
+// Configuration
+dotenv.config()
+const app = express()
+const PORT = process.env.PORT || 5000
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // Middleware
-app.use(bodyParser.json());
-app.use(cors());
+app.use(cors())
+app.use(express.json({ limit: "50mb" }))
+app.use(express.urlencoded({ extended: true, limit: "50mb" }))
 
-// MongoDB connection
-mongoose.connect('mongodb+srv://suresh306dm:pass@cluster0.sxb9zoh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// File Upload Configuration
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "uploads"))
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9)
+    cb(null, file.fieldname + "-" + uniqueSuffix + path.extname(file.originalname))
+  },
+})
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB');
-});
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB limit
+  fileFilter: (req, file, cb) => {
+    // Accept PDFs and images
+    if (file.mimetype === "application/pdf" || file.mimetype.startsWith("image/")) {
+      cb(null, true)
+    } else {
+      cb(new Error("Only PDF and image files are allowed!"), false)
+    }
+  },
+})
 
-// Define a schema and model for the contact form
-const contactSchema = new mongoose.Schema({
-  firstName: String,
-  lastName: String,
-  email: String,
-  phone: String,
-  subject: String,
-  message: String,
-});
+// Make uploads directory accessible
+app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
-const Contact = mongoose.model('Contact', contactSchema);
+// Routes
+app.use("/api/auth", authRoutes)
+app.use("/api/courses", courseRoutes)
+app.use("/api/blogs", blogRoutes)
+app.use("/api/users", userRoutes)
 
-// API endpoint to handle form submission
-app.post('/contact', async (req, res) => {
-  const { firstName, lastName, email, phone, subject, message } = req.body;
-
-  const newContact = new Contact({
-    firstName,
-    lastName,
-    email,
-    phone,
-    subject,
-    message,
-  });
-
-  try {
-    await newContact.save();
-    res.status(200).json({ message: 'Message sent successfully!' });
-  } catch (error) {
-    res.status(500).json({ message: 'Failed to send message. Please try again.' });
+// Global file upload middleware
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ message: "No file uploaded" })
   }
-});
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+  const fileUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`
+  res.status(200).json({
+    message: "File uploaded successfully",
+    fileUrl: fileUrl,
+    fileName: req.file.originalname,
+  })
+})
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).json({
+    message: "Something went wrong!",
+    error: process.env.NODE_ENV === "development" ? err.message : undefined,
+  })
+})
+
+// Database connection
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log("Connected to MongoDB")
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`)
+    })
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err)
+    process.exit(1)
+  })
+
