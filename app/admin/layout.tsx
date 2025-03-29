@@ -10,6 +10,7 @@ import { LayoutDashboard, BookOpen, FileText, Users, Settings, LogOut, Menu, X, 
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
 import { Skeleton } from "@/components/ui/skeleton"
+import axios from "axios"
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true)
@@ -23,6 +24,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   useEffect(() => {
     // Check if user is authenticated
     const token = localStorage.getItem("token")
+    console.log("Token:", token)
     if (!token) {
       router.push("/admin/login")
       return
@@ -31,20 +33,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     // Verify token with backend
     const verifyToken = async () => {
       try {
-        const response = await fetch("/api/auth/me", {
+        const response = await axios.get("http://localhost:3500/api/auth/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
 
-        if (!response.ok) {
-          throw new Error("Authentication failed")
-        }
-
-        const data = await response.json()
-
         // Check if user is admin
-        if (data.user.role !== "admin") {
+        if (response.data.user.role !== "admin") {
           throw new Error("Admin access required")
         }
 
@@ -64,6 +60,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
     verifyToken()
   }, [router, toast])
+
 
   const handleLogout = () => {
     localStorage.removeItem("token")
@@ -177,8 +174,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="flex items-center flex-shrink-0 px-4 mb-5">
             <Link href="/admin/dashboard" className="flex items-center">
               <Image
-                src="/logo.svg"
-                alt="ACQUIESCENT Technologies Logo"
+                src="/logo.png"
+                alt="Acquiescent Logo"
                 width={180}
                 height={45}
                 className="h-auto w-auto"
