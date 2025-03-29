@@ -77,7 +77,7 @@ export default function AdminLogin() {
         <div className="text-center mb-8">
           <Image
             src="/logo.svg"
-            alt="ACQUIESCENT Technologies Logo"
+            alt="Acquiescent Logo"
             width={200}
             height={50}
             className="h-auto w-auto mx-auto"

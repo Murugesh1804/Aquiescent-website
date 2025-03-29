@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
+import { Facebook, MessageCircle, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
 
 export function Footer() {
   return (
@@ -11,30 +11,30 @@ export function Footer() {
             <Link href="/" className="inline-block">
               <Image
                 src="/logo.png"
-                alt="Acquiescent Technologies Logo"
+                alt="Acquiescent Logo"
                 width={180}
                 height={45}
                 className="h-auto w-auto"
               />
             </Link>
             <p className="text-gray-400 max-w-xs">
-              Acquiescent Technologies provides professional IT training, staffing and consultancy services to help
+              Acquiescent provides professional IT training, staffing and consultancy services to help
               advance your career since 2010.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="https://www.facebook.com/people/Acquiescent-It-Training-and-Consulting/61574164829042/" className="text-gray-400 hover:text-white transition-colors">
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
+              <Link href="https://api.whatsapp.com/send?phone=919177089287" className="text-gray-400 hover:text-white transition-colors">
+                <MessageCircle className="h-5 w-5" />
+                <span className="sr-only">Whatsapp</span>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="https://www.instagram.com/acquiescentittraining/" className="text-gray-400 hover:text-white transition-colors">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="https://www.linkedin.com/company/acquiescent-it-training-and-consulting" className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>

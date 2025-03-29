@@ -2,9 +2,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { CheckCircle } from "lucide-react"
 
 export const metadata = {
-  title: "About Us | Acquiescent Technologies",
+  title: "About Us | Acquiescent",
   description:
-    "Learn about Acquiescent Technologies and our mission to provide professional IT training and staffing services",
+    "Learn about Acquiescent and our mission to provide professional IT training and staffing services",
 }
 
 export default function AboutPage() {
@@ -39,7 +39,7 @@ export default function AboutPage() {
     {
       title: "Customer Service",
       description:
-        "Our Goal is to solidify a strong working relationship with all levels of supervision. This will be accomplished through continuous communication with Acquiescent Technologies POC and supervisors who have direct contact with temporary staff.",
+        "Our Goal is to solidify a strong working relationship with all levels of supervision. This will be accomplished through continuous communication with Acquiescent POC and supervisors who have direct contact with temporary staff.",
     },
   ]
 
@@ -87,16 +87,16 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold tracking-tighter text-primary mb-6">Company Overview</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Acquiescent (Acquiescent Technologies) was established in 2010 in Bangalore. All offices of
+                  Acquiescent (Acquiescent) was established in 2010 in Bangalore. All offices of
                   Acquiescent staffing and training solutions are owned and operated by experienced business executives
                   who have provided staffing to major corporations.
                 </p>
                 <p>
-                  Acquiescent Technologies is into the business of providing manpower recruitment services and
+                  Acquiescent is into the business of providing manpower recruitment services and
                   psychometric assessment to various clients across the globe.
                 </p>
                 <p>
-                  Acquiescent Technologies undertakes recruitment of all verticals in almost all the Training sectors
+                  Acquiescent undertakes recruitment of all verticals in almost all the Training sectors
                   like IT, Non-IT Banking and Embedded System.
                 </p>
               </div>

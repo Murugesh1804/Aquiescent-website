@@ -318,7 +318,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   return {
-    title: `${course.title} | Acquiescent Technologies`,
+    title: `${course.title} | Acquiescent`,
     description: course.description,
   }
 }
