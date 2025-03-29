@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Clock, Calendar, Users, ChevronRight } from "lucide-react"
 
 export const metadata = {
-  title: "Courses | Acquiescent Technologies",
+  title: "Courses | Acquiescent",
   description: "Explore our comprehensive training programs to advance your career in IT and technology",
 }
 
@@ -86,16 +86,6 @@ const courses = [
     level: "Intermediate to Advanced",
   },
   {
-    title: "Salesforce",
-    subtitle: "CRM Platform Administration and Development",
-    description: "Comprehensive training on Salesforce CRM platform, administration, and development.",
-    image: "/images/courses/salesforce.jpg",
-    slug: "salesforce",
-    duration: "8 Weeks",
-    schedule: "Weekends",
-    level: "Beginner to Intermediate",
-  },
-  {
     title: "Python Programming",
     subtitle: "From Basics to Advanced Applications",
     description:
@@ -105,16 +95,6 @@ const courses = [
     duration: "10 Weeks",
     schedule: "Weekends & Weekday Evenings",
     level: "Beginner to Advanced",
-  },
-  {
-    title: "Power BI",
-    subtitle: "Data Visualization and Business Intelligence",
-    description: "Master data visualization and business intelligence using Microsoft Power BI tools and techniques.",
-    image: "/images/courses/power-bi.jpg",
-    slug: "power-bi",
-    duration: "6 Weeks",
-    schedule: "Weekends",
-    level: "Beginner to Intermediate",
   },
   {
     title: "AWS Cloud Practitioner",

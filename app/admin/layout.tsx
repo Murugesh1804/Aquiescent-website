@@ -256,7 +256,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <div className="ml-2 md:hidden">
                 <Image
                   src="/logo.svg"
-                  alt="ACQUIESCENT Technologies Logo"
+                  alt="Acquiescent Logo"
                   width={150}
                   height={40}
                   className="h-auto w-auto"

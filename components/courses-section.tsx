@@ -57,23 +57,11 @@ export function CoursesSection() {
         "Master data analysis, machine learning, and statistical modeling to extract insights from complex datasets.",
     },
     {
-      icon: <Cloud className="h-10 w-10 text-primary" />,
-      title: "Salesforce",
-      slug: "salesforce",
-      description: "Comprehensive training on Salesforce CRM platform, administration, and development.",
-    },
-    {
       icon: <Terminal className="h-10 w-10 text-primary" />,
       title: "Python",
       slug: "python",
       description:
         "Learn Python programming for web development, data analysis, automation, and artificial intelligence.",
-    },
-    {
-      icon: <PieChart className="h-10 w-10 text-primary" />,
-      title: "Power BI",
-      slug: "power-bi",
-      description: "Master data visualization and business intelligence using Microsoft Power BI tools and techniques.",
     },
   ]
 
