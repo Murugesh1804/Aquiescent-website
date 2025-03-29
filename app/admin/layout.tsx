@@ -10,7 +10,7 @@ import { LayoutDashboard, BookOpen, FileText, Users, Settings, LogOut, Menu, X, 
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
 import { Skeleton } from "@/components/ui/skeleton"
-import axios from "axios"
+import api from "@/utils/axiosConfig"
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true)
@@ -22,45 +22,36 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const { toast } = useToast()
 
   useEffect(() => {
-    // Check if user is authenticated
-    const token = localStorage.getItem("token")
-    console.log("Token:", token)
-    if (!token) {
-      router.push("/admin/login")
-      return
-    }
-
-    // Verify token with backend
     const verifyToken = async () => {
       try {
-        const response = await axios.get("http://localhost:3500/api/auth/me", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-
-        // Check if user is admin
-        if (response.data.user.role !== "admin") {
-          throw new Error("Admin access required")
+        const { data } = await api.get('/auth/me');
+        
+        if (data.user.role !== "admin") {
+          throw new Error("Admin access required");
         }
 
-        setIsAuthenticated(true)
+        setIsAuthenticated(true);
       } catch (error) {
-        localStorage.removeItem("token")
-        router.push("/admin/login")
+        localStorage.removeItem("token");
+        router.push("/admin/login");
         toast({
           title: "Authentication Error",
           description: "Please log in to access the admin panel",
           variant: "destructive",
-        })
+        });
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
+    };
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/admin/login");
+      return;
     }
 
-    verifyToken()
-  }, [router, toast])
-
+    verifyToken();
+  }, [router, toast]);
 
   const handleLogout = () => {
     localStorage.removeItem("token")

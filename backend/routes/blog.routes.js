@@ -17,7 +17,7 @@ router.get("/slug/:slug", optionalAuth, getBlogBySlug)
 router.get("/categories-tags", getBlogCategoriesAndTags)
 
 // Protected routes
-router.post("/", protect, createBlog)
+router.post("/create", protect, createBlog)
 router.put("/:id", protect, updateBlog)
 router.delete("/:id", protect, deleteBlog)
 

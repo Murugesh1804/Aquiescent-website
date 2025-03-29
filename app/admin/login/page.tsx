@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
 import { Eye, EyeOff, Lock, Mail } from "lucide-react"
+import api from "@/utils/axiosConfig"
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("")
@@ -26,26 +27,15 @@ export default function AdminLogin() {
     setIsLoading(true)
 
     try {
-      const response = await fetch("http://localhost:3500/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
+      const { data } = await api.post("/auth/login", {
+        email,
+        password,
       })
 
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.message || "Login failed")
-      }
-
-      // Check if user is admin
       if (data.user.role !== "admin") {
         throw new Error("Admin access required")
       }
 
-      // Store token in localStorage
       localStorage.setItem("token", data.token)
 
       toast({
@@ -53,12 +43,11 @@ export default function AdminLogin() {
         description: "Welcome to the admin panel",
       })
 
-      // Redirect to admin dashboard
       router.push("/admin/dashboard")
-    } catch (error) {
+    } catch (error: any) {
       toast({
         title: "Login Failed",
-        description: error instanceof Error ? error.message : "An error occurred",
+        description: error.response?.data?.message || "An error occurred",
         variant: "destructive",
       })
     } finally {

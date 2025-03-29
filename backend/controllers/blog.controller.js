@@ -76,22 +76,46 @@ export const getBlogBySlug = async (req, res) => {
   }
 }
 
-// Create new blog
+// // Create new blog
+// export const createBlog = async (req, res) => {
+//   try {
+//     // Set author to current user
+//     req.body.author = req.user.id
+
+//     const blog = await Blog.create(req.body)
+
+//     res.status(201).json({
+//       success: true,
+//       blog,
+//     })
+//   } catch (error) {
+//     res.status(500).json({ message: error.message })
+//   }
+// }
+
 export const createBlog = async (req, res) => {
   try {
-    // Set author to current user
-    req.body.author = req.user.id
+    const { title, content, excerpt, author, featuredImage, categories, tags, status, slug } = req.body;
 
-    const blog = await Blog.create(req.body)
+    const newBlog = new Blog({
+      title,
+      content,
+      excerpt,
+      author,
+      featuredImage,
+      categories,
+      tags,
+      status,
+      slug
+    });
 
-    res.status(201).json({
-      success: true,
-      blog,
-    })
+    await newBlog.save();
+
+    res.status(201).json({ success: true, message: "Blog created successfully", blog: newBlog });
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ success: false, message: "Error creating blog", error: error.message });
   }
-}
+};
 
 // Update blog
 export const updateBlog = async (req, res) => {
@@ -173,4 +197,5 @@ export const getBlogCategoriesAndTags = async (req, res) => {
     res.status(500).json({ message: error.message })
   }
 }
+
 
