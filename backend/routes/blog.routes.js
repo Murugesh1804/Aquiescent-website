@@ -12,14 +12,14 @@ import { protect, optionalAuth } from "../middleware/auth.middleware.js"
 const router = express.Router()
 
 // Public/Optional Auth routes
-router.get("/", optionalAuth, getAllBlogs)
+router.get("/all", getAllBlogs)
 router.get("/slug/:slug", optionalAuth, getBlogBySlug)
 router.get("/categories-tags", getBlogCategoriesAndTags)
 
 // Protected routes
 router.post("/create", protect, createBlog)
-router.put("/:id", protect, updateBlog)
-router.delete("/:id", protect, deleteBlog)
+router.put("/update/:id", updateBlog)
+router.post("/delete/:id", deleteBlog)
 
 export default router
 

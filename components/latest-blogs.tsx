@@ -1,5 +1,7 @@
 "use client"
 
+import { useState, useEffect } from "react"
+import axios from "axios"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
@@ -8,35 +10,38 @@ import { Button } from "@/components/ui/button"
 import { ChevronRight, Calendar, User } from "lucide-react"
 
 export function LatestBlogs() {
-  const blogs = [
-    {
-      title: "Top 5 Skills Every Data Engineer Needs in 2025",
-      excerpt:
-        "Discover the essential skills that will make you stand out as a data engineer in today's competitive job market.",
-        image: "https://plus.unsplash.com/premium_photo-1661265902815-162b20274c88?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      date: "March 15, 2025",
-      author: "Rajesh Kumar",
-      slug: "top-5-skills-data-engineer-2025",
-    },  
-    {
-      title: "The Future of Automation Testing: AI and Beyond",
-      excerpt:
-        "Explore how artificial intelligence is revolutionizing the field of automation testing and what it means for QA professionals.",
-        image: "https://plus.unsplash.com/premium_photo-1683121710572-7723bd2e235d?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      date: "March 10, 2025",
-      author: "Priya Sharma",
-      slug: "future-automation-testing-ai-beyond",
-    },
-    {
-      title: "How to Prepare for a Successful Career in Cloud Computing",
-      excerpt:
-        "Learn the steps you need to take to build a rewarding career in the rapidly growing field of cloud computing.",
-        image: "https://images.unsplash.com/photo-1561736778-92e52a7769ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      date: "March 5, 2025",
-      author: "Vikram Singh",
-      slug: "prepare-successful-career-cloud-computing",
-    },
-  ]
+  const [blogs, setBlogs] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        const response = await axios.get("http://localhost:3500/api/blogs/all")
+        setBlogs(response.data.blogs.slice(0, 3)) // Get only the latest 3 blogs
+      } catch (error) {
+        console.error("Failed to fetch blogs:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchBlogs()
+  }, [])
+
+  if (loading) {
+    return (
+      <section className="w-full py-20 bg-gray-50">
+        <p className="text-center text-gray-500">Loading...</p>
+      </section>
+    )
+  }
+
+  if (blogs.length === 0) {
+    return (
+      <section className="w-full py-20 bg-gray-50">
+        <p className="text-center text-gray-500">No blogs found.</p>
+      </section>
+    )
+  }
 
   return (
     <section className="w-full py-20 bg-gray-50">
@@ -70,7 +75,7 @@ export function LatestBlogs() {
               <Card className="h-full overflow-hidden hover:shadow-lg transition-all">
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
-                    src={blog.image || "/placeholder.svg"}
+                    src={blog.featuredImage || "/default-image.jpg"}
                     alt={blog.title}
                     fill
                     className="object-cover transition-transform hover:scale-105 duration-500"
@@ -80,11 +85,11 @@ export function LatestBlogs() {
                   <div className="flex items-center gap-4 text-sm text-gray-500 mb-2">
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      {blog.date}
+                      {new Date(blog.createdAt).toLocaleDateString()}
                     </div>
                     <div className="flex items-center">
                       <User className="h-4 w-4 mr-1" />
-                      {blog.author}
+                      {blog.author?.name || "Unknown"}
                     </div>
                   </div>
                   <Link href={`/blog/${blog.slug}`} className="hover:text-primary transition-colors">
@@ -117,4 +122,3 @@ export function LatestBlogs() {
     </section>
   )
 }
-

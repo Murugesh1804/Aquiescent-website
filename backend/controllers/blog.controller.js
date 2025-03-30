@@ -21,10 +21,6 @@ export const getAllBlogs = async (req, res) => {
       query.tags = tag
     }
 
-    // For non-admin users, only show published blogs
-    if (!req.user || req.user.role !== "admin") {
-      query.status = "published"
-    }
 
     const skip = (Number.parseInt(page) - 1) * Number.parseInt(limit)
 
@@ -95,27 +91,19 @@ export const getBlogBySlug = async (req, res) => {
 
 export const createBlog = async (req, res) => {
   try {
-    const { title, content, excerpt, author, featuredImage, categories, tags, status, slug } = req.body;
+    // Set author to current user
+    req.body.author = req.user.id
 
-    const newBlog = new Blog({
-      title,
-      content,
-      excerpt,
-      author,
-      featuredImage,
-      categories,
-      tags,
-      status,
-      slug
-    });
+    const blog = await Blog.create(req.body)
 
-    await newBlog.save();
-
-    res.status(201).json({ success: true, message: "Blog created successfully", blog: newBlog });
+    res.status(201).json({
+      success: true,
+      blog,
+    })
   } catch (error) {
-    res.status(500).json({ success: false, message: "Error creating blog", error: error.message });
+    res.status(500).json({ message: error.message })
   }
-};
+}
 
 // Update blog
 export const updateBlog = async (req, res) => {
@@ -124,11 +112,6 @@ export const updateBlog = async (req, res) => {
 
     if (!blog) {
       return res.status(404).json({ message: "Blog not found" })
-    }
-
-    // Check if user is author or admin
-    if (blog.author.toString() !== req.user.id && req.user.role !== "admin") {
-      return res.status(403).json({ message: "Not authorized to update this blog" })
     }
 
     const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
@@ -154,12 +137,7 @@ export const deleteBlog = async (req, res) => {
       return res.status(404).json({ message: "Blog not found" })
     }
 
-    // Check if user is author or admin
-    if (blog.author.toString() !== req.user.id && req.user.role !== "admin") {
-      return res.status(403).json({ message: "Not authorized to delete this blog" })
-    }
-
-    await blog.remove()
+    await blog.deleteOne()
 
     res.status(200).json({
       success: true,
