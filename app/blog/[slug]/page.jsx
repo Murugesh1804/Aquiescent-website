@@ -14,7 +14,6 @@ export default function BlogPostPage() {
   useEffect(() => {
     async function fetchBlog() {
       try {
-        console.log(sl)
         const response = await axios.get(`http://localhost:3500/api/blogs/slug/${slug}`);
         setBlog(response.data.blog);
       } catch (error) {

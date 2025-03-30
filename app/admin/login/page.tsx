@@ -63,16 +63,6 @@ export default function AdminLogin() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <div className="text-center mb-8">
-          <Image
-            src="/logo.svg"
-            alt="Acquiescent Logo"
-            width={200}
-            height={50}
-            className="h-auto w-auto mx-auto"
-          />
-        </div>
-
         <Card>
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-bold text-center">Admin Login</CardTitle>
