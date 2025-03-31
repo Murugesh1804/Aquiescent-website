@@ -1,3 +1,7 @@
+"use client"
+
+import { useState } from "react"
+import axios from "axios"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -5,12 +9,33 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 
-export const metadata = {
-  title: "Contact Us | Acquiescent Consultancy Services",
-  description: "Get in touch with Acquiescent Consultancy Services for training and consultancy services",
-}
-
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: ""
+  });
+  
+  const [message, setMessage] = useState("");
+  
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:3500/api/queries/submit", formData);
+      setMessage("Your message has been sent successfully!");
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
+    } catch (error) {
+      setMessage("Failed to send message. Please try again later.");
+    }
+  };
+
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
@@ -40,32 +65,75 @@ export default function ContactPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6">
-                <form className="space-y-6">
+                {message && (
+                  <div className={`mb-4 p-3 rounded ${message.includes("success") ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>
+                    {message}
+                  </div>
+                )}
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="first-name">First Name</Label>
-                      <Input id="first-name" placeholder="Enter your first name" />
+                      <Label htmlFor="firstName">First Name</Label>
+                      <Input 
+                        id="firstName" 
+                        placeholder="Enter your first name" 
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        required
+                      />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="last-name">Last Name</Label>
-                      <Input id="last-name" placeholder="Enter your last name" />
+                      <Label htmlFor="lastName">Last Name</Label>
+                      <Input 
+                        id="lastName" 
+                        placeholder="Enter your last name" 
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="Enter your email" />
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="Enter your email" 
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone</Label>
-                    <Input id="phone" placeholder="Enter your phone number" />
+                    <Input 
+                      id="phone" 
+                      placeholder="Enter your phone number" 
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="subject">Subject</Label>
-                    <Input id="subject" placeholder="Enter the subject" />
+                    <Input 
+                      id="subject" 
+                      placeholder="Enter the subject" 
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">Message</Label>
-                    <Textarea id="message" placeholder="Enter your message" rows={5} />
+                    <Textarea 
+                      id="message" 
+                      placeholder="Enter your message" 
+                      rows={5} 
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <Button type="submit" className="w-full">
                     Send Message
@@ -84,9 +152,9 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold mb-1">Our Location</h3>
                       <p className="text-gray-600">
-                        123 Business Park, Tech Hub
+                      #169, 13th Main, 1st Floor,<br /> Aicoboo Nagar, BTM Layout 1st Stage,<br /> Bangalore - 560029 
                         <br />
-                        Bangalore, India 560001
+                        (Opp.udipi Garden Busstop)
                       </p>
                     </div>
                   </div>
@@ -124,10 +192,15 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-2xl font-bold mb-6 text-primary">Find Us On Map</h2>
                 <div className="h-[300px] bg-gray-200 rounded-lg overflow-hidden">
-                  {/* Replace with actual map component or iframe */}
-                  <div className="w-full h-full flex items-center justify-center text-gray-500">
-                    Interactive Map Goes Here
-                  </div>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.529120373227!2d77.6062284!3d12.9176158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1508f4f3f773%3A0xf58f40893856a23b!2sAcquiescent!5e0!3m2!1sen!2sin!4v1711820201994!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -201,4 +274,3 @@ export default function ContactPage() {
     </main>
   )
 }
-

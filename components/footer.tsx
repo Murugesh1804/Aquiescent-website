@@ -79,28 +79,33 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Our Courses</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/courses/snowflake" className="text-gray-400 hover:text-white transition-colors">
-                  Master Snowflake
-                </Link>
-              </li>
-              <li>
-                <Link href="/courses/testing" className="text-gray-400 hover:text-white transition-colors">
-                  Automation and Manual Testing
-                </Link>
-              </li>
-              <li>
-                <Link href="/courses/data-science" className="text-gray-400 hover:text-white transition-colors">
-                  Data Science
-                </Link>
-              </li>
-              <li>
-                <Link href="/courses/cloud" className="text-gray-400 hover:text-white transition-colors">
-                  Cloud Computing
+                <Link href="/courses/softwareTesting" className="text-gray-400 hover:text-white transition-colors">
+                Software Testing & Automation
                 </Link>
               </li>
               <li>
                 <Link href="/courses/devops" className="text-gray-400 hover:text-white transition-colors">
-                  DevOps
+                DevOps Engineering
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/sql" className="text-gray-400 hover:text-white transition-colors">
+                SQL Server Mastery
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/python" className="text-gray-400 hover:text-white transition-colors">
+                Python Programming
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/aws" className="text-gray-400 hover:text-white transition-colors">
+                AWS Cloud Fundamentals
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/snowflake" className="text-gray-400 hover:text-white transition-colors">
+                Snowflake on AWS
                 </Link>
               </li>
             </ul>
@@ -110,7 +115,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex">
                 <MapPin className="h-5 w-5 mr-2 text-gray-400 flex-shrink-0" />
-                <span className="text-gray-400">123 Business Park, Tech Hub, Bangalore, India 560001</span>
+                <span className="text-gray-400"> #169, 13th Main, 1st Floor, Aicoboo Nagar, BTM Layout 1st Stage, Bangalore - 560029 (Opp.udipi Garden Busstop)</span>
               </li>
               <li className="flex">
                 <Phone className="h-5 w-5 mr-2 text-gray-400 flex-shrink-0" />
