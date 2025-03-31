@@ -76,28 +76,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const menuItems = [
     {
-      title: "Dashboard",
-      icon: <LayoutDashboard className="h-5 w-5" />,
-      path: "/admin/dashboard",
-    },
-    {
-      title: "Courses",
-      icon: <BookOpen className="h-5 w-5" />,
-      submenu: true,
-      submenuItems: [
-        { title: "All Courses", path: "/admin/courses" },
-        { title: "Add New Course", path: "/admin/courses/new" },
-        { title: "Categories", path: "/admin/courses/categories" },
-      ],
-    },
-    {
       title: "Blog",
       icon: <FileText className="h-5 w-5" />,
       submenu: true,
       submenuItems: [
-        { title: "All Posts", path: "/admin/blog" },
-        { title: "Add New Post", path: "/admin/blog/new" },
-        { title: "Categories", path: "/admin/blog/categories" },
+        { title: "All Posts", path: "/admin/blog" }
       ],
     },
     {
@@ -105,16 +88,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       icon: <Users className="h-5 w-5" />,
       submenu: true,
       submenuItems: [
-        { title: "All Users", path: "/admin/users" },
-        { title: "Enrollments", path: "/admin/users/enrollments" },
-        { title: "Leads", path: "/admin/users/leads" },
+        { title: "All Users", path: "/admin/users" }
       ],
-    },
-    {
-      title: "Settings",
-      icon: <Settings className="h-5 w-5" />,
-      path: "/admin/settings",
-    },
+    }
   ]
 
   if (isLoading) {
