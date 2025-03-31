@@ -6,12 +6,14 @@ import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useToast } from "@/components/ui/use-toast"
-import { BookOpen, Calendar, Mail, ArrowLeft } from "lucide-react"
+import { BookOpen, Calendar, Mail } from "lucide-react"
 import axios from "axios"
 
 export default function UserEnrollmentsTable({ userId, userEmail }) {
   const [enrollments, setEnrollments] = useState([])
+  const [remarks, setRemarks] = useState({})
   const [isLoading, setIsLoading] = useState(true)
+  const [submittingId, setSubmittingId] = useState(null)
   const { toast } = useToast()
 
   useEffect(() => {
@@ -24,36 +26,80 @@ export default function UserEnrollmentsTable({ userId, userEmail }) {
     try {
       setIsLoading(true);
       const token = localStorage.getItem("token");
-      if (!token) return;
+      if (!token) {
+        toast({ title: "Error", description: "Authentication token missing", variant: "destructive" });
+        return;
+      }
   
-      const response = await axios.get("http://localhost:3500/api/enrollments");
-      console.log(response)
-      // Check if response.data is an array
+      const response = await axios.get("http://localhost:3500/api/enrollments", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      
       if (!Array.isArray(response.data)) {
         throw new Error("Unexpected response format");
       }
-
-      // Set enrollments state
+      
+      // Initialize remarks from fetched data
+      const initialRemarks = {};
+      response.data.forEach(enrollment => {
+        if (enrollment.adminRemark) {
+          initialRemarks[enrollment._id] = enrollment.adminRemark;
+        }
+      });
+      
       setEnrollments(response.data);
+      setRemarks(initialRemarks);
     } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to load user enrollments",
-        variant: "destructive",
+      console.error("Error fetching enrollments:", error);
+      toast({ 
+        title: "Error", 
+        description: error.response?.data?.message || "Failed to load user enrollments", 
+        variant: "destructive" 
       });
     } finally {
       setIsLoading(false);
     }
   };
-  
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    })
+  const handleRemarkChange = (enrollmentId, value) => {
+    setRemarks((prev) => ({ ...prev, [enrollmentId]: value }))
+  }
+
+  const submitRemark = async (enrollmentId) => {
+    if (!remarks[enrollmentId] || remarks[enrollmentId].trim() === "") {
+      toast({ title: "Warning", description: "Please enter a remark before submitting", variant: "warning" });
+      return;
+    }
+    
+    try {
+      setSubmittingId(enrollmentId);
+      console.log(enrollmentId)
+      console.log(remarks[enrollmentId])
+      await axios.post("http://localhost:3500/api/enrollments/remark", {
+        enrollmentId,
+        remark: remarks[enrollmentId],
+      }
+      );
+      
+      toast({ title: "Success", description: "Remark added successfully", variant: "success" });
+      // Refresh data to show updated remarks
+      fetchEnrollments();
+    } catch (error) {
+      console.error("Error submitting remark:", error);
+      toast({ 
+        title: "Error", 
+        description: error.response?.data?.message || "Failed to add remark", 
+        variant: "destructive" 
+      });
+    } finally {
+      setSubmittingId(null);
+    }
+  }
+
+  const getEnrollmentId = (enrollment) => {
+    return enrollment._id || enrollment.enrollmentId;
   }
 
   return (
@@ -83,50 +129,71 @@ export default function UserEnrollmentsTable({ userId, userEmail }) {
                   <TableHead>Phone</TableHead>
                   <TableHead>Enrollment Date</TableHead>
                   <TableHead>Message</TableHead>
+                  <TableHead>Admin Remark</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {enrollments.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={6} className="text-center py-8 text-gray-500">
+                    <TableCell colSpan={7} className="text-center py-8 text-gray-500">
                       No enrollments found for this user
                     </TableCell>
                   </TableRow>
                 ) : (
-                  enrollments.map((enrollment) => (
-                    <TableRow key={enrollment._id}>
-                      <TableCell className="font-medium">{enrollment.course}</TableCell>
-                      <TableCell>{`${enrollment.firstName} ${enrollment.lastName}`}</TableCell>
-                      <TableCell>
-                        <div className="flex items-center">
-                          <Mail className="h-4 w-4 mr-1 text-gray-500" />
-                          <span>{enrollment.email}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell>{enrollment.phone}</TableCell>
-                      <TableCell>
-                        <div className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-1 text-gray-500" />
-                          <span>{formatDate(enrollment.date)}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="max-w-xs truncate" title={enrollment.message}>
-                          {enrollment.message}
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                  ))
+                  enrollments.map((enrollment) => {
+                    const id = getEnrollmentId(enrollment);
+                    return (
+                      <TableRow key={id}>
+                        <TableCell className="font-medium">{enrollment.course}</TableCell>
+                        <TableCell>{`${enrollment.firstName} ${enrollment.lastName}`}</TableCell>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <Mail className="h-4 w-4 mr-1 text-gray-500" />
+                            <span>{enrollment.email}</span>
+                          </div>
+                        </TableCell>
+                        <TableCell>{enrollment.phone}</TableCell>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <Calendar className="h-4 w-4 mr-1 text-gray-500" />
+                            <span>{new Date(enrollment.date).toLocaleDateString("en-US", {
+                              year: "numeric", month: "short", day: "numeric"
+                            })}</span>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="max-w-xs truncate" title={enrollment.message}>
+                            {enrollment.message}
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <input 
+                            type="text" 
+                            value={remarks[id] || ""}
+                            onChange={(e) => handleRemarkChange(id, e.target.value)}
+                            className="border p-1 w-full rounded"
+                            placeholder="Add admin remark"
+                          />
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            className="mt-1 w-full" 
+                            onClick={() => submitRemark(id)}
+                            disabled={submittingId === id}
+                          >
+                            {submittingId === id ? "Submitting..." : "Submit"}
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })
                 )}
               </TableBody>
             </Table>
           </div>
         )}
-
         <div className="mt-4 flex justify-end">
-          <Button variant="outline" size="sm" onClick={() => fetchEnrollments()}>
-            Refresh
-          </Button>
+          <Button variant="outline" size="sm" onClick={fetchEnrollments}>Refresh</Button>
         </div>
       </CardContent>
     </Card>
