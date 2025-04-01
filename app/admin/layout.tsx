@@ -22,39 +22,45 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const { toast } = useToast()
 
   useEffect(() => {
+    // Skip authentication check if we're on the login page
+    if (pathname === "/admin/login") {
+      setIsLoading(false)
+      setIsAuthenticated(true) // Set to true to render content on login page
+      return
+    }
+
     const verifyToken = async () => {
       try {
-        const { data } = await api.get('/auth/me');
+        const token = localStorage.getItem("token")
+        if (!token) {
+          throw new Error("No token found")
+        }
+        
+        const { data } = await api.get('/auth/me')
         
         if (data.user.role !== "admin") {
-          throw new Error("Admin access required");
+          throw new Error("Admin access required")
         }
 
-        setIsAuthenticated(true);
+        setIsAuthenticated(true)
       } catch (error) {
-        localStorage.removeItem("token");
-        router.push("/admin/login");
+        // localStorage.removeItem("token")
+        // router.push("/admin/login")
         toast({
           title: "Authentication Error",
           description: "Please log in to access the admin panel",
           variant: "destructive",
-        });
+        })
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
-    };
-
-    const token = localStorage.getItem("token");
-    if (!token) {
-      router.push("/admin/login");
-      return;
     }
 
-    verifyToken();
-  }, [router, toast]);
+    verifyToken()
+  }, [router, toast, pathname])
 
   const handleLogout = () => {
-    localStorage.removeItem("token")
+    localStorage.removeItem("Token")
     router.push("/admin/login")
     toast({
       title: "Logged Out",
@@ -129,6 +135,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   if (!isAuthenticated) {
     return null
+  }
+
+  // For login page, just render the children without the admin layout
+  if (pathname === "/admin/login") {
+    return <>{children}</>
   }
 
   return (
@@ -261,4 +272,3 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     </div>
   )
 }
-

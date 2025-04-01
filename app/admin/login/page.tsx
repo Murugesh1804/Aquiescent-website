@@ -23,38 +23,34 @@ export default function AdminLogin() {
   const { toast } = useToast()
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-
+    e.preventDefault();
+    setIsLoading(true);
+  
     try {
       const { data } = await api.post("/auth/login", {
         email,
         password,
-      })
-
-      if (data.user.role !== "admin") {
-        throw new Error("Admin access required")
-      }
-
-      localStorage.setItem("token", data.token)
-
+      });
+  
+      localStorage.setItem("token", data.token);
+  
       toast({
         title: "Login Successful",
         description: "Welcome to the admin panel",
-      })
-
-      router.push("/admin/dashboard")
+      });
+  
+      router.push("/admin/dashboard");
     } catch (error: any) {
       toast({
         title: "Login Failed",
         description: error.response?.data?.message || "An error occurred",
         variant: "destructive",
-      })
+      });
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
-
+  };
+  
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <motion.div
