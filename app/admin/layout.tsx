@@ -37,15 +37,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         }
         
         const { data } = await api.get('/auth/me')
-        
-        if (data.user.role !== "admin") {
+        console.log(data,"Success")
+        if (data.admin.role !== "admin") {
           throw new Error("Admin access required")
         }
 
         setIsAuthenticated(true)
       } catch (error) {
-        // localStorage.removeItem("token")
-        // router.push("/admin/login")
+        localStorage.removeItem("token")
+        router.push("/admin/login")
         toast({
           title: "Authentication Error",
           description: "Please log in to access the admin panel",
