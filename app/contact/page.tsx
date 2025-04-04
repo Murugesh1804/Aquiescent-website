@@ -144,49 +144,55 @@ export default function ContactPage() {
 
             {/* Contact Information */}
             <div className="space-y-8">
-              <div>
-                <h2 className="text-2xl font-bold mb-6 text-primary">Contact Information</h2>
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <MapPin className="h-6 w-6 text-primary mr-4 mt-1" />
-                    <div>
-                      <h3 className="font-semibold mb-1">Our Location</h3>
-                      <p className="text-gray-600">
-                      #169, 13th Main, 1st Floor,<br /> Aicoboo Nagar, BTM Layout 1st Stage,<br /> Bangalore - 560029 
-                        <br />
-                        (Opp.udipi Garden Busstop)
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <Phone className="h-6 w-6 text-primary mr-4 mt-1" />
-                    <div>
-                      <h3 className="font-semibold mb-1">Phone Number</h3>
-                      <p className="text-gray-600">+91 91770 89287</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <Mail className="h-6 w-6 text-primary mr-4 mt-1" />
-                    <div>
-                      <h3 className="font-semibold mb-1">Email Address</h3>
-                      <p className="text-gray-600">info@Acquiescent.in</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <Clock className="h-6 w-6 text-primary mr-4 mt-1" />
-                    <div>
-                      <h3 className="font-semibold mb-1">Working Hours</h3>
-                      <p className="text-gray-600">
-                        Monday - Friday: 9:00 AM - 6:00 PM
-                        <br />
-                        Saturday: 9:00 AM - 1:00 PM
-                        <br />
-                        Sunday: Closed
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {/* Contact Information */}
+<div className="space-y-8">
+  <div>
+    <h2 className="text-2xl font-bold mb-6 text-primary">Contact Information</h2>
+    <div className="space-y-6">
+      <div className="flex items-start">
+        <MapPin className="h-6 w-6 text-primary mr-4 mt-1" />
+        <div>
+          <h3 className="font-semibold mb-1">Our Location</h3>
+          <p className="text-gray-600">
+            Plot No. 26, H.No. 2-53/1/4, Ground Floor,<br />
+            LAXMI ENCLAVE, Gachibowli, near EPTRI,<br />
+            Ranga Reddy District, Hyderabad - 500032
+          </p>
+        </div>
+      </div>
+      <div className="flex items-start">
+        <Phone className="h-6 w-6 text-primary mr-4 mt-1" />
+        <div>
+          <h3 className="font-semibold mb-1">Phone Number</h3>
+          <p className="text-gray-600">
+            +91 91770 89287 / +91 90593 18889
+          </p>
+        </div>
+      </div>
+      <div className="flex items-start">
+        <Mail className="h-6 w-6 text-primary mr-4 mt-1" />
+        <div>
+          <h3 className="font-semibold mb-1">Email Address</h3>
+          <p className="text-gray-600">info@Acquiescent.in</p>
+        </div>
+      </div>
+      <div className="flex items-start">
+        <Clock className="h-6 w-6 text-primary mr-4 mt-1" />
+        <div>
+          <h3 className="font-semibold mb-1">Working Hours</h3>
+          <p className="text-gray-600">
+            Monday - Friday: 9:00 AM - 6:00 PM
+            <br />
+            Saturday: 9:00 AM - 1:00 PM
+            <br />
+            Sunday: Closed
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
               {/* Map */}
               <div>

@@ -7,7 +7,7 @@ import AddPost from "./AddPost";
 export default function BlogsManager() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [editingBlog, setEditingBlog] = useState(null);
 
@@ -39,12 +39,12 @@ export default function BlogsManager() {
   };
 
   // Delete a blog
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: string) => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
 
     try {
       const token = localStorage.getItem("token");
-      await axios.post(`http://localhost:3500/api/blogs/delete/${id}`, {
+      await axios.delete(`http://localhost:3500/api/blogs/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

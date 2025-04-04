@@ -29,12 +29,12 @@ export function CoursesSection() {
       description:
         "Master distributed event streaming platform for high-performance data pipelines and streaming analytics.",
     },
-    {
-      icon: <Cloud className="h-10 w-10 text-primary" />,
-      title: "MQ",
-      slug: "mq",
-      description: "Learn message queuing technologies for reliable, secure messaging and integration solutions.",
-    },
+    // {
+    //   icon: <Cloud className="h-10 w-10 text-primary" />,
+    //   title: "MQ",
+    //   slug: "mq",
+    //   description: "Learn message queuing technologies for reliable, secure messaging and integration solutions.",
+    // },
     {
       icon: <Code className="h-10 w-10 text-primary" />,
       title: "DevOps",
