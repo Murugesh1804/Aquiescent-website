@@ -152,7 +152,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold mb-1">Our Location</h3>
                       <p className="text-gray-600">
-                      #169, 13th Main, 1st Floor,<br /> Aicoboo Nagar, BTM Layout 1st Stage,<br /> Bangalore - 560029 
+                      Plot No. 26, H.No. 2-53/1/4, Ground Floor,<br /> LAXMI ENCLAVE, Gachibowli, near EPTRI,<br /> Ranga Reddy District, Hyderabad - 500032
                         <br />
                         (Opp.udipi Garden Busstop)
                       </p>
@@ -163,13 +163,14 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold mb-1">Phone Number</h3>
                       <p className="text-gray-600">+91 91770 89287</p>
+                      <p className="text-gray-600">+91 90593 18889</p>
                     </div>
                   </div>
                   <div className="flex items-start">
                     <Mail className="h-6 w-6 text-primary mr-4 mt-1" />
                     <div>
                       <h3 className="font-semibold mb-1">Email Address</h3>
-                      <p className="text-gray-600">info@Acquiescent.in</p>
+                      <p className="text-gray-600">info@acquiescent.in</p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -193,7 +194,7 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-bold mb-6 text-primary">Find Us On Map</h2>
                 <div className="h-[300px] bg-gray-200 rounded-lg overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.529120373227!2d77.6062284!3d12.9176158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1508f4f3f773%3A0xf58f40893856a23b!2sAcquiescent!5e0!3m2!1sen!2sin!4v1711820201994!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.354689402926!2d78.3539107!3d17.442729699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb939631adbba5%3A0xf5694cff5af6f515!2sC9V3%2B3H3%20Laxmi%20Enclave%2C%20Vinayak%20Nagar%2C%20Indira%20Nagar%2C%20Gachibowli%2C%20Hyderabad%2C%20Telangana%20500032!5e0!3m2!1sen!2sin!4v1743760140508!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

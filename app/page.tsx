@@ -14,6 +14,7 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { StatsSection } from "@/components/stats-section"
 import { LatestBlogs } from "@/components/latest-blogs"
 import { CoursePopup } from "@/components/course-popup"
+import { WhyChooseUs } from "@/components/why-choose-us"
 
 const montserrat = Montserrat({ subsets: ["latin"] })
 
@@ -88,6 +89,7 @@ export default function Home() {
       <StatsSection />
       <TestimonialsSection />
       <LatestBlogs />
+      <WhyChooseUs />
 
       {/* CTA Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-primary">
