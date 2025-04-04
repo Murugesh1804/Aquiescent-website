@@ -115,12 +115,12 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex">
                 <MapPin className="h-5 w-5 mr-2 text-gray-400 flex-shrink-0" />
-                <span className="text-gray-400"> #169, 13th Main, 1st Floor, Aicoboo Nagar, BTM Layout 1st Stage, Bangalore - 560029 (Opp.udipi Garden Busstop)</span>
+                <span className="text-gray-400"> Plot No. 26, H.No. 2-53/1/4, Ground Floor, LAXMI ENCLAVE, Gachibowli, near EPTRI, Ranga Reddy District, Hyderabad - 500032</span>
               </li>
               <li className="flex">
                 <Phone className="h-5 w-5 mr-2 text-gray-400 flex-shrink-0" />
                 <Link href="tel:+919177089287" className="text-gray-400 hover:text-white transition-colors">
-                  +91 91770 89287
+                  +91 91770 89287 <br/> +91 90593 18889
                 </Link>
               </li>
               <li className="flex">
