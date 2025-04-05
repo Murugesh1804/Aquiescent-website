@@ -15,7 +15,7 @@ const courses = {
       "title": "AWS Cloud Fundamentals",
       "subtitle": "Master Amazon Web Services Architecture and Services",
       "description": "Comprehensive AWS training covering cloud computing concepts, core AWS services, security, databases, and architecture best practices. Prepare for AWS certification while gaining hands-on experience with real-world AWS implementations.",
-      "image": "/images/courses/aws.jpg",
+      "image": "/images/courses/aws.png",
       "duration": "12 Days",
       "schedule": "Weekdays",
       "level": "Beginner to Intermediate",
