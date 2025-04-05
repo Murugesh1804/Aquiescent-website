@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { EnrollmentForm } from "@/components/enrollment-form"
 import { CheckCircle, Clock, Calendar, Users, Award, ChevronLeft } from "lucide-react"
+import { DownloadBrochureButton } from "@/components/DownloadBrochure";
 
 // Course data
 const courses = {
@@ -19,6 +20,7 @@ const courses = {
       "schedule": "Weekdays",
       "level": "Beginner to Intermediate",
       "certification": "AWS Cloud Practitioner or Developer/Sysops-Associate",
+      "brochurePath": "/placeholder.svg",
       "syllabus": [
         {
           "title": "Module 1: Cloud Computing Fundamentals",
@@ -130,6 +132,7 @@ const courses = {
       "schedule": "Weekdays",
       "level": "Intermediate to Advanced",
       "certification": "Terraform or Ansible Certification",
+      "brochurePath": "/placeholder.svg",
       "syllabus": [
         {
           "title": "Module 1: DevOps Fundamentals",
@@ -243,6 +246,7 @@ const courses = {
       "schedule": "Weekdays",
       "level": "Beginner to Advanced",
       "certification": "Python Developer Certification",
+      "brochurePath": "/placeholder.svg",
       "syllabus": [
         {
           "title": "Module 1: Programming Fundamentals",
@@ -374,6 +378,7 @@ const courses = {
       "schedule": "Weekends & Weekday Evenings",
       "level": "Beginner to Advanced",
       "certification": "SQL Server Associate Certification",
+      "brochurePath": "/placeholder.svg",
       "syllabus": [
         {
           "title": "Module 1: SQL Server Fundamentals",
@@ -434,6 +439,7 @@ const courses = {
       "schedule": "Weekdays",
       "level": "Intermediate",
       "certification": "SnowPro Core Certification",
+      "brochurePath": "/placeholder.svg",
       "syllabus": [
         {
           "title": "Module 1: Data Warehousing Fundamentals",
@@ -501,6 +507,7 @@ const courses = {
       "schedule": "Weekdays",
       "level": "Beginner to Advanced",
       "certification": "Certified Software Tester",
+      "brochurePath": "/placeholder.svg",
       "syllabus": [
         {
           "title": "Module 1: Manual Testing Fundamentals",
@@ -666,9 +673,10 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                   <span>{course.certification}</span>
                 </div>
               </div>
-              <Button variant="outline" className="mt-6 text-black border-white/20 hover:bg-white/20">
-                Download Brochure
-              </Button>
+              <DownloadBrochureButton 
+                brochurePath={course.brochurePath} 
+                courseTitle={course.title} 
+              />
             </div>
             <div className="md:w-1/2">
               <div className="rounded-lg overflow-hidden shadow-xl">

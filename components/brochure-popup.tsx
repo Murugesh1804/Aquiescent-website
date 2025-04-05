@@ -2,37 +2,40 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, FileDown, Mail } from "lucide-react"
+import { X, FileDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 
 export function BrochurePopup() {
   const [isOpen, setIsOpen] = useState(false)
-  const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
+  const [downloaded, setDownloaded] = useState(false)
 
   useEffect(() => {
-    // Show brochure popup after 3 seconds (before the course popup which shows at 5 seconds)
     const timer = setTimeout(() => {
       setIsOpen(true)
     }, 10000)
-
     return () => clearTimeout(timer)
   }, [])
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (email) {
-      setSubmitted(true)
-      // Here you would typically send the email to your backend
+  const handleDownload = async () => {
+    try {
+      // Replace with your actual PDF URL
+      const pdfUrl = '/placeholder.svg'
+      const link = document.createElement('a')
+      link.href = pdfUrl
+      link.download = 'Company-Brochure-2025.pdf'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      
+      setDownloaded(true)
       setTimeout(() => {
         setIsOpen(false)
-        // Reset state after closing
         setTimeout(() => {
-          setSubmitted(false)
-          setEmail("")
+          setDownloaded(false)
         }, 500)
       }, 2000)
+    } catch (error) {
+      console.error('Download failed:', error)
     }
   }
 
@@ -64,7 +67,7 @@ export function BrochurePopup() {
                 <h3 className="text-xl font-bold">Company Brochure</h3>
               </div>
               <div className="p-6">
-                {!submitted ? (
+                {!downloaded ? (
                   <>
                     <div className="flex justify-center mb-4">
                       <div className="bg-blue-100 p-3 rounded-full">
@@ -75,29 +78,11 @@ export function BrochurePopup() {
                     <p className="text-gray-600 mb-6 text-center">
                       Get instant access to our complete course catalog and company services.
                     </p>
-                    <form onSubmit={handleSubmit}>
-                      <div className="space-y-4 mb-6">
-                        <div className="relative">
-                          <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                          <Input
-                            type="email"
-                            placeholder="Your email address"
-                            className="pl-10"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                          />
-                        </div>
-                        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                          <Button type="submit" className="w-full font-semibold">
-                            Download Brochure
-                          </Button>
-                        </motion.div>
-                      </div>
-                    </form>
-                    <p className="text-xs text-gray-500 text-center">
-                      By downloading, you agree to receive occasional updates from us. We respect your privacy.
-                    </p>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button onClick={handleDownload} className="w-full font-semibold">
+                        Download Brochure
+                      </Button>
+                    </motion.div>
                   </>
                 ) : (
                   <div className="py-6 text-center">
@@ -109,9 +94,7 @@ export function BrochurePopup() {
                       </div>
                     </div>
                     <h4 className="text-xl font-bold mb-2">Thank You!</h4>
-                    <p className="text-gray-600">
-                      Your brochure is being downloaded. Check your email for more resources!
-                    </p>
+                    <p className="text-gray-600">Your brochure is being downloaded.</p>
                   </div>
                 )}
               </div>
