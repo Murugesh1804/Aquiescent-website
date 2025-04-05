@@ -15,6 +15,8 @@ import { StatsSection } from "@/components/stats-section"
 import { LatestBlogs } from "@/components/latest-blogs"
 import { CoursePopup } from "@/components/course-popup"
 import { WhyChooseUs } from "@/components/why-choose-us"
+import { TermsAndConditions} from "@/components/terms"
+import { BrochurePopup } from "@/components/brochure-popup"
 
 const montserrat = Montserrat({ subsets: ["latin"] })
 
@@ -90,6 +92,7 @@ export default function Home() {
       <TestimonialsSection />
       <LatestBlogs />
       <WhyChooseUs />
+      <TermsAndConditions />
 
       {/* CTA Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-primary">
@@ -126,6 +129,7 @@ export default function Home() {
       </section>
 
       <CoursePopup />
+      <BrochurePopup />
     </main>
   )
 }

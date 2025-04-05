@@ -666,6 +666,9 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                   <span>{course.certification}</span>
                 </div>
               </div>
+              <Button variant="outline" className="mt-6 text-black border-white/20 hover:bg-white/20">
+                Download Brochure
+              </Button>
             </div>
             <div className="md:w-1/2">
               <div className="rounded-lg overflow-hidden shadow-xl">
