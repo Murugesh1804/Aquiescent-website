@@ -16,6 +16,7 @@ import { LatestBlogs } from "@/components/latest-blogs"
 import { CoursePopup } from "@/components/course-popup"
 import { WhyChooseUs } from "@/components/why-choose-us"
 import { TermsAndConditions} from "@/components/terms"
+import { BrochurePopup } from "@/components/brochure-popup"
 
 const montserrat = Montserrat({ subsets: ["latin"] })
 
@@ -128,6 +129,7 @@ export default function Home() {
       </section>
 
       <CoursePopup />
+      <BrochurePopup />
     </main>
   )
 }
