@@ -43,7 +43,7 @@ const CoursesContent = () => {
                 ]}
                 date="24 MAR | 7:00 PM"
                 phone="91770 89287"
-                website="www.Acquiescent.in"
+                website="www.acquiescents.in"
               />
             </motion.div>
 

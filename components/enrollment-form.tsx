@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { CheckCircle2 } from "lucide-react";
 import axios from "axios";
 
-const API_URL = "http://localhost:3500/api/enrollments";
+const API_URL = "https://api.acquiescents.in/api/enrollments";
 
 export const submitEnrollment = async (formData) => {
   try {

@@ -32,15 +32,15 @@ export function WhyChooseUs() {
     return (
         <section className="py-20 bg-gray-50 text-gray-900">
             <div className="container mx-auto px-4 md:px-6">
-                <motion.h2 
-                    className="text-3xl font-bold text-center mb-12 text-primary"
+                <motion.h1 
+                    className="text-5xl font-bold text-center mb-12 text-primary"
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
                     Why Choose Us?
-                </motion.h2>
+                </motion.h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {features.map((feature, index) => (

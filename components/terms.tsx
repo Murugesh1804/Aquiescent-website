@@ -21,16 +21,7 @@ export function TermsAndConditions ()  {
     >
       {/* Hero Section */}
       <motion.div variants={fadeInUp} className="text-center mb-10">
-        <div className="relative h-64 w-full mb-6">
-          <Image
-            src="/assets/images/about.jpg"
-            alt="Education Images"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-lg"
-          />
-        </div>
-        <h1 className="text-4xl font-bold text-gray-800">Terms and Conditions</h1>
+        <h1 className="text-5xl font-bold text-center mb-12 text-primary">Terms and Conditions</h1>
       </motion.div>
 
       <motion.div variants={fadeInUp} className="max-w-3xl mx-auto space-y-6 text-gray-700">
