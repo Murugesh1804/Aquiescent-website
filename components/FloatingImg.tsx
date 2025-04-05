@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { BookOpen, Users, UserCheck, Clock, DollarSign, Briefcase, Code, HeartHandshake, Lightbulb, BarChart, Headphones, UserPlus } from "lucide-react"
 import { TypeAnimation } from "react-type-animation"
 import { Button } from "@/components/ui/button"
+import { FloatingServiceMarquee } from "@/components/FloatingServiceMarquee"
 
 export function ServicesContent() {
   // Track which service card is being hovered
@@ -24,16 +25,6 @@ export function ServicesContent() {
   const { scrollY } = useScroll()
   const headerY = useTransform(scrollY, [0, 500], [0, 150])
   const headerOpacity = useTransform(scrollY, [0, 300], [1, 0.6])
-  
-  // Service marquee images - these are placeholders, replace with your actual service images
-  const serviceImages = [
-    "/api/placeholder/400/320",
-    "/api/placeholder/400/320",
-    "/api/placeholder/400/320",
-    "/api/placeholder/400/320",
-    "/api/placeholder/400/320",
-    "/api/placeholder/400/320",
-  ]
   
   const serviceCategories = {
     training: [
@@ -129,41 +120,13 @@ export function ServicesContent() {
       ease: "easeInOut"
     }
   }
-  
-  // Marquee animation variants
-  const marqueeVariants = {
-    animate: {
-      x: [0, -2000],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 50,
-          ease: "linear",
-        },
-      },
-    },
-  }
-  
-  const reverseMarqueeVariants = {
-    animate: {
-      x: [-2000, 0],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 50,
-          ease: "linear",
-        },
-      },
-    },
-  }
 
   return (
     <div className="flex min-h-screen flex-col overflow-hidden">
-       {/* Hero Section with Floating Images Marquee */}
-       <section className="w-full py-20 bg-primary text-white relative overflow-hidden">
-      
+       {/* Hero Section */}
+       <section className="w-full py-20 bg-primary text-white relative">
+        {/* Add the floating marquee component to the hero section */}
+        <FloatingServiceMarquee opacity={0.15} speed={60} imageSize={60} variant="horizontal" />
         
         <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -173,68 +136,14 @@ export function ServicesContent() {
           </div>
         </div>
       </section>
-      <div>
-        
-      </div>
 
       {/* Services Tabs Section */}
       <section 
         className="w-full py-20 md:py-32 bg-white relative"
         ref={servicesRef}
       >
-        {/* Side floating images for services section */}
-        <div className="absolute left-0 h-full overflow-hidden w-20 pointer-events-none opacity-10">
-          <motion.div className="flex flex-col gap-16 h-full">
-            {serviceImages.slice(0, 3).map((img, index) => (
-              <motion.div
-                key={`left-${index}`}
-                className="w-32 h-32 rounded-full overflow-hidden bg-primary/10"
-                animate={{ 
-                  x: [-30, 10, -30],
-                  y: [0, 20, 0]
-                }}
-                transition={{ 
-                  duration: 8 + (index * 2),
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }}
-              >
-                <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-        
-        {/* Right side floating images */}
-        <div className="absolute right-0 h-full overflow-hidden w-20 pointer-events-none opacity-10">
-          <motion.div className="flex flex-col gap-16 h-full items-end">
-            {serviceImages.slice(3, 6).map((img, index) => (
-              <motion.div
-                key={`right-${index}`}
-                className="w-32 h-32 rounded-full overflow-hidden bg-primary/10"
-                animate={{ 
-                  x: [30, -10, 30],
-                  y: [20, -20, 20]
-                }}
-                transition={{ 
-                  duration: 10 + (index * 1.5),
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }}
-              >
-                <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+        {/* Add the floating marquee component to the services section */}
+        <FloatingServiceMarquee opacity={0.1} speed={40} imageSize={32} variant="vertical" />
         
         <div className="container px-4 md:px-6 relative z-10">
           <motion.div 
@@ -334,92 +243,10 @@ export function ServicesContent() {
         </div>
       </section>
       
-      {/* Call to Action Section with Scroll Animation and Floating Images */}
+      {/* Call to Action Section with Scroll Animation */}
       <section className="w-full py-20 bg-gray-50 relative overflow-hidden">
-        {/* Floating images at the bottom of the page */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-          <div className="flex justify-between items-end">
-            {/* Left side floating images */}
-            <div className="flex gap-4">
-              {serviceImages.slice(0, 3).map((img, index) => (
-                <motion.div
-                  key={`float-left-${index}`}
-                  className="w-20 h-20 md:w-32 md:h-32 rounded-full overflow-hidden bg-primary/10"
-                  animate={{ 
-                    y: [-10, -30, -10],
-                    x: [0, 10, 0],
-                    rotate: [0, 5, 0]
-                  }}
-                  transition={{ 
-                    duration: 6 + (index * 1.5),
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                  style={{ opacity: 0.3 }}
-                >
-                  <img
-                    src={img}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              ))}
-            </div>
-            
-            {/* Center floating images */}
-            <div className="hidden md:flex gap-4">
-              {serviceImages.slice(2, 4).map((img, index) => (
-                <motion.div
-                  key={`float-center-${index}`}
-                  className="w-24 h-24 md:w-40 md:h-40 rounded-full overflow-hidden bg-primary/10"
-                  animate={{ 
-                    y: [-20, -50, -20],
-                    rotate: [0, -3, 0]
-                  }}
-                  transition={{ 
-                    duration: 8 + (index * 1.2),
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                  style={{ opacity: 0.2 }}
-                >
-                  <img
-                    src={img}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              ))}
-            </div>
-            
-            {/* Right side floating images */}
-            <div className="flex gap-4">
-              {serviceImages.slice(3, 6).map((img, index) => (
-                <motion.div
-                  key={`float-right-${index}`}
-                  className="w-16 h-16 md:w-28 md:h-28 rounded-full overflow-hidden bg-primary/10"
-                  animate={{ 
-                    y: [-15, -40, -15],
-                    x: [0, -10, 0],
-                    rotate: [0, -5, 0]
-                  }}
-                  transition={{ 
-                    duration: 7 + (index * 1.3),
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                  style={{ opacity: 0.25 }}
-                >
-                  <img
-                    src={img}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* Add the floating marquee component to the CTA section */}
+        <FloatingServiceMarquee opacity={0.1} speed={50} imageSize={40} variant="corner" />
         
         <div className="container px-4 md:px-6 relative z-10">
           <motion.div 
@@ -449,12 +276,8 @@ export function ServicesContent() {
               </Button>
             </motion.div>
           </motion.div>
-        </div>   
-        
-        </section>
-        
+        </div>
+      </section>
     </div>
-
-
   )
 }
