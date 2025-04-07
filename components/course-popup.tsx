@@ -48,36 +48,36 @@ export function CoursePopup() {
               <div className="p-6">
                 <div className="mb-4">
                   <span className="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">
-                    Limited Seats
+                    Intermediate Level
                   </span>
                 </div>
-                <h4 className="text-2xl font-bold mb-2">AWS Cloud Practitioner</h4>
+                <h4 className="text-2xl font-bold mb-2">Snowflake on AWS</h4>
                 <p className="text-gray-600 mb-4">
-                  Master cloud essentials with our comprehensive AWS Cloud Practitioner certification course. Starting
-                  next week!
+                  Comprehensive Snowflake training focusing on cloud data warehousing architecture, AWS integration, 
+                  performance optimization, and data sharing.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-center">
                     <span className="bg-primary/10 text-primary rounded-full p-1 mr-2">✓</span>
-                    <span>Hands-on labs and projects</span>
+                    <span>4 Weeks Duration</span>
                   </li>
                   <li className="flex items-center">
                     <span className="bg-primary/10 text-primary rounded-full p-1 mr-2">✓</span>
-                    <span>Industry expert instructors</span>
+                    <span>Weekdays Schedule</span>
                   </li>
                   <li className="flex items-center">
                     <span className="bg-primary/10 text-primary rounded-full p-1 mr-2">✓</span>
-                    <span>Certification preparation</span>
+                    <span>SnowPro Core Certification</span>
                   </li>
                 </ul>
                 <div className="flex justify-between items-center">
                   <div>
                     <p className="text-sm text-gray-500">Starting from</p>
-                    <p className="text-2xl font-bold text-primary">₹15,000</p>
+                    <p className="text-2xl font-bold text-primary">₹20,000</p>
                   </div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button asChild className="font-semibold">
-                      <Link href="/courses/aws-cloud-practitioner">Enroll Now</Link>
+                      <Link href="/courses/snowflake">Enroll Now</Link>
                     </Button>
                   </motion.div>
                 </div>
@@ -89,4 +89,3 @@ export function CoursePopup() {
     </AnimatePresence>
   )
 }
-
