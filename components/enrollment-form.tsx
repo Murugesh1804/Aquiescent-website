@@ -1,13 +1,13 @@
 "use client"
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CheckCircle2 } from "lucide-react";
 import axios from "axios";
 
 const API_URL = "https://api.acquiescents.in/api/enrollments";
@@ -22,6 +22,7 @@ export const submitEnrollment = async (formData) => {
 };
 
 export function EnrollmentForm({ courseName = "" }) {
+  const router = useRouter();
   const [formState, setFormState] = useState({
     firstName: "",
     lastName: "",
@@ -32,7 +33,6 @@ export function EnrollmentForm({ courseName = "" }) {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,23 +49,17 @@ export function EnrollmentForm({ courseName = "" }) {
 
     try {
       await submitEnrollment(formState);
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormState({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          course: courseName || "",
-          message: "",
-        });
-      }, 5000);
+      
+      // Get the current URL path
+      const currentPath = window.location.pathname;
+      
+      // Navigate to the thank-you page
+      router.push(`${currentPath}/thank-you`);
     } catch (error) {
       console.error("Enrollment failed:", error);
+      // Handle error state here if needed
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
   };
 
   const courses = [
@@ -79,64 +73,56 @@ export function EnrollmentForm({ courseName = "" }) {
 
   return (
     <div className="w-full max-w-md mx-auto">
-      {!isSubmitted ? (
-        <motion.form
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          onSubmit={handleSubmit}
-          className="space-y-6"
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="first-name">First Name</Label>
-              <Input id="first-name" name="firstName" value={formState.firstName} onChange={handleChange} placeholder="Enter your first name" required />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="last-name">Last Name</Label>
-              <Input id="last-name" name="lastName" value={formState.lastName} onChange={handleChange} placeholder="Enter your last name" required />
-            </div>
+      <motion.form
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        onSubmit={handleSubmit}
+        className="space-y-6"
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label htmlFor="first-name">First Name</Label>
+            <Input id="first-name" name="firstName" value={formState.firstName} onChange={handleChange} placeholder="Enter your first name" required />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" name="email" value={formState.email} onChange={handleChange} type="email" placeholder="Enter your email" required />
+            <Label htmlFor="last-name">Last Name</Label>
+            <Input id="last-name" name="lastName" value={formState.lastName} onChange={handleChange} placeholder="Enter your last name" required />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="phone">Phone</Label>
-            <Input id="phone" name="phone" value={formState.phone} onChange={handleChange} placeholder="Enter your phone number" required />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="course">Course</Label>
-            <Select value={formState.course} onValueChange={handleSelectChange}>
-              <SelectTrigger>
-                <SelectValue placeholder="Select a course" />
-              </SelectTrigger>
-              <SelectContent>
-                {courses.map((course) => (
-                  <SelectItem key={course} value={course}>
-                    {course}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="message">Message (Optional)</Label>
-            <Textarea id="message" name="message" value={formState.message} onChange={handleChange} placeholder="Any specific requirements or questions?" rows={3} />
-          </div>
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Button type="submit" className="w-full" disabled={isSubmitting} aria-busy={isSubmitting}>
-              {isSubmitting ? "Submitting..." : "Enroll Now"}
-            </Button>
-          </motion.div>
-        </motion.form>
-      ) : (
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-          <CheckCircle2 className="h-12 w-12 text-green-500 mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-green-800 mb-2">Enrollment Successful!</h3>
-          <p className="text-green-700">Thank you for enrolling. We'll contact you shortly with more details about your course.</p>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <Input id="email" name="email" value={formState.email} onChange={handleChange} type="email" placeholder="Enter your email" required />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="phone">Phone</Label>
+          <Input id="phone" name="phone" value={formState.phone} onChange={handleChange} placeholder="Enter your phone number" required />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="course">Course</Label>
+          <Select value={formState.course} onValueChange={handleSelectChange}>
+            <SelectTrigger>
+              <SelectValue placeholder="Select a course" />
+            </SelectTrigger>
+            <SelectContent>
+              {courses.map((course) => (
+                <SelectItem key={course} value={course}>
+                  {course}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="message">Message (Optional)</Label>
+          <Textarea id="message" name="message" value={formState.message} onChange={handleChange} placeholder="Any specific requirements or questions?" rows={3} />
+        </div>
+        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <Button type="submit" className="w-full" disabled={isSubmitting} aria-busy={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Enroll Now"}
+          </Button>
         </motion.div>
-      )}
+      </motion.form>
     </div>
   );
 }
