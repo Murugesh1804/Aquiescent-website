@@ -34,7 +34,7 @@ export default function UserDashboard({ userId, userEmail }) {
         return;
       }
   
-      const response = await axios.get("https://api.acquiescents.in/api/enrollments", {
+      const response = await axios.get("https://api.acquiescent.in/api/enrollments", {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -75,7 +75,7 @@ export default function UserDashboard({ userId, userEmail }) {
         return;
       }
   
-      const response = await axios.get("https://api.acquiescents.in/api/queries", {
+      const response = await axios.get("https://api.acquiescent.in/api/queries", {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -112,7 +112,7 @@ export default function UserDashboard({ userId, userEmail }) {
       setSubmittingId(enrollmentId);
       console.log(enrollmentId)
       console.log(remarks[enrollmentId])
-      await axios.post("https://api.acquiescents.in/api/enrollments/remark", {
+      await axios.post("https://api.acquiescent.in/api/enrollments/remark", {
         enrollmentId,
         remark: remarks[enrollmentId],
       }
