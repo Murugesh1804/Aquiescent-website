@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import axios from "axios";
 
-const API_URL = "https://api.acquiescents.in/api/enrollments";
+const API_URL = "https://api.acquiescent.in/api/enrollments";
 
 export const submitEnrollment = async (formData) => {
   try {

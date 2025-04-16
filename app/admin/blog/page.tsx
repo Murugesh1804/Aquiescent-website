@@ -22,7 +22,7 @@ export default function BlogsManager() {
         return;
       }
 
-      const response = await axios.get("https://api.acquiescents.in/api/blogs/all", {
+      const response = await axios.get("https://api.acquiescent.in/api/blogs/all", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -43,7 +43,7 @@ export default function BlogsManager() {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
 
     try {
-      await axios.post(`https://api.acquiescents.in/api/blogs/delete/${id}`);
+      await axios.post(`https://api.acquiescent.in/api/blogs/delete/${id}`);
       fetchBlogs();
     } catch (err) {
       setError("Failed to delete blog. Please try again.");
@@ -216,7 +216,7 @@ function AddPostModal({ initialData, onClose }) {
       if (initialData) {
         // Update existing blog
         response = await axios.put(
-          `https://api.acquiescents.in/api/blogs/update/${initialData._id}`, 
+          `https://api.acquiescent.in/api/blogs/update/${initialData._id}`, 
           formData, 
           {
             headers: {
@@ -227,7 +227,7 @@ function AddPostModal({ initialData, onClose }) {
       } else {
         // Create new blog
         response = await axios.post(
-          "https://api.acquiescents.in/api/blogs/create", 
+          "https://api.acquiescent.in/api/blogs/create", 
           formData, 
           {
             headers: {
