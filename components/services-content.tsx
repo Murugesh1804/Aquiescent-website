@@ -460,7 +460,7 @@ export function ServicesContent() {
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 rounded-full px-6 py-2"
+                  className="bg-white text-primary hover:bg-white/90 rounded-full px-6 py-2"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
