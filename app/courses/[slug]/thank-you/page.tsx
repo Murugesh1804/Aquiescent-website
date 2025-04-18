@@ -4,12 +4,6 @@ import { useEffect } from "react";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 
-declare global {
-  interface Window {
-    gtag: (command: string, action: string, params: object) => void;
-  }
-}
-
 // Conversion tracking data for specific courses
 const CONVERSION_TRACKING = {
   "python-programming": {
@@ -24,15 +18,26 @@ const CONVERSION_TRACKING = {
 
 export default function ThankYouPage() {
   const params = useParams();
-  const courseSlug = params.courseSlug as string;
-  const courseData = CONVERSION_TRACKING[courseSlug as keyof typeof CONVERSION_TRACKING];
-
+  const courseSlug = params.slug;
+  useEffect(() => {
+    console.log("Course Slug:", courseSlug);
+  }, [courseSlug]);
+  
+  // Get the course data from our tracking configuration
+  const courseData =  CONVERSION_TRACKING[courseSlug] || null;
+  
   useEffect(() => {
     console.log("Course Data:", courseData);
-    if (courseData && window.gtag) {
-      window.gtag('event', 'conversion', {
-        'send_to': courseData.sendTo
-      });
+    
+    if (courseData && typeof window !== 'undefined' && window.gtag) {
+      console.log("Sending conversion event:", courseData.sendTo);
+      
+      // Use setTimeout to ensure gtag has loaded
+      setTimeout(() => {
+        window.gtag('event', 'conversion', {
+          'send_to': courseData.sendTo
+        });
+      }, 1000);
     }
   }, [courseData]);
 
@@ -46,9 +51,13 @@ export default function ThankYouPage() {
       >
         <h1 className="text-3xl font-bold mb-4">Thank You for Enrolling!</h1>
         
-        {courseData && (
+        {courseData ? (
           <p className="text-xl mb-6">
             You have successfully enrolled in our <span className="font-semibold">{courseData.courseName}</span> course.
+          </p>
+        ) : (
+          <p className="text-xl mb-6">
+            You have successfully enrolled in our course.
           </p>
         )}
         
