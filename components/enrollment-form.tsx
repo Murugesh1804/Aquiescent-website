@@ -32,10 +32,10 @@ const toSlug = (courseName) => {
 // Google Tag conversion IDs for specific courses
 const CONVERSION_TRACKING = {
   "Python Programming": {
-    sendTo: "AW-1698269213/Yr3qCPKY7bkaEKKi_aE_" 
+    sendTo: "AW-16982692130/Yr3qCPKY7bkaEKKi_aE_" 
   },
   "Software Testing & Automation": {
-    sendTo: "AW-1698269213/dEelCMje4bkaEKKi_aE_"
+    sendTo: "AW-16982692130/dEelCMje4bkaEKKi_aE_"
   }
 };
 
@@ -60,7 +60,7 @@ export function EnrollmentForm({ courseName = "" }) {
     // Load Google Tag Manager
     const script = document.createElement("script");
     script.async = true;
-    script.src = "https://www.googletagmanager.com/gtag/js?id=AW-1698269213";
+    script.src = "https://www.googletagmanager.com/gtag/js?id=AW-16982692130";
     document.head.appendChild(script);
     
     window.dataLayer = window.dataLayer || [];
@@ -68,7 +68,7 @@ export function EnrollmentForm({ courseName = "" }) {
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
-    gtag('config', 'AW-1698269213');
+    gtag('config', 'AW-16982692130');
     
     window.gtag = gtag;
   }, []);

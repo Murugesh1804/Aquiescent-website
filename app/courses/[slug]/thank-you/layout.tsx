@@ -4,7 +4,7 @@ export default function ThankYouLayout({ children }) {
   return (
     <>
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-1698269213"
+        src="https://www.googletagmanager.com/gtag/js?id=AW-16982692130"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -12,7 +12,7 @@ export default function ThankYouLayout({ children }) {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'AW-1698269213');
+          gtag('config', 'AW-16982692130');
         `}
       </Script>
       {children}
