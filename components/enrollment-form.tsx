@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -21,6 +21,24 @@ export const submitEnrollment = async (formData) => {
   }
 };
 
+// Function to convert course name to slug format
+const toSlug = (courseName) => {
+  return courseName
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-');
+};
+
+// Google Tag conversion IDs for specific courses
+const CONVERSION_TRACKING = {
+  "Python Programming": {
+    sendTo: "AW-1698269213/Yr3qCPKY7bkaEKKi_aE_" 
+  },
+  "Software Testing & Automation": {
+    sendTo: "AW-1698269213/dEelCMje4bkaEKKi_aE_"
+  }
+};
+
 export function EnrollmentForm({ courseName = "" }) {
   const router = useRouter();
   const [formState, setFormState] = useState({
@@ -33,6 +51,27 @@ export function EnrollmentForm({ courseName = "" }) {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Add Google Tag Manager script
+  useEffect(() => {
+    // Skip if GTM is already loaded
+    if (window.dataLayer) return;
+    
+    // Load Google Tag Manager
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=AW-1698269213";
+    document.head.appendChild(script);
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'AW-1698269213');
+    
+    window.gtag = gtag;
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,12 +88,16 @@ export function EnrollmentForm({ courseName = "" }) {
 
     try {
       await submitEnrollment(formState);
+      const courseSlug = toSlug(formState.course);
       
-      // Get the current URL path
-      const currentPath = window.location.pathname;
+      // Track conversion if it's one of our tracked courses
+      if (window.gtag && CONVERSION_TRACKING[formState.course]) {
+        window.gtag('event', 'conversion', {
+          'send_to': CONVERSION_TRACKING[formState.course].sendTo
+        });
+      }
       
-      // Navigate to the thank-you page
-      router.push(`${currentPath}/thank-you`);
+      router.push(`${courseSlug}/thank-you/`);
     } catch (error) {
       console.error("Enrollment failed:", error);
       // Handle error state here if needed
