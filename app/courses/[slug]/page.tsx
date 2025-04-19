@@ -15,7 +15,7 @@ const courses = {
       "title": "AWS Cloud Fundamentals",
       "subtitle": "Master Amazon Web Services Architecture and Services",
       "description": "Comprehensive AWS training covering cloud computing concepts, core AWS services, security, databases, and architecture best practices. Prepare for AWS certification while gaining hands-on experience with real-world AWS implementations.",
-      "image": "/images/courses/aws.png",
+      "image": "/images/courses/aws.jpg",
       "duration": "12 Days",
       "schedule": "Weekdays",
       "level": "Beginner to Intermediate",
@@ -615,7 +615,134 @@ const courses = {
         "CI/CD integration practice",
         "Interview preparation and resume building"
       ]
-    }
+    },
+
+    
+    pythonFullstack: {
+        "title": "Python Fullstack Development",
+        "subtitle": "Full Stack Development with Python, Django, and Angular",
+        "description": "Comprehensive fullstack development course covering HTML, CSS, Bootstrap, JavaScript, Core Python, Database & SQL, PDBC, Django/Flask, and Angular. Build complete web applications using Python on the backend and Angular on the frontend, following industry best practices.",
+        "image": "/images/courses/MERN.jpg",
+        "duration": "16 Weeks",
+        "schedule": "Weekdays",
+        "level": "Beginner to Advanced",
+        "certification": "Certified Python Fullstack Developer",
+        "brochurePath": "/placeholder.svg",
+        "syllabus": [
+          {
+            "title": "Module 1: HTML 5, CSS 3 with Bootstrap",
+            "topics": [
+              "HTML Basics and Structure",
+              "Semantic Elements in HTML 5",
+              "Tables, Lists, and Links",
+              "Image Handling and Frames",
+              "HTML Forms for User Input",
+              "New Form Elements",
+              "CSS 3 Introduction and Syntax",
+              "Working with Text, Fonts, and Colors",
+              "CSS Selectors and Borders",
+              "Bootstrap Introduction and Grid System",
+              "Bootstrap Components and Navigation"
+            ]
+          },
+          {
+            "title": "Module 2: JavaScript",
+            "topics": [
+              "ES6 Features",
+              "Var, Let and Const Keywords",
+              "Arrow Functions and Default Arguments",
+              "Template Strings and String Methods",
+              "Object De-structuring",
+              "Create, Apply, Prototype, Bind Method",
+              "Spread and Rest Operators",
+              "TypeScript Fundamentals",
+              "Types & Type Assertions",
+              "TypeScript OOPS - Classes, Interfaces, Constructor",
+              "Decorator & Spread Operator",
+              "Difference Between == & ===",
+              "Asynchronous Programming in ES6",
+              "Promise Constructor and Chaining"
+            ]
+          },
+          {
+            "title": "Module 3: Core Python",
+            "topics": [
+              "Python Introduction and Features",
+              "Using the Interpreter and IDEs",
+              "Python Variables and Naming Conventions",
+              "Types as Objects and Variable References",
+              "Numeric Operations and Operators",
+              "Decision Making & Looping",
+              "Python Strings and Methods",
+              "Tuples, Lists, and Dictionaries",
+              "List Comprehension and Set Data Type",
+              "Basic Input/Output with Files",
+              "Creating Python Functions",
+              "Classes and Objects in Python",
+              "OOP Concepts in Python",
+              "Modules & Packages",
+              "Exception Handling",
+              "Regular Expressions",
+              "Multi-threaded Programming"
+            ]
+          },
+          {
+            "title": "Module 4: Database & SQL",
+            "topics": [
+              "Introduction to Relational Model",
+              "Basic SQL Commands - SELECT, INSERT, UPDATE, DELETE",
+              "Querying Data with SELECT Statement",
+              "Filtering Results with WHERE Clause",
+              "Boolean Operators",
+              "Shaping Results with ORDER BY and GROUP BY",
+              "Set Functions and HAVING Clause",
+              "Python Database Connectivity (PDBC)",
+              "Architecture of PDBC",
+              "Performing Basic CRUD Operations"
+            ]
+          },
+          {
+            "title": "Module 5: Django / Flask",
+            "topics": [
+              "Installation and Introduction to Django",
+              "Web Development Tools - VSCode, Git, SQLite3, Postman",
+              "Virtual Environment Setup",
+              "Creating Your First Django Project",
+              "Django Project Structure",
+              "Django Admin, Commands and Shell",
+              "Routing and Views in Django",
+              "HTTP Methods - GET, POST, PUT/PATCH, DELETE",
+              "Creating Simple Views with HTTP Response"
+            ]
+          },
+          {
+            "title": "Module 6: TypeScript & Angular",
+            "topics": [
+              "Introduction to Angular Framework",
+              "Environment Setup and Angular CLI",
+              "NPM Commands & Package.json",
+              "Bootstrapping Angular App",
+              "Project Setup and Directory Structure",
+              "Component Basics and Templates",
+              "Data Binding and Event Handling",
+              "Templates, Styles & Directives",
+              "Pipes, Services & Dependency Injection",
+              "Template-Driven and Reactive Forms",
+              "Component Life Cycle Hooks",
+              "Routing and Navigation",
+              "HTTP Requests and Observables"
+            ]
+          }
+        ],
+        "features": [
+          "Hands-on project development",
+          "Full-stack application building",
+          "Database integration practice",
+          "Real-world web development scenarios",
+          "Interview preparation and portfolio building"
+        ]
+      }
+    
 }
 
 // Generate metadata for each course page

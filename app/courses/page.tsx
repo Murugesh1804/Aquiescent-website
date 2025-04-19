@@ -68,10 +68,21 @@ const courses = [
     title: "SQL Server Mastery",
     subtitle: "Database Development and Management",
     description: "Master SQL Server from fundamentals to advanced concepts. Learn database design, query optimization, stored procedures, and more for enterprise-grade data solutions.",
-    image: "/images/courses/sql-server.jpg",
+    image: "/images/courses/sql.jpg",
     slug: "sql",
     duration: "4 Weeks",
     schedule: "Weekends & Weekday Evenings",
+    level: "Beginner to Advanced",
+  },
+
+  {
+    title: "Python Fullstack Development",
+    subtitle: "Python, Django & Angular Web Development",
+    description: "Comprehensive fullstack development course covering HTML, CSS, JavaScript, Core Python, Django, and Angular. Learn to build responsive web applications with industry-standard frameworks and tools.",
+    image: "/images/courses/python.jpg",
+    slug: "pythonFullstack",
+    duration: "16 Weeks",
+    schedule: "Weekdays",
     level: "Beginner to Advanced",
   }
 ]
