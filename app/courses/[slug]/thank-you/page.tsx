@@ -8,11 +8,11 @@ import { motion } from "framer-motion";
 const CONVERSION_TRACKING = {
   "python-programming": {
     courseName: "Python Programming",
-    sendTo: "AW-1698269213/Yr3qCPKY7bkaEKKi_aE_"
+    sendTo: "AW-16982692130/Yr3qCPKY7bkaEKKi_aE_"
   },
   "software-testing-automation": {
     courseName: "Software Testing & Automation",
-    sendTo: "AW-1698269213/dEelCMje4bkaEKKi_aE_"
+    sendTo: "AW-16982692130/dEelCMje4bkaEKKi_aE_"
   }
 };
 
