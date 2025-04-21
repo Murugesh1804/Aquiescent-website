@@ -11,100 +11,85 @@ export const metadata = {
 export default function CareersPage() {
   const jobOpenings = [
     {
-      title: "Senior Snowflake Data Engineer",
-      location: "Bangalore, India",
+      title: "Lead Automation Engineer – Playwright",
+      location: "Anywhere, India",
       type: "Full-time",
-      experience: "5+ years",
-      description:
-        "We are looking for an experienced Snowflake Data Engineer to join our team and help design, build, and maintain our data infrastructure.",
+      experience: "7–10 years (1–2 years Playwright)",
+      description: "Lead automation testing efforts, design frameworks, and ensure high-quality product delivery using Playwright.",
       requirements: [
-        "5+ years of experience in data engineering",
-        "Strong experience with Snowflake",
-        "Proficiency in SQL and Python",
-        "Experience with ETL/ELT processes",
-        "Knowledge of data modeling and data warehousing concepts",
+        "Strong programming skills in JavaScript/TypeScript or any modern language",
+        "In-depth knowledge of Playwright and automation frameworks",
+        "Hands-on API testing and automation integration",
+        "CI/CD pipeline setup with Jenkins, GitHub Actions, or Azure DevOps",
+        "Database testing and SQL proficiency",
       ],
-      slug: "senior-snowflake-data-engineer",
+      slug: "lead-automation-engineer-playwright",
     },
     {
-      title: "Automation Test Lead",
-      location: "Hyderabad, India",
+      title: "Java Developer",
+      location: "Anywhere, India",
       type: "Full-time",
-      experience: "4+ years",
-      description:
-        "We are seeking an Automation Test Lead to develop and execute automated test strategies for our software applications.",
+      experience: "5–10 years",
+      description: "Maintain and support business applications in a Run-The-Bank model focusing on automation and ML-driven monitoring.",
       requirements: [
-        "4+ years of experience in test automation",
-        "Strong knowledge of Selenium, TestNG, and Cucumber",
-        "Experience with CI/CD pipelines",
-        "Proficiency in Java or Python",
-        "Experience leading a team of testers",
+        "5–10 years of Java/J2EE development",
+        "Spring Boot and MongoDB exposure preferred",
+        "SQL/PLSQL in Sybase, DB2, or DynamoDB",
+        "Docker microservices and RESTful API architecture",
       ],
-      slug: "automation-test-lead",
+      slug: "java-developer",
     },
     {
-      title: "Cloud Solutions Architect",
-      location: "Remote",
+      title: "Java Developer + Cloud Experience",
+      location: "Anywhere, India",
       type: "Full-time",
-      experience: "6+ years",
-      description:
-        "We are looking for a Cloud Solutions Architect to design and implement cloud-based solutions for our clients.",
+      experience: "5–10 years",
+      description: "Develop microservices with cloud infrastructure design and provisioning using Terraform on AWS.",
       requirements: [
-        "6+ years of experience in cloud architecture",
-        "Strong knowledge of AWS, Azure, or GCP",
-        "Experience with infrastructure as code (Terraform, CloudFormation)",
-        "Understanding of microservices architecture",
-        "Strong communication and client-facing skills",
+        "SQL/PLSQL in Sybase, DB2, or DynamoDB",
+        "Docker microservices and RESTful API architecture",
+        "AWS core services: EC2, S3, ALB, NATGW, EFS, Lambda, APIGW",
+        "Design DR strategies and AWS infrastructure",
+        "Terraform provisioning on AWS",
       ],
-      slug: "cloud-solutions-architect",
+      slug: "java-cloud-developer",
     },
     {
-      title: "DevOps Engineer",
-      location: "Pune, India",
+      title: "UI Developer",
+      location: "Anywhere, India",
       type: "Full-time",
-      experience: "3+ years",
-      description: "We are seeking a DevOps Engineer to help automate and streamline our operations and processes.",
+      experience: "2+ years",
+      description: "Build dynamic user interfaces using modern frameworks like Angular or React.",
       requirements: [
-        "3+ years of experience in DevOps",
-        "Experience with Docker, Kubernetes, and containerization",
-        "Knowledge of CI/CD tools (Jenkins, GitLab CI, GitHub Actions)",
-        "Scripting skills (Bash, Python)",
-        "Experience with monitoring and logging tools",
+        "2+ years experience with Angular or React",
       ],
-      slug: "devops-engineer",
-    },
-  ]
-
-  const benefits = [
-    {
-      title: "Competitive Salary",
-      description: "We offer competitive compensation packages to attract and retain top talent.",
-      icon: "💰",
+      slug: "ui-developer",
     },
     {
-      title: "Health Insurance",
-      description: "Comprehensive health insurance coverage for you and your family.",
-      icon: "🏥",
+      title: "Project Manager",
+      location: "Anywhere, India",
+      type: "Full-time",
+      experience: "5–8 years",
+      description: "Manage record keeping, retention, and governance initiatives within projects.",
+      requirements: [
+        "5–8 years in records management or information governance",
+      ],
+      slug: "project-manager",
     },
     {
-      title: "Professional Development",
-      description: "Continuous learning opportunities and career growth paths.",
-      icon: "📚",
-    },
-    {
-      title: "Flexible Work Hours",
-      description: "Work-life balance with flexible scheduling options.",
-      icon: "⏰",
-    },
-    {
-      title: "Remote Work Options",
-      description: "Hybrid work model with remote work possibilities.",
-      icon: "🏠",
-    },
-    {
-      title: "Team Events",
-      description: "Regular team building activities and social events.",
-      icon: "🎉",
+      title: "Java Developer",
+      location: "Anywhere, India",
+      type: "Full-time",
+      experience: "3–6 years",
+      description: "Provide application and production support, automate monitoring, and manage incidents.",
+      requirements: [
+        "3–6 years in application and production support",
+        "Proficiency in Java programming and complex algorithms",
+        "Strong SQL skills for database troubleshooting",
+        "Linux/UNIX and shell scripting experience",
+        "Debugging and issue resolution skills",
+      ],
+      slug: "java-application-support",
     },
   ]
 
@@ -143,18 +128,15 @@ export default function CareersPage() {
               <Card key={job.slug} className="h-full hover:shadow-lg transition-all">
                 <CardHeader className="p-6">
                   <h3 className="text-xl font-bold">{job.title}</h3>
-                  <div className="flex flex-wrap gap-4 mt-2">
-                    <div className="flex items-center text-sm text-gray-500">
-                      <MapPin className="h-4 w-4 mr-1" />
-                      {job.location}
+                  <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-500">
+                    <div className="flex items-center">
+                      <MapPin className="h-4 w-4 mr-1" />{job.location}
                     </div>
-                    <div className="flex items-center text-sm text-gray-500">
-                      <Clock className="h-4 w-4 mr-1" />
-                      {job.type}
+                    <div className="flex items-center">
+                      <Clock className="h-4 w-4 mr-1" />{job.type}
                     </div>
-                    <div className="flex items-center text-sm text-gray-500">
-                      <Briefcase className="h-4 w-4 mr-1" />
-                      {job.experience}
+                    <div className="flex items-center">
+                      <Briefcase className="h-4 w-4 mr-1" />{job.experience}
                     </div>
                   </div>
                 </CardHeader>
@@ -163,49 +145,17 @@ export default function CareersPage() {
                   <div>
                     <h4 className="font-semibold mb-2">Requirements:</h4>
                     <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                      {job.requirements.map((req, index) => (
-                        <li key={index}>{req}</li>
+                      {job.requirements.map((req, idx) => (
+                        <li key={idx}>{req}</li>
                       ))}
                     </ul>
                   </div>
                 </CardContent>
                 <CardFooter className="p-6">
                   <Button asChild>
-                    <Link href={`/careers/${job.slug}`}>
-                      Apply Now <ChevronRight className="ml-2 h-4 w-4" />
-                    </Link>
+                    <Link href={`/careers/${job.slug}`}>Apply Now <ChevronRight className="ml-2 h-4 w-4" /></Link>
                   </Button>
                 </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
-                Why Work With Us
-              </h2>
-              <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
-                We offer a range of benefits to support your professional and personal growth
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {benefits.map((benefit) => (
-              <Card key={benefit.title} className="h-full hover:shadow-lg transition-all">
-                <CardHeader className="p-6">
-                  <div className="text-4xl mb-4">{benefit.icon}</div>
-                  <h3 className="text-xl font-bold">{benefit.title}</h3>
-                </CardHeader>
-                <CardContent className="p-6 pt-0">
-                  <p className="text-gray-600">{benefit.description}</p>
-                </CardContent>
               </Card>
             ))}
           </div>
@@ -239,4 +189,3 @@ export default function CareersPage() {
     </main>
   )
 }
-
