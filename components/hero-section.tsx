@@ -120,7 +120,7 @@ export function HeroSection() {
         className="fixed left-6 bottom-6 z-50"
       >
         <a 
-          href="https://wa.me/+919177089287" 
+          href="https://wa.me/+917829889287" 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center justify-center w-16 h-16 rounded-full bg-green-500 shadow-lg hover:bg-green-600 transition-colors duration-300"
