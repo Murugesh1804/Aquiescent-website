@@ -2,12 +2,22 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, FileDown } from "lucide-react"
+import { X, FileDown, User, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import axios from "axios"
 
 export function BrochurePopup() {
   const [isOpen, setIsOpen] = useState(false)
-  const [downloaded, setDownloaded] = useState(false)
+  const [step, setStep] = useState("form") // "form", "success"
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: ""
+  })
+  const [errors, setErrors] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -16,10 +26,41 @@ export function BrochurePopup() {
     return () => clearTimeout(timer)
   }, [])
 
-  const handleDownload = async () => {
+  const validateForm = () => {
+    const newErrors = {}
+    if (!formData.name.trim()) newErrors.name = "Name is required"
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required"
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Email is invalid"
+    }
+    if (!formData.phone.trim()) newErrors.phone = "Phone is required"
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleDownload = async (e) => {
+    e.preventDefault()
+    
+    if (!validateForm()) return
+    
+    setIsSubmitting(true)
+    
     try {
-      // Replace with your actual PDF URL
-      const pdfUrl = '/placeholder.svg'
+      // Send form data to backend
+      const response = await axios.post('https://api.acquiescent.in/api/brochure/save', formData)
+
+      // Download the file
+      const pdfUrl = '/placeholder.svg' // Replace with your actual PDF URL
       const link = document.createElement('a')
       link.href = pdfUrl
       link.download = 'Company-Brochure-2025.pdf'
@@ -27,15 +68,22 @@ export function BrochurePopup() {
       link.click()
       document.body.removeChild(link)
       
-      setDownloaded(true)
+      // Show success message
+      setStep("success")
+      
+      // Close popup after delay
       setTimeout(() => {
         setIsOpen(false)
         setTimeout(() => {
-          setDownloaded(false)
+          setStep("form")
+          setFormData({ name: "", email: "", phone: "" })
         }, 500)
-      }, 2000)
+      }, 3000)
     } catch (error) {
-      console.error('Download failed:', error)
+      console.error('Error:', error)
+      alert('Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -67,8 +115,8 @@ export function BrochurePopup() {
                 <h3 className="text-xl font-bold">Company Brochure</h3>
               </div>
               <div className="p-6">
-                {!downloaded ? (
-                  <>
+                {step === "form" ? (
+                  <form onSubmit={handleDownload}>
                     <div className="flex justify-center mb-4">
                       <div className="bg-blue-100 p-3 rounded-full">
                         <FileDown className="h-6 w-6 text-blue-600" />
@@ -76,14 +124,70 @@ export function BrochurePopup() {
                     </div>
                     <h4 className="text-center text-xl font-bold mb-2">Download Our 2025 Brochure</h4>
                     <p className="text-gray-600 mb-6 text-center">
-                      Get instant access to our complete course catalog and company services.
+                      Enter your details to get instant access to our complete course catalog.
                     </p>
+                    
+                    <div className="space-y-4 mb-6">
+                      <div className="space-y-1">
+                        <Label htmlFor="name">Name</Label>
+                        <div className="relative">
+                          <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <Input 
+                            id="name"
+                            name="name"
+                            className="pl-10"
+                            placeholder="Enter your name" 
+                            value={formData.name}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <Label htmlFor="email">Email</Label>
+                        <div className="relative">
+                          <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <Input 
+                            id="email"
+                            name="email"
+                            type="email"
+                            className="pl-10"
+                            placeholder="Enter your email" 
+                            value={formData.email}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <Label htmlFor="phone">Phone Number</Label>
+                        <div className="relative">
+                          <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <Input 
+                            id="phone"
+                            name="phone"
+                            className="pl-10"
+                            placeholder="Enter your phone number" 
+                            value={formData.phone}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+                      </div>
+                    </div>
+                    
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button onClick={handleDownload} className="w-full font-semibold">
-                        Download Brochure
+                      <Button 
+                        type="submit" 
+                        className="w-full font-semibold"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? "Processing..." : "Download Brochure"}
                       </Button>
                     </motion.div>
-                  </>
+                  </form>
                 ) : (
                   <div className="py-6 text-center">
                     <div className="flex justify-center mb-4">
