@@ -164,28 +164,32 @@ export default function CareersPage() {
 
       {/* CTA Section */}
       <section className="w-full py-12 md:py-24 bg-primary text-white">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Don't See a Perfect Match?
-              </h2>
-              <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
-                We're always looking for talented individuals to join our team. Send us your resume and we'll keep you
-                in mind for future opportunities.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="secondary" asChild>
-                <Link href="/contact">Submit Your Resume</Link>
-              </Button>
-              <Button variant="outline" className="bg-white/10 text-white border-white/20 hover:bg-white/20" asChild>
-                <Link href="/contact">Contact Us</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div className="container px-4 md:px-6">
+    <div className="flex flex-col items-center justify-center space-y-4 text-center">
+      <div className="space-y-2">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          Don't See a Perfect Match?
+        </h2>
+        <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
+          We're always looking for talented individuals to join our team. Send us your resume and we'll keep you
+          in mind for future opportunities.
+        </p>
+        <p className="mx-auto max-w-[700px] text-white/80 md:text-lg">
+          You can also email us directly at <a href="mailto:hr@acquiescent.in" className="underline">hr@acquiescent.in</a>
+        </p>
+      </div>
+      <div className="flex flex-col sm:flex-row gap-4">
+        <Button variant="secondary" asChild>
+          <Link href="/contact">Submit Your Resume</Link>
+        </Button>
+        <Button variant="outline" className="bg-white/10 text-white border-white/20 hover:bg-white/20" asChild>
+          <Link href="/contact">Contact Us</Link>
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
+
     </main>
   )
 }
