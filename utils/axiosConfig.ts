@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://api.acquiescent.in/api',
+    baseURL: 'http://localhost:3500/api',
     timeout: 5000,
 });
 

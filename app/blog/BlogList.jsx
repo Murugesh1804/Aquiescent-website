@@ -15,7 +15,7 @@ export default function BlogList() {
   useEffect(() => {
     async function fetchBlogs() {
       try {
-        const response = await axios.get("https://api.acquiescent.in/api/blogs/all");
+        const response = await axios.get("http://localhost:3500/api/blogs/all");
         console.log(response.data);
         setBlogs(response.data.blogs);
       } catch (error) {
