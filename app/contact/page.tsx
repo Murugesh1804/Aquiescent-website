@@ -28,7 +28,7 @@ export default function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3500/api/queries/submit", formData);
+      await axios.post("https://api.acquiescent.in/api/queries/submit", formData);
       setMessage("Your message has been sent successfully!");
       setFormData({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
     } catch (error) {
