@@ -139,7 +139,20 @@ export function EnrollmentForm({ courseName = "" }) {
         </div>
         <div className="space-y-2">
           <Label htmlFor="phone">Phone</Label>
-          <Input id="phone" name="phone" value={formState.phone} onChange={handleChange} placeholder="Enter your phone number" required />
+          <Input 
+            id="phone" 
+            name="phone" 
+            type="tel"
+            pattern="[0-9]*"
+            inputMode="numeric"
+            value={formState.phone} 
+            onChange={(e) => {
+              const value = e.target.value.replace(/\D/g, '');
+              setFormState(prev => ({ ...prev, phone: value }));
+            }}
+            placeholder="Enter your phone number" 
+            required 
+          />
         </div>
         <div className="space-y-2">
           <Label htmlFor="course">Course</Label>
