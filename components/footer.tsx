@@ -125,8 +125,8 @@ export function Footer() {
               </li>
               <li className="flex">
                 <Mail className="h-5 w-5 mr-2 text-gray-400 flex-shrink-0" />
-                <Link href="mailto:info@acquiescents.in" className="text-gray-400 hover:text-white transition-colors">
-                info@acquiescents.in
+                <Link href="mailto:info@acquiescent.in" className="text-gray-400 hover:text-white transition-colors">
+                info@acquiescent.in
                 </Link>
               </li>
             </ul>
