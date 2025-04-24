@@ -153,7 +153,7 @@ export default function CareersPage() {
                 </CardContent>
                 <CardFooter className="p-6">
                   <Button asChild>
-                    <Link href={`/careers/${job.slug}`}>Apply Now <ChevronRight className="ml-2 h-4 w-4" /></Link>
+                    <Link href={`/contact`}>Apply Now <ChevronRight className="ml-2 h-4 w-4" /></Link>
                   </Button>
                 </CardFooter>
               </Card>

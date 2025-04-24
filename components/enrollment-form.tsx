@@ -138,22 +138,36 @@ export function EnrollmentForm({ courseName = "" }) {
           <Input id="email" name="email" value={formState.email} onChange={handleChange} type="email" placeholder="Enter your email" required />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="phone">Phone</Label>
-          <Input 
-            id="phone" 
-            name="phone" 
-            type="tel"
-            pattern="[0-9]*"
-            inputMode="numeric"
-            value={formState.phone} 
-            onChange={(e) => {
-              const value = e.target.value.replace(/\D/g, '');
-              setFormState(prev => ({ ...prev, phone: value }));
-            }}
-            placeholder="Enter your phone number" 
-            required 
-          />
-        </div>
+  <Label htmlFor="phone">Phone</Label>
+  <div className="flex items-center space-x-2">
+    <span className="px-3 py-2 bg-gray-100 border border-gray-300 rounded">+91</span>
+    <Input
+      id="phone"
+      name="phone"
+      type="tel"
+      value={formState.phone.replace('+91', '')}
+      onChange={(e) => {
+        const cleaned = e.target.value.replace(/\D/g, '');
+        if (cleaned.length <= 10) {
+          const fullPhone = `+91${cleaned}`;
+          handleChange({
+            ...e,
+            target: {
+              ...e.target,
+              value: fullPhone,
+              name: 'phone',
+            },
+          });
+        }
+      }}
+      placeholder="Enter 10-digit number"
+      maxLength={10}
+      required
+    />
+  </div>
+</div>
+
+
         <div className="space-y-2">
           <Label htmlFor="course">Course</Label>
           <Select value={formState.course} onValueChange={handleSelectChange}>

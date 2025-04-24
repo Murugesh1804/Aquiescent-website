@@ -18,13 +18,13 @@ export default function ContactPage() {
     subject: "",
     message: ""
   });
-  
+
   const [message, setMessage] = useState("");
-  
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -104,15 +104,26 @@ export default function ContactPage() {
                       required
                     />
                   </div>
+                  {/* Phone Field with +91 logic */}
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone</Label>
-                    <Input 
-                      id="phone" 
-                      placeholder="Enter your phone number" 
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                    />
+                    <div className="flex items-center space-x-2">
+                      <span className="px-3 py-2 bg-gray-100 border border-gray-300 rounded">+91</span>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        placeholder="Enter 10-digit number"
+                        maxLength={10}
+                        value={formData.phone.replace('+91', '')}
+                        onChange={(e) => {
+                          const cleaned = e.target.value.replace(/\D/g, '');
+                          if (cleaned.length <= 10) {
+                            setFormData({ ...formData, phone: `+91${cleaned}` });
+                          }
+                        }}
+                        required
+                      />
+                    </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="subject">Subject</Label>
