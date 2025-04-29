@@ -11,7 +11,7 @@ const CONVERSION_TRACKING = {
     sendTo: "AW-16982692130/Yr3qCPKY7bkaEKKi_aE_"
   },
   "software-testing-automation": {
-    courseName: "Software Testing & Automation",
+    courseName: "Software Testing Training Program",
     sendTo: "AW-16982692130/dEelCMje4bkaEKKi_aE_"
   }
 };
