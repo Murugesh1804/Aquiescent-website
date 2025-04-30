@@ -2,56 +2,64 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code, Database, Server, Terminal, FileCode, Brain, Cloud, PieChart } from "lucide-react"
+import { 
+  TestTube2, 
+  LineChart,
+  Braces,
+  LayoutDashboard,
+  Database,
+  Brain,
+  FileCode
+} from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export function CoursesSection() {
   const courses = [
     {
-      icon: <FileCode className="h-10 w-10 text-primary" />,
+      icon: <Braces className="h-10 w-10 text-[#f89820]" />, // Java color
       title: "Java",
       slug: "java",
       description:
         "Comprehensive Java programming from basics to advanced concepts including Spring, Hibernate, and microservices architecture.",
     },
     {
-      icon: <Terminal className="h-10 w-10 text-primary" />,
+      icon: <TestTube2 className="h-10 w-10 text-[#2fc781]" />, // Testing icon in green
       title: "Software Testing",
       slug: "software-testing",
       description:
         "Learn manual and automation testing methodologies, tools, and best practices for quality assurance.",
     },
     {
-      icon: <Server className="h-10 w-10 text-primary" />,
+      icon: <LineChart className="h-10 w-10 text-[#000000]" />, // Kafka black
       title: "Apache Kafka",
       slug: "apache-kafka",
       description:
         "Master distributed event streaming platform for high-performance data pipelines and streaming analytics.",
     },
     {
-      icon: <Code className="h-10 w-10 text-primary" />,
+      icon: <LayoutDashboard className="h-10 w-10 text-[#2496ED]" />, // Docker blue for DevOps
       title: "DevOps",
       slug: "devops",
       description:
         "Comprehensive training on DevOps practices, tools, and methodologies for continuous integration and deployment.",
     },
     {
-      icon: <Database className="h-10 w-10 text-primary" />,
+      icon: <Database className="h-10 w-10 text-[#00758F]" />, // Database blue
       title: "Data Engineer",
       slug: "data-engineer",
       description:
         "Learn to design, build and maintain data pipelines and infrastructure for efficient data processing.",
     },
     {
-      icon: <Brain className="h-10 w-10 text-primary" />,
+      icon: <Brain className="h-10 w-10 text-[#FF6B6B]" />, // Brain in coral color
       title: "Data Scientist",
       slug: "data-scientist",
       description:
         "Master data analysis, machine learning, and statistical modeling to extract insights from complex datasets.",
     },
     {
-      icon: <Terminal className="h-10 w-10 text-primary" />,
+      icon: <FileCode className="h-10 w-10 text-[#3776AB]" />, // Python blue
       title: "Python",
       slug: "python",
       description:
