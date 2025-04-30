@@ -17,28 +17,30 @@ export default function UserDashboard({ userId, userEmail }) {
   const [isLoadingQueries, setIsLoadingQueries] = useState(true)
   const [submittingId, setSubmittingId] = useState(null)
   const { toast } = useToast()
+  const [brochureDownloads, setBrochureDownloads] = useState([]);
+  const [isLoadingBrochures, setIsLoadingBrochures] = useState(true);
+
+
+
 
   useEffect(() => {
     if (userId && userEmail) {
       fetchEnrollments()
       fetchQueries()
+      fetchBrochureDownloads()
     }
   }, [userId, userEmail])
 
   const fetchEnrollments = async () => {
     try {
       setIsLoadingEnrollments(true);
-      const token = localStorage.getItem("token");
-      if (!token) {
-        toast({ title: "Error", description: "Authentication token missing", variant: "destructive" });
-        return;
-      }
+      // const token = localStorage.getItem("token");
+      // if (!token) {
+      //   toast({ title: "Error", description: "Authentication token missing", variant: "destructive" });
+      //   return;
+      // }
   
-      const response = await axios.get("https://api.acquiescents.in/api/enrollments", {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+      const response = await axios.get("https://api.acquiescent.in/api/enrollments");
       
       if (!Array.isArray(response.data)) {
         throw new Error("Unexpected response format");
@@ -66,6 +68,47 @@ export default function UserDashboard({ userId, userEmail }) {
     }
   };
 
+  const fetchBrochureDownloads = async () => {
+    try {
+      setIsLoadingBrochures(true);
+      const token = localStorage.getItem("token");
+  
+      if (!token) {
+        toast({
+          title: "Error",
+          description: "Authentication token missing",
+          variant: "destructive"
+        });
+        return;
+      }
+  
+      const response = await axios.get("https://api.acquiescent.in/api/brochure/fetch", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+  
+      // Extract only the necessary user info
+      const downloadedUsers = response.data.data.map(user => ({
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        downloadedAt: user.createdAt
+      }));
+  
+      setBrochureDownloads(downloadedUsers);
+    } catch (error) {
+      console.error("Error fetching brochures:", error);
+      toast({
+        title: "Error",
+        description: error.response?.data?.message || "Failed to load brochure downloads",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoadingBrochures(false);
+    }
+  };
+  
   const fetchQueries = async () => {
     try {
       setIsLoadingQueries(true);
@@ -75,7 +118,7 @@ export default function UserDashboard({ userId, userEmail }) {
         return;
       }
   
-      const response = await axios.get("https://api.acquiescents.in/api/queries", {
+      const response = await axios.get("https://api.acquiescent.in/api/queries", {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -112,7 +155,7 @@ export default function UserDashboard({ userId, userEmail }) {
       setSubmittingId(enrollmentId);
       console.log(enrollmentId)
       console.log(remarks[enrollmentId])
-      await axios.post("https://api.acquiescents.in/api/enrollments/remark", {
+      await axios.post("https://api.acquiescent.in/api/enrollments/remark", {
         enrollmentId,
         remark: remarks[enrollmentId],
       }
@@ -307,6 +350,66 @@ export default function UserDashboard({ userId, userEmail }) {
           </div>
         </CardContent>
       </Card>
+
+      <Card>
+  <CardHeader>
+    <CardTitle className="flex items-center">
+      <BookOpen className="h-5 w-5 mr-2" />
+      Brochure Downloads
+    </CardTitle>
+    <CardDescription>View all users who downloaded brochures</CardDescription>
+  </CardHeader>
+  <CardContent>
+    {isLoadingBrochures ? (
+      <div className="space-y-4">
+        {[1, 2, 3].map((i) => (
+          <Skeleton key={i} className="h-16 w-full" />
+        ))}
+      </div>
+    ) : (
+      <div className="rounded-md border">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Name</TableHead>
+            <TableHead>Email</TableHead>
+            <TableHead>Phone</TableHead>
+            <TableHead>Date</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {brochureDownloads.length === 0 ? (
+            <TableRow>
+              <TableCell colSpan={4} className="text-center py-8 text-gray-500">
+                No brochure downloads found
+              </TableCell>
+            </TableRow>
+          ) : (
+            brochureDownloads.map((download) => (
+              <TableRow key={download._id}>
+                <TableCell>{download.name}</TableCell>
+                <TableCell>{download.email}</TableCell>
+                <TableCell>{download.phone}</TableCell>
+                <TableCell>
+                {new Date(download.createdAt).toLocaleDateString("en-US", {
+                                year: "numeric", month: "short", day: "numeric"
+                              })}
+                </TableCell>
+              </TableRow>
+            ))
+          )}
+        </TableBody>
+      </Table>
+    </div>
+    
+
+    )}
+    <div className="mt-4 flex justify-end">
+      <Button variant="outline" size="sm" onClick={fetchBrochureDownloads}>Refresh</Button>
+    </div>
+  </CardContent>
+</Card>
+
     </div>
   )
 }

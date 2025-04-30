@@ -10,70 +10,86 @@ export const metadata = {
 }
 
 const courses = [
-  {
-    title: "AWS Cloud Fundamentals",
-    subtitle: "Amazon Web Services Architecture",
-    description: "Comprehensive training on AWS services, security, databases, and architecture best practices. Prepare for certification while gaining hands-on experience.",
-    image: "/images/courses/aws.jpg",
-    slug: "aws",
-    duration: "12 Days",
-    schedule: "Weekdays",
-    level: "Beginner to Intermediate",
-  },
-  
-  {
-    title: "DevOps Engineering",
-    subtitle: "Modern DevOps Tools and Practices",
-    description: "Master industry-standard DevOps tools including Git, Terraform, Jenkins, Ansible, Docker, and monitoring solutions through hands-on projects.",
-    image: "/images/courses/devops.jpg",
-    slug: "devops",
-    duration: "22 Days",
-    schedule: "Weekdays",
-    level: "Intermediate to Advanced",
-  },
-  
-  {
-    title: "Python Programming",
-    subtitle: "From Fundamentals to Web Applications",
-    description: "Comprehensive Python course covering programming basics, data structures, OOP, database integration, and web development with Django.",
-    image: "/images/courses/python.jpg",
-    slug: "python",
-    duration: "12 Weeks",
-    schedule: "Weekdays",
-    level: "Beginner to Advanced",
-  },
-  
-  {
-    title: "Snowflake on AWS",
-    subtitle: "Cloud Data Warehousing",
-    description: "Learn cloud data warehousing with Snowflake, including AWS integration, optimization, and data sharing for enterprise-grade analytics solutions.",
-    image: "/images/courses/snowflake.jpg",
-    slug: "snowflake",
-    duration: "4 Weeks",
-    schedule: "Weekdays",
-    level: "Intermediate",
-  },
-  
-  {
-    title: "Software Testing & Automation",
-    subtitle: "Manual and Selenium Testing",
-    description: "Master software testing fundamentals and automation with Selenium WebDriver, TestNG, Cucumber, and CI/CD integration for quality assurance.",
-    image: "/images/courses/testing.jpg",
-    slug: "softwareTesting",
-    duration: "12 Weeks",
-    schedule: "Weekdays",
-    level: "Beginner to Advanced",
-  },
-  {
-    title: "SQL Server Mastery",
-    subtitle: "Database Development and Management",
-    description: "Master SQL Server from fundamentals to advanced concepts. Learn database design, query optimization, stored procedures, and more for enterprise-grade data solutions.",
-    image: "/images/courses/sql-server.jpg",
-    slug: "sql",
-    duration: "4 Weeks",
-    schedule: "Weekends & Weekday Evenings",
-    level: "Beginner to Advanced",
-  }
+    {
+      "title": "AWS Security Engineer",
+      "subtitle": "Master Cloud Security on AWS Platform",
+      "description": "Comprehensive AWS security training covering the shared responsibility model, IAM, network security, data protection, compliance frameworks, and incident response. Gain hands-on experience with security tools and implement best practices for securing AWS infrastructure.",
+      "image": "/images/courses/awssecurity.jpg",
+      "duration": "12 Days",
+      "schedule": "Weekdays",
+      "level": "Intermediate to Advanced",
+      "slug": "aws_security"
+    },
+    {
+      "title": "Confluent Kafka",
+      "subtitle": "Master Distributed Event Streaming Platform",
+      "description": "Comprehensive Confluent Kafka training covering architecture, implementation, administration, and security. Learn to set up, configure, and manage Kafka clusters while integrating with various data sources using connectors, schema registry, and REST proxy.",
+      "image": "/images/courses/kafka.jpg",
+      "duration": "12 Modules",
+      "schedule": "Flexible",
+      "level": "Intermediate",
+      "slug": "kafka"
+    },
+    {
+      "title": "Snowflake on AWS",
+      "subtitle": "Cloud Data Warehousing Solutions",
+      "description": "Comprehensive Snowflake training covering data warehousing fundamentals, Snowflake architecture, advanced features, and AWS integration. Learn to design, implement, and optimize data solutions while understanding Snowflake's unique pricing model and performance capabilities.",
+      "image": "/images/courses/snowflake.jpg",
+      "duration": "10 Modules",
+      "schedule": "Weekdays/Weekends",
+      "level": "Beginner to Advanced",
+      "slug": "snowflake"
+    },
+    {
+      "title": "Python Full Stack Development",
+      "subtitle": "Master Web Development with Python & Modern Frameworks",
+      "description": "Comprehensive full-stack Python development course covering frontend technologies (HTML, CSS, JavaScript), core Python programming, database interaction, and backend frameworks like Django/Flask. Learn to build complete web applications with modern responsive designs and RESTful APIs.",
+      "image": "/images/courses/pythonfullstack.jpg",
+      "duration": "16 Weeks",
+      "schedule": "Flexible",
+      "level": "Beginner to Advanced",
+      "slug": "python_full_stack"
+    },
+    {
+      "title": "AWS & DevOps",
+      "subtitle": "Cloud Infrastructure Automation & Continuous Delivery",
+      "description": "Comprehensive AWS and DevOps course covering cloud infrastructure, automation tools, containerization, and CI/CD pipelines. Learn to implement infrastructure as code with Terraform, configuration management with Ansible, continuous integration with Jenkins, and container orchestration with Docker.",
+      "image": "/images/courses/awsdevops.jpg",
+      "duration": "22 Days",
+      "schedule": "Weekdays",
+      "level": "Intermediate",
+      "slug": "aws_devops"
+    },
+    {
+      "title": "Oracle APEX",
+      "subtitle": "Low-Code Application Development Platform",
+      "description": "Comprehensive Oracle APEX course covering application development concepts, SQL Workshop, page building, and security implementation. Learn to create interactive reports, forms, and secure data-driven applications with minimal coding requirements using Oracle's enterprise-grade development platform.",
+      "image": "/images/courses/oracleapex.jpg",
+      "duration": "11 Modules",
+      "schedule": "Flexible",
+      "level": "Beginner to Intermediate",
+      "slug": "oracle_apex"
+    },
+    {
+      "title": "Software Testing Training Program",
+    "subtitle": "Master Manual and Automated Testing with Real-Time Projects",
+    "description": "Comprehensive training in manual testing, automation with Selenium, BDD with Cucumber, SQL, Git, Jenkins, and more. Includes hands-on project work, resume preparation, and mock interviews to help you become job-ready.",
+    "image": "/images/courses/softwaretesting.jpg",
+    "duration": "60 Days",
+    "schedule": "Weekdays",
+    "level": "Beginner to Advanced",
+    "slug": "softwareTesting"
+    },
+    {
+      "title": "Data Science Professional",
+      "subtitle": "Master Data Science with Python, ML, Deep Learning & Visualization",
+      "description": "End-to-end Data Science training covering Python programming, data analysis, statistics, machine learning, deep learning, NLP, and BI tools like Tableau or Power BI. Build real-world projects and prepare for data science roles with industry-relevant skills.",
+      "image": "/images/courses/datascience.jpg",
+      "duration": "45 Days",
+      "schedule": "Weekdays and Weekends",
+      "level": "Beginner to Advanced",
+      "slug": "data_science"
+    },
 ]
 
 export default function CoursesPage() {

@@ -11,611 +11,990 @@ import { DownloadBrochureButton } from "@/components/DownloadBrochure";
 
 // Course data
 const courses = {
-    aws: {
-      "title": "AWS Cloud Fundamentals",
-      "subtitle": "Master Amazon Web Services Architecture and Services",
-      "description": "Comprehensive AWS training covering cloud computing concepts, core AWS services, security, databases, and architecture best practices. Prepare for AWS certification while gaining hands-on experience with real-world AWS implementations.",
-      "image": "/images/courses/aws.png",
-      "duration": "12 Days",
-      "schedule": "Weekdays",
-      "level": "Beginner to Intermediate",
-      "certification": "AWS Cloud Practitioner or Developer/Sysops-Associate",
-      "brochurePath": "/placeholder.svg",
-      "syllabus": [
-        {
-          "title": "Module 1: Cloud Computing Fundamentals",
-          "topics": [
-            "What is Cloud Computing",
-            "Cloud Computing Types and Service Models",
-            "Introduction to AWS and Benefits",
-            "AWS Region, AZ, Edge Location, LocalZone",
-            "AWS Pricing and Purchase Options"
-          ]
-        },
-        {
-          "title": "Module 2: AWS Compute and Networking",
-          "topics": [
-            "AWS Computing Services Overview",
-            "EC2 and Instance Types",
-            "EC2 IP Addressing (Public, Private, Elastic)",
-            "Security Groups and Network Configuration",
-            "Amazon VPC, Subnets, and Gateways",
-            "Network Access Control Lists (NACLs)",
-            "Load Balancers (ALB, NLB)"
-          ]
-        },
-        {
-          "title": "Module 3: AWS Storage Solutions",
-          "topics": [
-            "AMI and AWS Marketplace",
-            "Metadata and Userdata",
-            "EBS and Instance Store",
-            "EBS Types and Performance Options",
-            "Object and Block Storage Services",
-            "Storage Classes and Lifecycle Management",
-            "EFS and FSx Block Storage Solutions"
-          ]
-        },
-        {
-          "title": "Module 4: AWS Infrastructure as Code",
-          "topics": [
-            "AWS CLI Installation and Configuration",
-            "Automation with CLI Commands",
-            "Infrastructure as Code (IaaC) Concepts",
-            "CloudFormation Fundamentals",
-            "YAML and JSON Templates",
-            "Sample CloudFormation Implementations"
-          ]
-        },
-        {
-          "title": "Module 5: AWS Database Services",
-          "topics": [
-            "RDS Overview and Use Cases",
-            "Database Engine Options",
-            "RDS Backup and Snapshots",
-            "SQL and NoSQL Database Offerings",
-            "Aurora Instance Types",
-            "DynamoDB and ElastiCache"
-          ]
-        },
-        {
-          "title": "Module 6: AWS Security and Management",
-          "topics": [
-            "Identity and Access Management (IAM)",
-            "IAM Users, Roles, and Policies",
-            "Access Keys and Security Best Practices",
-            "CloudWatch Monitoring",
-            "CloudTrail and VPC Flow Logs",
-            "Custom Metrics and Alarms",
-            "Auto-Scaling Groups"
-          ]
-        },
-        {
-          "title": "Module 7: AWS Applications and Serverless",
-          "topics": [
-            "DNS and Route 53",
-            "Routing Policies",
-            "Elastic Beanstalk",
-            "CloudFront and Content Delivery",
-            "AWS Cognito",
-            "Lambda Functions and Serverless Computing",
-            "Step Functions and API Gateway",
-            "AWS Athena and Event Bridge"
-          ]
-        },
-        {
-          "title": "Module 8: DevOps and Cost Management",
-          "topics": [
-            "AWS Developer Services (CodeCommit, CodeDeploy, CodeBuild)",
-            "CI/CD Implementation",
-            "AWS Cost and Billing Explorer",
-            "Billing Alerts and Budget Management",
-            "Cost Optimization Strategies"
-          ]
-        }
-      ],
-      "features": [
-        "Hands-on labs with AWS console",
-        "Infrastructure automation practice",
-        "Security implementation exercises",
-        "Serverless application deployment",
-        "Certification preparation materials"
+  aws_security:{
+    "title": "AWS Security Engineer",
+    "subtitle": "Master Cloud Security on AWS Platform",
+    "description": "Comprehensive AWS security training covering the shared responsibility model, IAM, network security, data protection, compliance frameworks, and incident response. Gain hands-on experience with security tools and implement best practices for securing AWS infrastructure.",
+    "image": "/images/courses/awssecurity.jpg",
+    "duration": "12 Days",
+    "schedule": "Weekdays",
+    "level": "Intermediate to Advanced",
+    "certification": "AWS Security Specialty",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Introduction to AWS Security",
+        "topics": [
+          "AWS Cloud Security Overview",
+          "Understanding the Shared Responsibility Model",
+          "Security and compliance objectives in cloud computing",
+          "Core AWS security services overview",
+          "Introduction to AWS Identity and Access Management (IAM)",
+          "IAM users, groups, roles and policies",
+          "Best practices for IAM, including least privilege access",
+          "Managing IAM credentials and MFA"
+        ]
+      },
+      {
+        "title": "Module 2: Network Security and Infrastructure Protection",
+        "topics": [
+          "Virtual Private Cloud (VPC) architecture",
+          "Security groups and Network ACLs",
+          "VPC design considerations for security",
+          "VPN and Direct Connect",
+          "AWS Security Hub and GuardDuty"
+        ]
+      },
+      {
+        "title": "Module 3: Data Protection",
+        "topics": [
+          "AWS Key Management Service (KMS)",
+          "Server-side encryption (SSE) and client-side encryption",
+          "AWS Certificate Manager (ACM)",
+          "Amazon S3 security best practices",
+          "Securing databases with Amazon RDS and DynamoDB"
+        ]
+      },
+      {
+        "title": "Module 4: Governance, Compliance, and Audit",
+        "topics": [
+          "Introduction to compliance frameworks",
+          "Using AWS Config for continuous monitoring",
+          "AWS Artifact and compliance reports",
+          "AWS CloudTrail and AWS Config",
+          "Setting up AWS CloudWatch for security monitoring"
+        ]
+      },
+      {
+        "title": "Module 5: Incident Response and Threat Detection",
+        "topics": [
+          "Incident response planning and automation",
+          "Using AWS Lambda in security automation",
+          "AWS Systems Manager for incident response",
+          "AWS WAF and AWS Shield",
+          "Using Amazon Inspector for vulnerability management"
+        ]
+      },
+      {
+        "title": "Module 6: Security Best Practices and Real-world Applications",
+        "topics": [
+          "Securing AWS infrastructure: EC2, S3, RDS",
+          "Best practices for DevSecOps on AWS",
+          "Implementing a secure CI/CD pipeline",
+          "Review of tools like Wiz, Panaseer, Aikido"
+        ]
+      }
+    ]
+  },
+  confluent_kafka:{
+    "title": "Confluent Kafka",
+    "subtitle": "Master Distributed Event Streaming Platform",
+    "description": "Comprehensive Confluent Kafka training covering architecture, implementation, administration, and security. Learn to set up, configure, and manage Kafka clusters while integrating with various data sources using connectors, schema registry, and REST proxy.",
+    "image": "/images/courses/kafka.jpg",
+    "duration": "12 Modules",
+    "schedule": "Flexible",
+    "level": "Intermediate",
+    "certification": "Confluent Certified Developer for Apache Kafka",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Introduction to Kafka",
+        "topics": [
+          "What is Kafka",
+          "Kafka Features and terminologies",
+          "High-level kafka architecture",
+          "Real-life Kafka Case Studies"
+        ]
+      },
+      {
+        "title": "Module 2: Kafka Components",
+        "topics": [
+          "Broker",
+          "Zookeeper",
+          "Topics",
+          "Partition",
+          "Replication",
+          "Producer",
+          "Consumer"
+        ]
+      },
+      {
+        "title": "Module 3: Confluent Kafka Single-node Installation",
+        "topics": [
+          "Linux Environment setup and Pre-requisites",
+          "Code download (Confluent community)",
+          "Single broker installation",
+          "Kafka broker and controller configuration and setup"
+        ]
+      },
+      {
+        "title": "Module 4: Kafka Administration (CLI)",
+        "topics": [
+          "Topic management (Replication factor, Partitions)",
+          "Console Producer",
+          "Console Consumer",
+          "Console Consumer Groups",
+          "Reset the offsets of a topic for a consumer group"
+        ]
+      },
+      {
+        "title": "Module 5: Kafka Administration (GUI Tools)",
+        "topics": [
+          "OffSet Explorer (Kafka Tools)"
+        ]
+      },
+      {
+        "title": "Module 6: Kafka Topic Partition Reassignment",
+        "topics": [
+          "Setup a two brokers kafka cluster",
+          "Topic partition re-assignment"
+        ]
+      },
+      {
+        "title": "Module 7: Kafka Configurations",
+        "topics": [
+          "Broker level configurations",
+          "Topics configuration",
+          "Retention settings",
+          "Min.insync.replicas",
+          "Log Cleanup policies (Delete, Compact)"
+        ]
+      },
+      {
+        "title": "Module 8: Kafka Connect",
+        "topics": [
+          "Use of kafka-connect",
+          "Building a connector file with a simple json file",
+          "File stream source connector setup in distribution mode",
+          "Kafka connector status, start, stop, pause and resume scenarios"
+        ]
+      },
+      {
+        "title": "Module 9: Schema Registry",
+        "topics": [
+          "Use of Schema-Registry in kafka",
+          "Building a Schema in avro using avrc file",
+          "kafka-avro-console-producer use case",
+          "kafka-avro-console-consumer use case"
+        ]
+      },
+      {
+        "title": "Module 10: Kafka REST Proxy",
+        "topics": [
+          "Understanding REST Proxy",
+          "Configuring and spinning up a REST Proxy",
+          "Kafka topic end points with REST Proxy"
+        ]
+      },
+      {
+        "title": "Module 11: Kafka SSL Security",
+        "topics": [
+          "Encryption - SSL/TLS - setup",
+          "Authentication",
+          "Authorization (ACL)"
+        ]
+      },
+      {
+        "title": "Module 12: Confluent Kafka Multinode Installation",
+        "topics": [
+          "Linux Environment setup and Pre-requisites",
+          "Code download (Confluent community)",
+          "Multi-broker installation",
+          "Zookeeper configuration and setup",
+          "Kafka server configuration and setup"
+        ]
+      }
+    ]
+  },
+  snowflake_aws:{
+    "title": "Snowflake on AWS",
+    "subtitle": "Cloud Data Warehousing Solutions",
+    "description": "Comprehensive Snowflake training covering data warehousing fundamentals, Snowflake architecture, advanced features, and AWS integration. Learn to design, implement, and optimize data solutions while understanding Snowflake's unique pricing model and performance capabilities.",
+    "image": "/images/courses/snowflake.jpg",
+    "duration": "10 Modules",
+    "schedule": "Weekdays/Weekends",
+    "level": "Beginner to Advanced",
+    "certification": "SnowPro Core Certification",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Pre-requisites",
+        "topics": [
+          "Basic Of SQL",
+          "Datawarehousing basics",
+          "Cloud Exposure"
+        ]
+      },
+      {
+        "title": "Module 1: Introduction of Datawarehouse and its Basics",
+        "topics": [
+          "What is Datawarehouse",
+          "Dimensional & Fact tables",
+          "Star, Snowflake & Galaxy Schemas",
+          "Limitations of Traditional data warehouses",
+          "Advantages of Cloud over On-Prem"
+        ]
+      },
+      {
+        "title": "Module 2: Getting Started with Snowflake",
+        "topics": [
+          "Snowflake History",
+          "Create Snowflake trial account",
+          "Snowflake Editions",
+          "Web User Interface",
+          "Different Roles in Snowflake",
+          "Explore - Databases, Schemas and Tables",
+          "Writing DDL & DML Queries"
+        ]
+      },
+      {
+        "title": "Module 3: Using Snowflake",
+        "topics": [
+          "Snowflake Architecture",
+          "Virtual warehouse & Scalability",
+          "Databases, Tables & Views",
+          "Roles and Privileges",
+          "Snowflake Pricing",
+          "Query Processing in Snowflake"
+        ]
+      },
+      {
+        "title": "Module 4: Table types in Snowflake",
+        "topics": [
+          "Permanent table",
+          "Transient table",
+          "Temporary table",
+          "External Tables",
+          "Dynamic Tables",
+          "Iceberg Tables"
+        ]
+      },
+      {
+        "title": "Module 5: View types in Snowflake",
+        "topics": [
+          "Standard Views",
+          "Secure Views",
+          "Materialized Views"
+        ]
+      },
+      {
+        "title": "Module 6: Micro Partitions & Clustering",
+        "topics": [
+          "What are Micropartitions",
+          "Pruning",
+          "What is Clustering?",
+          "How clustering works & Its advantages"
+        ]
+      },
+      {
+        "title": "Module 7: AWS Cloud",
+        "topics": [
+          "Introduction Of AWS Cloud",
+          "AWS Services (IAM, S3, SQS, SNS, DMS, RDS, CloudWatch etc)",
+          "AWS & Snowflake Integration"
+        ]
+      },
+      {
+        "title": "Module 8: Stages, Data Loading & Unloading",
+        "topics": [
+          "FileFormats",
+          "Internal & External Stages",
+          "Data Loading Considerations",
+          "Preparing to Load Data",
+          "Data Load using Web UI",
+          "Data load using Copy Command",
+          "Data load Using SnowSQL",
+          "Snowpipe Continuous Stream Data Integration",
+          "Bulk loading",
+          "Data Unloading into Internal and External Stages"
+        ]
+      },
+      {
+        "title": "Module 9: Change Data Capture (CDC)",
+        "topics": [
+          "Streams",
+          "Tasks",
+          "SCDs (Slowly Changing Dimensions)"
+        ]
+      },
+      {
+        "title": "Module 10: Sharing Data in Snowflake",
+        "topics": [
+          "Introduction to Data Sharing",
+          "Inbound Shares",
+          "Outbound Shares",
+          "Using Secure Objects to Control Data Access",
+          "Advantages & Limitations Of Shares"
+        ]
+      },
+      {
+        "title": "Module 11: Caching Techniques",
+        "topics": [
+          "Metadata Cache",
+          "Query Results Cache",
+          "Disk/Data Cache"
+        ]
+      },
+      {
+        "title": "Module 12: Performance Tuning",
+        "topics": [
+          "Monitoring Credit and Storage Usage",
+          "Resource Monitors",
+          "Clustering",
+          "Horizontal Scaling",
+          "Autoscaling",
+          "Other ways to improve Performance"
+        ]
+      },
+      {
+        "title": "Additional Resources",
+        "topics": [
+          "Realtime Scenarios",
+          "Interview Questions & Answers",
+          "SnowPro Preparation Material",
+          "Sample Tests & Quiz"
+        ]
+      }
+    ]
+  },
+  python_full_stack:{
+    "title": "Python Full Stack Development",
+    "subtitle": "Master Web Development with Python & Modern Frameworks",
+    "description": "Comprehensive full-stack Python development course covering frontend technologies (HTML, CSS, JavaScript), core Python programming, database interaction, and backend frameworks like Django/Flask. Learn to build complete web applications with modern responsive designs and RESTful APIs.",
+    "image": "/images/courses/pythonfullstack.jpg",
+    "duration": "16 Weeks",
+    "schedule": "Flexible",
+    "level": "Beginner to Advanced",
+    "certification": "Python Full Stack Developer Certification",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Frontend Development",
+        "topics": [
+          "HTML 5 Fundamentals and Semantic Elements",
+          "Document structure and formatting",
+          "Tables, Lists, and Links",
+          "Image Handling and Frames",
+          "HTML Forms and Input Elements",
+          "CSS 3 Basics and Selectors",
+          "Text Formatting, Fonts, and Colors",
+          "Borders, Backgrounds, and Shadows",
+          "Bootstrap Framework",
+          "Responsive Web Design with Bootstrap Grid System"
+        ]
+      },
+      {
+        "title": "Module 2: JavaScript & TypeScript",
+        "topics": [
+          "JavaScript ES6 Features",
+          "Variable Declarations (var, let, const)",
+          "Arrow Functions and Template Strings",
+          "Object Destructuring and Spread/Rest Operators",
+          "Asynchronous Programming with Promises",
+          "TypeScript Fundamentals",
+          "Types, Custom Objects, and Interfaces",
+          "Classes and Decorators",
+          "Object-Oriented Programming in TypeScript"
+        ]
+      },
+      {
+        "title": "Module 3: Core Python Programming",
+        "topics": [
+          "Python Introduction and Environment Setup",
+          "Variables, Data Types, and Operators",
+          "Control Flow (Conditionals and Loops)",
+          "String Manipulation and Formatting",
+          "Data Structures (Lists, Tuples, Sets, Dictionaries)",
+          "Functions and Lambda Expressions",
+          "File I/O Operations",
+          "Object-Oriented Programming Concepts",
+          "Exception Handling",
+          "Regular Expressions",
+          "Multi-threaded Programming"
+        ]
+      },
+      {
+        "title": "Module 4: Database & SQL Fundamentals",
+        "topics": [
+          "Relational Database Concepts",
+          "Basic SQL Commands (SELECT, INSERT, UPDATE, DELETE)",
+          "Filtering and Sorting Results",
+          "Joins and Relationships",
+          "Group By and Aggregate Functions",
+          "Python Database Connectivity (PDBC)",
+          "Performing CRUD Operations with Python"
+        ]
+      },
+      {
+        "title": "Module 5: Django/Flask Framework",
+        "topics": [
+          "Django Installation and Project Setup",
+          "Django Project Structure and Admin Interface",
+          "Django Commands and Shell",
+          "URL Routing and Views",
+          "Django Templates and Forms",
+          "Django ORM and Database Migrations",
+          "Authentication and Authorization",
+          "RESTful API Development with Django REST Framework",
+          "Flask Alternative for Lightweight Applications"
+        ]
+      },
+      {
+        "title": "Module 6: Angular Framework",
+        "topics": [
+          "Angular Introduction and Environment Setup",
+          "Angular CLI and Project Structure",
+          "Components and Modules",
+          "Data Binding and Directives",
+          "Services and Dependency Injection",
+          "Forms (Template-Driven and Reactive)",
+          "Routing and Navigation",
+          "HTTP Requests and Observables",
+          "Component Lifecycle Hooks"
+        ]
+      }
+    ]
+  },
+  aws_devops:{
+    "title": "AWS & DevOps",
+    "subtitle": "Cloud Infrastructure Automation & Continuous Delivery",
+    "description": "Comprehensive AWS and DevOps course covering cloud infrastructure, automation tools, containerization, and CI/CD pipelines. Learn to implement infrastructure as code with Terraform, configuration management with Ansible, continuous integration with Jenkins, and container orchestration with Docker.",
+    "image": "/images/courses/awsdevops.jpg",
+    "duration": "22 Days",
+    "schedule": "Weekdays",
+    "level": "Intermediate",
+    "certification": "AWS DevOps Engineer Professional",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: DevOps Fundamentals",
+        "topics": [
+          "What is DevOps",
+          "Tools used in DevOps Process",
+          "DevOps Culture and Practices"
+        ]
+      },
+      {
+        "title": "Module 2: Source Code Management",
+        "topics": [
+          "Github, Git Client",
+          "Gitlab, Bitbucket and Azure Repos",
+          "Github actions",
+          "Commonly used Git commands",
+          "Git Branching and Workflows"
+        ]
+      },
+      {
+        "title": "Module 3: Infrastructure as Code with Terraform",
+        "topics": [
+          "Intro to Terraform, Advantages",
+          "Terraform Providers",
+          "Terraform Commands",
+          "Terraform Backend and State Management",
+          "Terraform Modules and Best Practices"
+        ]
+      },
+      {
+        "title": "Module 4: CI/CD with Jenkins",
+        "topics": [
+          "Intro to CI/CD, Jenkins",
+          "Installation and Setup of Jenkins",
+          "Jenkins Jobs - Freestyle and Pipeline Jobs",
+          "Jenkins Slave Setup",
+          "Jenkins Groovy Scripting"
+        ]
+      },
+      {
+        "title": "Module 5: Configuration Management with Ansible",
+        "topics": [
+          "Intro to Config Management Tools",
+          "Advantages of using Config Management",
+          "Ansible Installation and Setup",
+          "Ansible Adhoc Commands",
+          "Ansible Modules - Shell, File, Copy and Apt",
+          "Ansible Playbooks",
+          "Ansible Variables - Global, Play, Group and Host vars",
+          "Loops in Ansible",
+          "Handlers and Error/Exception Handling"
+        ]
+      },
+      {
+        "title": "Module 6: Containerization with Docker",
+        "topics": [
+          "Intro to Microservices and Docker",
+          "Docker Installation and Commands",
+          "Sample Docker File",
+          "Docker Volume",
+          "Dockerhub Registry",
+          "Dependent Containers",
+          "Docker Env Variables",
+          "Docker Compose",
+          "Docker Networking",
+          "Container Orchestration",
+          "Docker Swarm"
+        ]
+      },
+      {
+        "title": "Module 7: Logging and Monitoring",
+        "topics": [
+          "Cloudwatch Logs",
+          "Logging Tools - ELK, Splunk",
+          "Monitoring Tools - Grafana, Prometheus, Nagios, Zabbix",
+          "Grafana and Prometheus Setup"
+        ]
+      },
+      {
+        "title": "Module 8: Agile Development",
+        "topics": [
+          "Intro to Agile and Project Development",
+          "Jira Tool",
+          "Sprint Planning, Daily Standup",
+          "Agile Story, Backlog, Sprint, Retro"
+        ]
+      },
+      {
+        "title": "Module 9: Azure DevOps",
+        "topics": [
+          "Intro to Azure DevOps",
+          "Azure Boards, Repos, Pipelines, Artifacts",
+          "Running a Sample Job"
+        ]
+      },
+      {
+        "title": "Module 10: AWS Cloud Fundamentals",
+        "topics": [
+          "Cloud Computing Concepts",
+          "AWS Services Overview",
+          "AWS Region, AZ, Edge Location",
+          "AWS Pricing Models"
+        ]
+      },
+      {
+        "title": "Module 11: AWS Compute and Networking",
+        "topics": [
+          "EC2 and Instance Types",
+          "Security Groups",
+          "VPC and Subnets",
+          "Internet and NAT Gateway",
+          "Load Balancer Types"
+        ]
+      },
+      {
+        "title": "Module 12: AWS Storage and Image Management",
+        "topics": [
+          "AMI and Marketplace",
+          "AWS Metadata and Userdata",
+          "EBS and Instance Store",
+          "EBS Types",
+          "Storage Services and Classes"
+        ]
+      },
+      {
+        "title": "Module 13: Infrastructure as Code in AWS",
+        "topics": [
+          "AWS CLI Install and Setup",
+          "CloudFormation Templates",
+          "YAML and JSON Templates"
+        ]
+      },
+      {
+        "title": "Module 14: AWS Database Services",
+        "topics": [
+          "RDS Overview",
+          "DB Engine Options",
+          "RDS Backup and Snapshots",
+          "DynamoDB, ElastiCache"
+        ]
+      },
+      {
+        "title": "Module 15: AWS Identity and Management",
+        "topics": [
+          "IAM Overview",
+          "IAM Users, Roles and Policies",
+          "IAM Best Practices",
+          "IAM Access Keys"
+        ]
+      },
+      {
+        "title": "Module 16: AWS Monitoring and Route Services",
+        "topics": [
+          "CloudWatch",
+          "CloudTrail",
+          "VPC Flow Logs",
+          "Route53 and DNS",
+          "Routing Policies"
+        ]
+      },
+      {
+        "title": "Module 17: AWS Serverless Services",
+        "topics": [
+          "Lambda Functions",
+          "Step Functions",
+          "API Gateway",
+          "AWS Athena",
+          "Event Bridge"
+        ]
+      }
+    ]
+  },
+  oracle_apex:{
+    "title": "Oracle APEX",
+    "subtitle": "Low-Code Application Development Platform",
+    "description": "Comprehensive Oracle APEX course covering application development concepts, SQL Workshop, page building, and security implementation. Learn to create interactive reports, forms, and secure data-driven applications with minimal coding requirements using Oracle's enterprise-grade development platform.",
+    "image": "/images/courses/oracleapex.jpg",
+    "duration": "11 Modules",
+    "schedule": "Flexible",
+    "level": "Beginner to Intermediate",
+    "certification": "Oracle APEX Developer Certification",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Introduction To Oracle Application Express",
+        "topics": [
+          "What is Oracle Application Express (Oracle APEX)?",
+          "Oracle APEX Architecture",
+          "APEX Benefits and Use Cases"
+        ]
+      },
+      {
+        "title": "Module 2: APEX Demonstration Application",
+        "topics": [
+          "Creating and logging onto APEX workspace",
+          "Running APEX demonstration application",
+          "Understanding APEX interface"
+        ]
+      },
+      {
+        "title": "Module 3: APEX Application Builder Concepts",
+        "topics": [
+          "Page processing and Rendering in APEX",
+          "Substitution strings & URL syntax in APEX",
+          "Application Components"
+        ]
+      },
+      {
+        "title": "Module 4: Using SQL Workshop In APEX",
+        "topics": [
+          "Using Object Browser, SQL Commands",
+          "Create, edit and drop database objects in APEX",
+          "Using SQL Scripts to create, edit, delete and run SQL & PL/SQL scripts"
+        ]
+      },
+      {
+        "title": "Module 5: Understanding Pages and Regions",
+        "topics": [
+          "What is a Page & Region in APEX",
+          "APEX Page Processing",
+          "Shared Components",
+          "Region Types and Properties"
+        ]
+      },
+      {
+        "title": "Module 6: Creating Reports and Forms",
+        "topics": [
+          "Creating Interactive Reports in APEX",
+          "Interactive APEX Report & Column Attributes",
+          "Creating Simple Forms, Tabular Forms, Master-Detail Forms"
+        ]
+      },
+      {
+        "title": "Module 7: Working With Items & Buttons",
+        "topics": [
+          "Creating Different Types of Items (Text, Text Area, Checkbox, Select List, Radio Group)",
+          "Understanding Buttons in APEX",
+          "Creating Tabs, Lists and Breadcrumbs, List of Values"
+        ]
+      },
+      {
+        "title": "Module 8: APEX Shared Components",
+        "topics": [
+          "Understanding Different Attributes of APEX Shared Components",
+          "Navigation and User Interface Components",
+          "Logic and Validation Components"
+        ]
+      },
+      {
+        "title": "Module 9: Page Processing in APEX",
+        "topics": [
+          "Dynamic Actions, Validations and Computations",
+          "Advanced Computations",
+          "JavaScript in APEX"
+        ]
+      },
+      {
+        "title": "Module 10: Themes & Templates",
+        "topics": [
+          "Understanding Themes & Templates in APEX",
+          "Customizing Templates",
+          "Responsive Design Implementation"
+        ]
+      },
+      {
+        "title": "Module 11: Oracle APEX Security",
+        "topics": [
+          "Understanding Different Authentication & Authorization Options",
+          "Security Best Practices",
+          "Access Control Implementation"
+        ]
+      }
+    ]
+  },
+  data_science:{
+    "title": "Data Science Complete Course",
+    "subtitle": "Master Data Science with Python, Machine Learning, Deep Learning & Visualization",
+    "description": "An end-to-end Data Science training covering Python, statistics, data wrangling, machine learning, deep learning, databases, NLP, and BI tools. Includes real-world projects and interview preparation.",
+    "image": "/images/courses/datascience.jpg",
+    "duration": "45 Days",
+    "schedule": "Weekdays and Weekends",
+    "level": "Beginner to Advanced",
+    "certification": "Data Scientist Professional Certification",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Python Programming for Data Science",
+        "topics": [
+          "Core Python Basics and Installation",
+          "Data Types, Variables, Operators",
+          "Conditionals and Loops",
+          "Data Structures: List, Tuple, Dict, Set",
+          "Functions, Lambda, Map/Filter/Reduce",
+          "OOPs Concepts, Modules and Libraries",
+          "Exception and File Handling",
+          "Multithreading and Multiprocessing"
+        ]
+      },
+      {
+        "title": "Module 2: Data Collection & Cleaning",
+        "topics": [
+          "Primary and Secondary Data Sources",
+          "Kaggle, UCI ML Repositories",
+          "SQL Import/Export, Web Scraping",
+          "Data Validation & Normalization",
+          "Handling Spaces, Nulls, and Duplicates"
+        ]
+      },
+      {
+        "title": "Module 3: Exploratory Data Analysis (EDA)",
+        "topics": [
+          "Univariate, Bivariate, and Multivariate Analysis",
+          "Descriptive Statistics and Distributions",
+          "Skewness, Kurtosis, Correlation & Covariance",
+          "Data Visualization using Matplotlib, Seaborn",
+          "Plots: Histogram, Boxplot, Heatmap, Pairplot"
+        ]
+      },
+      {
+        "title": "Module 4: Inferential Statistics",
+        "topics": [
+          "Population vs Sample, Probability Distributions",
+          "Z-scores, Confidence Intervals",
+          "Hypothesis Testing: Z-Test, ANOVA, Chi-Square"
+        ]
+      },
+      {
+        "title": "Module 5: Data Preparation & Feature Engineering",
+        "topics": [
+          "Handling Missing Values and Outliers",
+          "Feature Selection, Generation, and Modification",
+          "Scaling Techniques and Encoding Methods",
+          "Avoiding Data Leakage"
+        ]
+      },
+      {
+        "title": "Module 6: Machine Learning Algorithms",
+        "topics": [
+          "Supervised Learning Overview",
+          "Regression Models: Linear, Polynomial, Lasso, Ridge",
+          "Classification: Logistic, KNN, SVM, Naïve Bayes",
+          "Ensemble: Random Forest, Boosting, Bagging",
+          "Model Evaluation and Hyperparameter Tuning",
+          "Cross Validation and Bias-Variance Trade-off"
+        ]
+      },
+      {
+        "title": "Module 7: Unsupervised Learning",
+        "topics": [
+          "Dimensionality Reduction with PCA",
+          "Clustering: K-Means, Hierarchical, DBSCAN"
+        ]
+      },
+      {
+        "title": "Module 8: Deep Learning with Neural Networks",
+        "topics": [
+          "Neural Network Basics and Architecture",
+          "ANN for Regression and Classification",
+          "CNN for Image Classification",
+          "Object Detection: YOLO, R-CNN",
+          "Transfer Learning Techniques"
+        ]
+      },
+      {
+        "title": "Module 9: Natural Language Processing (NLP)",
+        "topics": [
+          "Text Data Collection and Cleaning",
+          "Tokenization, Stop Words, Lemmatization",
+          "Text Vectorization: BOW, TF-IDF, Word2Vec",
+          "Text Classification and Sentiment Analysis",
+          "RNN & LSTM for Sequence Models"
+        ]
+      },
+      {
+        "title": "Module 10: Databases for Data Science",
+        "topics": [
+          "Basics of DBMS and RDBMS (MySQL)",
+          "SQL Queries: DDL, DML, Joins, Aggregations",
+          "NoSQL with MongoDB: CRUD Operations"
+        ]
+      },
+      {
+        "title": "Module 11: BI Tools - Tableau or Power BI",
+        "topics": [
+          "Introduction and Installation",
+          "Connecting Data Sources",
+          "Creating Visualizations and Dashboards",
+          "Storytelling with Data",
+          "Case Study on Data Visualization"
+        ]
+      },
+      {
+        "title": "Module 12: Projects and Interview Preparation",
+        "topics": [
+          "End-to-End Regression and Classification Projects",
+          "Image and Text Data Projects",
+          "Case Studies on Real-World Data",
+          "Mock Interviews and Q&A Sessions"
+        ]
+      }
+    ],
+    "features": [
+      "Hands-on Python and ML Labs",
+      "Project-based Learning with Real Datasets",
+      "Advanced Deep Learning and NLP Coverage",
+      "Database and BI Tool Integration",
+      "Interview Preparation and Certification Support"
+    ]
+  },
+  softwareTesting: {
+  "title": "Software Testing Training Program",
+  "subtitle": "Master Manual and Automated Testing with Real-Time Projects",
+  "description": "Comprehensive training in manual testing, automation with Selenium, BDD with Cucumber, SQL, Git, Jenkins, and more. Includes hands-on project work, resume preparation, and mock interviews to help you become job-ready.",
+  "image": "/images/courses/softwaretesting.jpg",
+  "duration": "60 Days",
+  "schedule": "Weekdays",
+  "level": "Beginner to Advanced",
+  "certification": "Certified Software Testing Professional",
+  "brochurePath": "/placeholder.svg",
+  "syllabus": [
+    {
+      "title": "Module 1: Manual Testing",
+      "topics": [
+        "Software Testing Fundamentals",
+        "Verification vs. Validation",
+        "SDLC & STLC",
+        "Test Cases, Plans, and Strategies",
+        "Test Design Techniques: BVA, Equivalence, Decision Tables",
+        "Bug Life Cycle, Reporting, Tracking Tools",
+        "Types of Testing: Functional, Non-Functional, Black Box, White Box",
+        "Testing Phases and Environments",
+        "Requirement Traceability Matrix"
       ]
     },
-    
-    devops: {
-      "title": "AWSome DevOps Engineering",
-      "subtitle": "Master Modern DevOps Tools and Practices",
-      "description": "Comprehensive DevOps training covering industry-standard tools including Git, Terraform, Jenkins, Ansible, Docker, and monitoring solutions. Learn infrastructure as code, CI/CD pipelines, configuration management, and containerization through hands-on projects.",
-      "image": "/images/courses/devops.jpg",
-      "duration": "22 Days",
-      "schedule": "Weekdays",
-      "level": "Intermediate to Advanced",
-      "certification": "Terraform or Ansible Certification",
-      "brochurePath": "/placeholder.svg",
-      "syllabus": [
-        {
-          "title": "Module 1: DevOps Fundamentals",
-          "topics": [
-            "What is DevOps",
-            "DevOps Culture and Principles",
-            "Tools and Technologies Overview",
-            "DevOps Processes and Workflows"
-          ]
-        },
-        {
-          "title": "Module 2: Source Control Management",
-          "topics": [
-            "GitHub and Git Client",
-            "GitLab, Bitbucket, and Azure Repos",
-            "GitHub Actions",
-            "Common Git Commands and Workflows",
-            "Git Branching Strategies"
-          ]
-        },
-        {
-          "title": "Module 3: Infrastructure as Code with Terraform",
-          "topics": [
-            "Introduction to Terraform and Advantages",
-            "Terraform Providers",
-            "Key Terraform Commands",
-            "Backend and State Management",
-            "Working with Terraform Modules"
-          ]
-        },
-        {
-          "title": "Module 4: CI/CD with Jenkins",
-          "topics": [
-            "Introduction to CI/CD",
-            "Jenkins Installation and Setup",
-            "Freestyle and Pipeline Jobs",
-            "Jenkins Slave Configuration",
-            "Groovy Scripting for Jenkins"
-          ]
-        },
-        {
-          "title": "Module 5: Configuration Management with Ansible",
-          "topics": [
-            "Introduction to Configuration Management",
-            "Ansible vs. Chef and Puppet",
-            "Ansible Installation and Setup",
-            "Ad-hoc Commands and Modules",
-            "Ansible Playbooks and Real-world Examples",
-            "Working with Variables and Loops",
-            "Handlers and Error Handling"
-          ]
-        },
-        {
-          "title": "Module 6: Containerization with Docker",
-          "topics": [
-            "Introduction to Microservices and Containers",
-            "Docker Installation and Commands",
-            "Writing Dockerfiles",
-            "Docker Volumes and Data Persistence",
-            "DockerHub Registry",
-            "Container Dependencies and Environment Variables",
-            "Docker Compose",
-            "Docker Networking",
-            "Container Orchestration with Docker Swarm"
-          ]
-        },
-        {
-          "title": "Module 7: Logging and Monitoring",
-          "topics": [
-            "CloudWatch Logs",
-            "ELK Stack and Splunk",
-            "Infrastructure Monitoring Tools",
-            "Grafana and Prometheus Setup",
-            "Metrics Collection and Visualization"
-          ]
-        },
-        {
-          "title": "Module 8: Agile Development",
-          "topics": [
-            "Introduction to Agile Development",
-            "Jira for Project Management",
-            "Sprint Planning and Daily Standups",
-            "Agile Stories, Backlogs, and Retrospectives"
-          ]
-        },
-        {
-          "title": "Module 9: Azure DevOps",
-          "topics": [
-            "Introduction to Azure DevOps",
-            "Azure Boards, Repos, Pipelines, and Artifacts",
-            "Running Sample Jobs",
-            "Azure DevOps Integration"
-          ]
-        }
-      ],
-      "features": [
-        "Hands-on infrastructure automation",
-        "CI/CD pipeline implementation",
-        "Container orchestration practice",
-        "Configuration management exercises",
-        "End-to-end DevOps workflow experience"
+    {
+      "title": "Module 2: Core Java for Testers",
+      "topics": [
+        "Java Fundamentals, OOP Concepts",
+        "Control Structures, Exception Handling",
+        "Collections, Arrays, Strings",
+        "Multithreading, Serialization",
+        "SQL Basics for Testing: Joins, Aggregates, DDL/DML"
       ]
     },
-    
-    python: {
-      "title": "Python Programming Mastery",
-      "subtitle": "From Fundamentals to Web Applications",
-      "description": "Comprehensive Python course covering programming fundamentals, data structures, object-oriented programming, database integration, and web application development with Django. Gain practical skills through hands-on exercises and real-world projects.",
-      "image": "/images/courses/python.jpg",
-      "duration": "12 Weeks",
-      "schedule": "Weekdays",
-      "level": "Beginner to Advanced",
-      "certification": "Python Developer Certification",
-      "brochurePath": "/placeholder.svg",
-      "syllabus": [
-        {
-          "title": "Module 1: Programming Fundamentals",
-          "topics": [
-            "Introduction to Programming Concepts",
-            "Programming Language Types",
-            "Python Installation and Environment Setup",
-            "REPL and PyCharm IDE",
-            "Variables, Constants, and Data Types",
-            "Operators (Arithmetic, Relational, Logical)",
-            "Built-in Functions",
-            "Conditional Statements",
-            "Looping Structures (while and for)",
-            "Using range() Function"
-          ]
-        },
-        {
-          "title": "Module 2: Python Data Structures",
-          "topics": [
-            "Working with Strings",
-            "Indexing and Slicing",
-            "Lists and List Comprehension",
-            "Sets and Set Comprehension",
-            "Tuples and Their Applications",
-            "Comparing List, Set, and Tuple",
-            "Nested Data Structures",
-            "Dictionaries and Dictionary Comprehension",
-            "Built-in Functions (enumerate and zip)"
-          ]
-        },
-        {
-          "title": "Module 3: Functions and Modules",
-          "topics": [
-            "Creating and Calling Functions",
-            "Positional and Keyword Arguments",
-            "Default Parameter Values",
-            "Variable Arguments with *args",
-            "Keyword-only and Position-only Arguments",
-            "Arbitrary Arguments with **kwargs",
-            "Parameter Passing in Python",
-            "Lambda Expressions",
-            "Functions as Objects",
-            "map(), sorted(), and filter()",
-            "Variable Scope",
-            "Modules and Packages",
-            "Importing and Using Modules",
-            "Using PIP for Library Installation"
-          ]
-        },
-        {
-          "title": "Module 4: Object-Oriented Programming",
-          "topics": [
-            "Classes and Objects",
-            "Constructors and Special Methods",
-            "Operator Overloading",
-            "Static Methods and Class Methods",
-            "Inheritance and Overriding",
-            "Multiple Inheritance and MRO",
-            "Working with Iterators",
-            "Creating Iterators and Iterables",
-            "Generators and Generator Functions",
-            "Exception Handling",
-            "User-defined Exceptions"
-          ]
-        },
-        {
-          "title": "Module 5: Python Libraries and File Handling",
-          "topics": [
-            "File Operations (Reading and Writing)",
-            "Pickle for Serialization",
-            "Working with JSON",
-            "OS and Sys Modules",
-            "Regular Expressions",
-            "DateTime Module",
-            "HTTP Requests with Requests Library",
-            "Web Scraping with BeautifulSoup",
-            "Multithreading with Threading Module"
-          ]
-        },
-        {
-          "title": "Module 6: Database Programming",
-          "topics": [
-            "Introduction to Database Systems",
-            "SQLite Database Fundamentals",
-            "Basic SQL Commands",
-            "DB-API Introduction",
-            "Connection and Cursor Objects",
-            "Database Operations with DB-API"
-          ]
-        },
-        {
-          "title": "Module 7: Web Development with Django",
-          "topics": [
-            "Web Application Fundamentals",
-            "HTML, CSS, and JavaScript Basics",
-            "Django Installation and Project Setup",
-            "MVC/MVT Architecture",
-            "Views, Models, and Templates",
-            "Template Inheritance",
-            "Filters and Tags",
-            "Forms and Validation",
-            "Static Files in Django",
-            "AJAX with jQuery",
-            "Cookies and Sessions",
-            "Object Relational Mapping (ORM)",
-            "Database Operations with Managers",
-            "ModelForms",
-            "Class-based and Generic Views",
-            "Authentication System",
-            "RESTful Services with Django REST Framework"
-          ]
-        }
-      ],
-      "features": [
-        "Hands-on coding exercises",
-        "Real-world project development",
-        "Database integration practice",
-        "Web application development",
-        "File processing and data manipulation"
+    {
+      "title": "Module 3: Selenium with Java",
+      "topics": [
+        "Selenium WebDriver Architecture",
+        "Browser Setup and Test Execution",
+        "Locators and XPath Techniques",
+        "CSS Selectors and WebElements Handling",
+        "Handling Alerts, Popups, Frames, and Windows",
+        "Mouse & Keyboard Events, Screenshots"
       ]
     },
-    
-    sql: {
-      "title": "SQL Server Mastery",
-      "subtitle": "Complete Database Development and Management",
-      "description": "Comprehensive SQL Server course covering database design, query optimization, stored procedures, functions, triggers, and advanced concepts. Learn practical skills for creating and maintaining efficient database systems in enterprise environments.",
-      "image": "/images/courses/sql.jpg",
-      "duration": "4 Weeks",
-      "schedule": "Weekends & Weekday Evenings",
-      "level": "Beginner to Advanced",
-      "certification": "SQL Server Associate Certification",
-      "brochurePath": "/placeholder.svg",
-      "syllabus": [
-        {
-          "title": "Module 1: SQL Server Fundamentals",
-          "topics": [
-            "Introduction to SQL Server",
-            "Database Constraints",
-            "Normalization and Denormalization",
-            "SQL Clauses and Syntax",
-            "Indexes and Types of Indexes"
-          ]
-        },
-        {
-          "title": "Module 2: Data Manipulation and Retrieval",
-          "topics": [
-            "Joins and Join Types",
-            "Sequences and Identity Columns",
-            "Built-in Functions",
-            "Temporary Tables",
-            "Views (Simple, Complex, and Materialized)"
-          ]
-        },
-        {
-          "title": "Module 3: Advanced Query Techniques",
-          "topics": [
-            "Common Table Expressions (CTE)",
-            "Derived Tables and Table Variables",
-            "Subqueries and Correlated Queries",
-            "Pivot and Unpivot Operations",
-            "Error Handling Techniques"
-          ]
-        },
-        {
-          "title": "Module 4: Programming Objects",
-          "topics": [
-            "Triggers and Trigger Types",
-            "User-Defined Functions",
-            "Stored Procedures",
-            "Cursors",
-            "Transactions and ACID Properties"
-          ]
-        }
-      ],
-      "features": [
-        "Hands-on database design exercises",
-        "Query optimization techniques",
-        "Performance tuning practice",
-        "Transaction management scenarios",
-        "Interview preparation"
+    {
+      "title": "Module 4: Waits & TestNG",
+      "topics": [
+        "Implicit, Explicit, Fluent Waits",
+        "TestNG Setup and Annotations",
+        "Assertions, Test Suites, Data Providers",
+        "TestNG Listeners and Reporting"
       ]
     },
-    
-    snowflake: {
-      "title": "Snowflake on AWS",
-      "subtitle": "Cloud Data Warehousing and Analytics",
-      "description": "Comprehensive Snowflake training focusing on cloud data warehousing architecture, AWS integration, performance optimization, and data sharing. Learn to design, implement, and manage enterprise-grade data solutions with Snowflake's cloud-native platform.",
-      "image": "/images/courses/snowflake.jpg",
-      "duration": "4 Weeks",
-      "schedule": "Weekdays",
-      "level": "Intermediate",
-      "certification": "SnowPro Core Certification",
-      "brochurePath": "/placeholder.svg",
-      "syllabus": [
-        {
-          "title": "Module 1: Data Warehousing Fundamentals",
-          "topics": [
-            "Basics of Data Warehousing",
-            "Dimensional Data Modeling",
-            "Fact Tables and Dimensional Tables",
-            "Star Schema and Snowflake Schema"
-          ]
-        },
-        {
-          "title": "Module 2: AWS Cloud Essentials",
-          "topics": [
-            "Introduction to AWS Cloud",
-            "Core AWS Services (S3, RDS, DMS, SNS, SQS, Lambda, IAM)",
-            "AWS Account Setup and Management"
-          ]
-        },
-        {
-          "title": "Module 3: Snowflake Fundamentals",
-          "topics": [
-            "History and Introduction to Snowflake",
-            "Snowflake Architecture",
-            "Account Creation and Setup",
-            "Database Objects and User Management",
-            "Access Control Management",
-            "AWS and Snowflake Integration"
-          ]
-        },
-        {
-          "title": "Module 4: Data Operations",
-          "topics": [
-            "Snowflake Core Concepts and Features",
-            "Data Loading and Unloading Techniques",
-            "Performance Optimization Strategies",
-            "Data Sharing Capabilities",
-            "Data Protection Methods"
-          ]
-        },
-        {
-          "title": "Module 5: Certification and Interview Preparation",
-          "topics": [
-            "Real-world Scenarios and Case Studies",
-            "Interview Questions and Answers",
-            "SnowPro Certification Preparation",
-            "Sample Tests and Quiz Materials"
-          ]
-        }
-      ],
-      "features": [
-        "Hands-on Snowflake environment practice",
-        "AWS integration exercises",
-        "Performance optimization techniques",
-        "Data loading and transformation scenarios",
-        "Certification preparation materials"
+    {
+      "title": "Module 5: BDD with Cucumber",
+      "topics": [
+        "Agile and BDD Fundamentals",
+        "Gherkin Syntax and Step Definitions",
+        "BDD Framework Implementation"
       ]
     },
-    
-    softwareTesting: {
-      "title": "Software Testing & Automation",
-      "subtitle": "Manual and Automated Testing with Selenium",
-      "description": "Comprehensive software testing course covering manual testing fundamentals, test design techniques, automation with Selenium WebDriver, frameworks like TestNG and Cucumber, and CI/CD integration. Build a complete test automation framework with industry best practices.",
-      "image": "/images/courses/testing.jpg",
-      "duration": "12 Weeks",
-      "schedule": "Weekdays",
-      "level": "Beginner to Advanced",
-      "certification": "Certified Software Tester",
-      "brochurePath": "/placeholder.svg",
-      "syllabus": [
-        {
-          "title": "Module 1: Manual Testing Fundamentals",
-          "topics": [
-            "Introduction to Software Testing",
-            "Verification vs. Validation",
-            "Software Development Life Cycle (SDLC)",
-            "Software Testing Life Cycle (STLC)",
-            "Test Cases, Use Cases, and Scenarios",
-            "Test Plan and Strategy Development",
-            "Bug Life Cycle and Reporting",
-            "Types of Testing (Functional & Non-Functional)",
-            "Testing Techniques (Black Box & White Box)"
-          ]
-        },
-        {
-          "title": "Module 2: Test Design Techniques",
-          "topics": [
-            "Boundary Value Analysis",
-            "Equivalence Partitioning",
-            "Decision Table Testing",
-            "State Transition Diagrams",
-            "Use Case Testing",
-            "Integration Testing Approaches",
-            "System and User Acceptance Testing",
-            "Test Environment Setup"
-          ]
-        },
-        {
-          "title": "Module 3: Java for Automation",
-          "topics": [
-            "Java Environment Setup",
-            "Java Syntax and Variables",
-            "Control Flow and OOP Concepts",
-            "Exception Handling",
-            "Collections Framework",
-            "Multithreading",
-            "SQL for Testers"
-          ]
-        },
-        {
-          "title": "Module 4: Selenium WebDriver",
-          "topics": [
-            "Selenium WebDriver Architecture",
-            "Setting Up Selenium with Eclipse",
-            "Maven Introduction",
-            "WebDriver Manager",
-            "Locators in Selenium",
-            "XPath and CSS Selectors",
-            "Handling Web Elements",
-            "Waits in Selenium",
-            "Screenshot Capture"
-          ]
-        },
-        {
-          "title": "Module 5: Testing Frameworks",
-          "topics": [
-            "TestNG Framework",
-            "TestNG Annotations",
-            "Assertions and Grouping",
-            "Data Provider for Data-Driven Testing",
-            "TestNG Listeners",
-            "BDD Framework with Cucumber",
-            "Gherkin Syntax and Step Definitions"
-          ]
-        },
-        {
-          "title": "Module 6: Advanced Automation",
-          "topics": [
-            "Test Automation Framework Types",
-            "Data-Driven Framework",
-            "Keyword-Driven Framework",
-            "Hybrid Framework Development",
-            "Page Object Model",
-            "Test Data Management",
-            "Logging and Reporting"
-          ]
-        },
-        {
-          "title": "Module 7: CI/CD Integration",
-          "topics": [
-            "Git and Version Control",
-            "GitHub Workflow",
-            "Jenkins Introduction",
-            "Continuous Integration Setup",
-            "Build Automation",
-            "Test Execution in CI Pipeline"
-          ]
-        },
-        {
-          "title": "Module 8: Specialized Testing",
-          "topics": [
-            "Mobile Application Testing",
-            "API Testing Basics",
-            "Testing AI Applications",
-            "Performance Testing Introduction",
-            "Security Testing Fundamentals"
-          ]
-        }
-      ],
-      "features": [
-        "Hands-on test case creation",
-        "Automation framework development",
-        "Real-world project implementation",
-        "CI/CD integration practice",
-        "Interview preparation and resume building"
+    {
+      "title": "Module 6: Test Automation Frameworks",
+      "topics": [
+        "Types: Data-Driven, Keyword-Driven",
+        "Custom Framework Design and Execution",
+        "Modularity, Configurability, DRY Principle"
+      ]
+    },
+    {
+      "title": "Module 7: Project Execution",
+      "topics": [
+        "Automating Real-World Applications",
+        "Framework Setup and Configuration",
+        "Logging and Reporting",
+        "Test Data Management"
+      ]
+    },
+    {
+      "title": "Module 8: Git & Jenkins",
+      "topics": [
+        "Git Basics: Setup, Commands, Version Control",
+        "Branching, Merging, Conflict Resolution",
+        "Jenkins Setup, Job Creation, CI Integration"
+      ]
+    },
+    {
+      "title": "Module 9: SQL for Testing",
+      "topics": [
+        "SQL Queries: Select, Insert, Update, Delete",
+        "Joins, Aggregations, Constraints",
+        "Views, Indexes, Keys, and Data Types"
+      ]
+    },
+    {
+      "title": "Module 10: Other Testing Concepts",
+      "topics": [
+        "Unix Basics",
+        "Manual Mobile Testing",
+        "API Testing Basics",
+        "How to Test AI Applications like ChatGPT"
+      ]
+    },
+    {
+      "title": "Module 11: Career Preparation",
+      "topics": [
+        "Resume Preparation",
+        "Mock Interviews"
       ]
     }
+  ],
+  "features": [
+    "Complete Manual + Automation Coverage",
+    "Live Project Execution",
+    "Framework Design from Scratch",
+    "CI/CD Integration using Jenkins & Git",
+    "Resume and Interview Readiness"
+  ]
+  },  
 }
 
 // Generate metadata for each course page

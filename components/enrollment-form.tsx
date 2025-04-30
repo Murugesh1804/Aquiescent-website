@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import axios from "axios";
 
-const API_URL = "https://api.acquiescents.in/api/enrollments";
+const API_URL = "https://api.acquiescent.in/api/enrollments";
 
 export const submitEnrollment = async (formData) => {
   try {
@@ -18,6 +18,24 @@ export const submitEnrollment = async (formData) => {
     return response.data;
   } catch (error) {
     throw error.response?.data || "Error submitting enrollment";
+  }
+};
+
+// Function to convert course name to slug format
+const toSlug = (courseName) => {
+  return courseName
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-');
+};
+
+// Google Tag conversion IDs for specific courses
+const CONVERSION_TRACKING = {
+  "Python Programming": {
+    sendTo: "AW-16982692130/Yr3qCPKY7bkaEKKi_aE_" 
+  },
+  "Software Testing & Automation": {
+    sendTo: "AW-16982692130/dEelCMje4bkaEKKi_aE_"
   }
 };
 
@@ -34,6 +52,27 @@ export function EnrollmentForm({ courseName = "" }) {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Add Google Tag Manager script
+  useEffect(() => {
+    // Skip if GTM is already loaded
+    if (window.dataLayer) return;
+    
+    // Load Google Tag Manager
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=AW-16982692130";
+    document.head.appendChild(script);
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'AW-16982692130');
+    
+    window.gtag = gtag;
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
@@ -49,12 +88,16 @@ export function EnrollmentForm({ courseName = "" }) {
 
     try {
       await submitEnrollment(formState);
+      const courseSlug = toSlug(formState.course);
       
-      // Get the current URL path
-      const currentPath = window.location.pathname;
+      // Track conversion if it's one of our tracked courses
+      if (window.gtag && CONVERSION_TRACKING[formState.course]) {
+        window.gtag('event', 'conversion', {
+          'send_to': CONVERSION_TRACKING[formState.course].sendTo
+        });
+      }
       
-      // Navigate to the thank-you page
-      router.push(`${currentPath}/thank-you`);
+      router.push(`${courseSlug}/thank-you/`);
     } catch (error) {
       console.error("Enrollment failed:", error);
       // Handle error state here if needed
@@ -95,9 +138,36 @@ export function EnrollmentForm({ courseName = "" }) {
           <Input id="email" name="email" value={formState.email} onChange={handleChange} type="email" placeholder="Enter your email" required />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="phone">Phone</Label>
-          <Input id="phone" name="phone" value={formState.phone} onChange={handleChange} placeholder="Enter your phone number" required />
-        </div>
+  <Label htmlFor="phone">Phone</Label>
+  <div className="flex items-center space-x-2">
+    <span className="px-3 py-2 bg-gray-100 border border-gray-300 rounded">+91</span>
+    <Input
+      id="phone"
+      name="phone"
+      type="tel"
+      value={formState.phone.replace('+91', '')}
+      onChange={(e) => {
+        const cleaned = e.target.value.replace(/\D/g, '');
+        if (cleaned.length <= 10) {
+          const fullPhone = `+91${cleaned}`;
+          handleChange({
+            ...e,
+            target: {
+              ...e.target,
+              value: fullPhone,
+              name: 'phone',
+            },
+          });
+        }
+      }}
+      placeholder="Enter 10-digit number"
+      maxLength={10}
+      required
+    />
+  </div>
+</div>
+
+
         <div className="space-y-2">
           <Label htmlFor="course">Course</Label>
           <Select value={formState.course} onValueChange={handleSelectChange}>
