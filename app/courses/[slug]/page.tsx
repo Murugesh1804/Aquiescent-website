@@ -11,137 +11,25 @@ import { DownloadBrochureButton } from "@/components/DownloadBrochure";
 
 // Course data
 const courses = {
-  aws: {
-    "title": "AWS Cloud Fundamentals",
-    "subtitle": "Master Amazon Web Services Architecture and Services",
-    "description": "Comprehensive AWS training covering cloud computing concepts, core AWS services, security, databases, and architecture best practices. Prepare for AWS certification while gaining hands-on experience with real-world AWS implementations.",
-    "image": "/images/courses/aws.png",
-    "duration": "12 Days",
-    "schedule": "Weekdays",
-    "level": "Beginner to Intermediate",
-    "certification": "AWS Cloud Practitioner or Developer/Sysops-Associate",
-    "brochurePath": "/placeholder.svg",
-    "syllabus": [
-      {
-        "title": "Module 1: Cloud Computing Fundamentals",
-        "topics": [
-          "What is Cloud Computing",
-          "Cloud Computing Types and Service Models",
-          "Introduction to AWS and Benefits",
-          "AWS Region, AZ, Edge Location, LocalZone",
-          "AWS Pricing and Purchase Options"
-        ]
-      },
-      {
-        "title": "Module 2: AWS Compute and Networking",
-        "topics": [
-          "AWS Computing Services Overview",
-          "EC2 and Instance Types",
-          "EC2 IP Addressing (Public, Private, Elastic)",
-          "Security Groups and Network Configuration",
-          "Amazon VPC, Subnets, and Gateways",
-          "Network Access Control Lists (NACLs)",
-          "Load Balancers (ALB, NLB)"
-        ]
-      },
-      {
-        "title": "Module 3: AWS Storage Solutions",
-        "topics": [
-          "AMI and AWS Marketplace",
-          "Metadata and Userdata",
-          "EBS and Instance Store",
-          "EBS Types and Performance Options",
-          "Object and Block Storage Services",
-          "Storage Classes and Lifecycle Management",
-          "EFS and FSx Block Storage Solutions"
-        ]
-      },
-      {
-        "title": "Module 4: AWS Infrastructure as Code",
-        "topics": [
-          "AWS CLI Installation and Configuration",
-          "Automation with CLI Commands",
-          "Infrastructure as Code (IaaC) Concepts",
-          "CloudFormation Fundamentals",
-          "YAML and JSON Templates",
-          "Sample CloudFormation Implementations"
-        ]
-      },
-      {
-        "title": "Module 5: AWS Database Services",
-        "topics": [
-          "RDS Overview and Use Cases",
-          "Database Engine Options",
-          "RDS Backup and Snapshots",
-          "SQL and NoSQL Database Offerings",
-          "Aurora Instance Types",
-          "DynamoDB and ElastiCache"
-        ]
-      },
-      {
-        "title": "Module 6: AWS Security and Management",
-        "topics": [
-          "Identity and Access Management (IAM)",
-          "IAM Users, Roles, and Policies",
-          "Access Keys and Security Best Practices",
-          "CloudWatch Monitoring",
-          "CloudTrail and VPC Flow Logs",
-          "Custom Metrics and Alarms",
-          "Auto-Scaling Groups"
-        ]
-      },
-      {
-        "title": "Module 7: AWS Applications and Serverless",
-        "topics": [
-          "DNS and Route 53",
-          "Routing Policies",
-          "Elastic Beanstalk",
-          "CloudFront and Content Delivery",
-          "AWS Cognito",
-          "Lambda Functions and Serverless Computing",
-          "Step Functions and API Gateway",
-          "AWS Athena and Event Bridge"
-        ]
-      },
-      {
-        "title": "Module 8: DevOps and Cost Management",
-        "topics": [
-          "AWS Developer Services (CodeCommit, CodeDeploy, CodeBuild)",
-          "CI/CD Implementation",
-          "AWS Cost and Billing Explorer",
-          "Billing Alerts and Budget Management",
-          "Cost Optimization Strategies"
-        ]
-      }
-    ],
-    "features": [
-      "Hands-on labs with AWS console",
-      "Infrastructure automation practice",
-      "Security implementation exercises",
-      "Serverless application deployment",
-      "Certification preparation materials"
-    ]
-  },
-  
-  awsSecurity: {
+  awsSecurity:{
     "title": "AWS Security Engineer",
-    "subtitle": "Master Cloud Security Best Practices and Solutions",
-    "description": "Comprehensive AWS security training covering identity management, network security, data protection, compliance frameworks, incident response, and security best practices. Gain practical skills through hands-on labs and real-world security implementations.",
-    "image": "/images/courses/aws-security.jpg",
-    "duration": "12 Days",
+    "subtitle": "Master Cloud Security on AWS Platform",
+    "description": "Comprehensive AWS security training covering the shared responsibility model, IAM, network security, data protection, compliance frameworks, and incident response. Gain hands-on experience with security tools and implement best practices for securing AWS infrastructure.",
+    "image": "/images/courses/awssecurity.jpg",
+    "duration": "60 Days",
     "schedule": "Weekdays",
     "level": "Intermediate to Advanced",
-    "certification": "AWS Security Specialist",
+    "certification": "AWS Security Specialty",
     "brochurePath": "/placeholder.svg",
     "syllabus": [
       {
-        "title": "Module 1: Intro to AWS Security",
+        "title": "Module 1: Introduction to AWS Security",
         "topics": [
           "AWS Cloud Security Overview",
           "Understanding the Shared Responsibility Model",
           "Security and compliance objectives in cloud computing",
           "Core AWS security services overview",
-          "AWS Identity and Access Management (IAM)",
+          "Introduction to AWS Identity and Access Management (IAM)",
           "IAM users, groups, roles and policies",
           "Best practices for IAM, including least privilege access",
           "Managing IAM credentials and MFA"
@@ -193,443 +81,170 @@ const courses = {
           "Securing AWS infrastructure: EC2, S3, RDS",
           "Best practices for DevSecOps on AWS",
           "Implementing a secure CI/CD pipeline",
-          "Review of tools like Wiz, Panaseer, Aikido",
-          "Implementing a comprehensive security solution"
+          "Review of tools like Wiz, Panaseer, Aikido"
         ]
       }
-    ],
-    "features": [
-      "Hands-on security labs",
-      "Security automation practice",
-      "Compliance implementation exercises",
-      "Threat detection and incident response scenarios",
-      "Comprehensive security solution project"
+    ],"features": [
+      "Comprehensive coverage of AWS security services and frameworks",
+      "Hands-on experience with security tools and infrastructure",
+      "In-depth IAM policy management and implementation",
+      "Network security configurations including VPC, security groups, and NACLs",
+      "Data protection strategies with KMS and encryption techniques",
+      "Compliance frameworks and auditing implementation",
+      "Incident response automation and monitoring"
     ]
+
   },
-  
-  devops: {
-    "title": "AWSome DevOps Engineering",
-    "subtitle": "Master Modern DevOps Tools and Practices",
-    "description": "Comprehensive DevOps training covering industry-standard tools including Git, Terraform, Jenkins, Ansible, Docker, and monitoring solutions. Learn infrastructure as code, CI/CD pipelines, configuration management, and containerization through hands-on projects.",
-    "image": "/images/courses/devops.jpg",
-    "duration": "22 Days",
-    "schedule": "Weekdays",
-    "level": "Intermediate to Advanced",
-    "certification": "Terraform or Ansible Certification",
+  confluenKafka:{
+    "title": "Confluent Kafka",
+    "subtitle": "Master Distributed Event Streaming Platform",
+    "description": "Comprehensive Confluent Kafka training covering architecture, implementation, administration, and security. Learn to set up, configure, and manage Kafka clusters while integrating with various data sources using connectors, schema registry, and REST proxy.",
+    "image": "/images/courses/kafka.jpg",
+   "duration": "45 Days",
+    "schedule": "Flexible",
+    "level": "Intermediate",
+    "certification": "Confluent Certified Developer for Apache Kafka",
     "brochurePath": "/placeholder.svg",
     "syllabus": [
       {
-        "title": "Module 1: DevOps Fundamentals",
+        "title": "Module 1: Introduction to Kafka",
         "topics": [
-          "What is DevOps",
-          "DevOps Culture and Principles",
-          "Tools and Technologies Overview",
-          "DevOps Processes and Workflows"
+          "What is Kafka",
+          "Kafka Features and terminologies",
+          "High-level kafka architecture",
+          "Real-life Kafka Case Studies"
         ]
       },
       {
-        "title": "Module 2: Source Control Management",
+        "title": "Module 2: Kafka Components",
         "topics": [
-          "GitHub and Git Client",
-          "GitLab, Bitbucket, and Azure Repos",
-          "GitHub Actions",
-          "Common Git Commands and Workflows",
-          "Git Branching Strategies"
+          "Broker",
+          "Zookeeper",
+          "Topics",
+          "Partition",
+          "Replication",
+          "Producer",
+          "Consumer"
         ]
       },
       {
-        "title": "Module 3: Infrastructure as Code with Terraform",
+        "title": "Module 3: Confluent Kafka Single-node Installation",
         "topics": [
-          "Introduction to Terraform and Advantages",
-          "Terraform Providers",
-          "Key Terraform Commands",
-          "Backend and State Management",
-          "Working with Terraform Modules"
+          "Linux Environment setup and Pre-requisites",
+          "Code download (Confluent community)",
+          "Single broker installation",
+          "Kafka broker and controller configuration and setup"
         ]
       },
       {
-        "title": "Module 4: CI/CD with Jenkins",
+        "title": "Module 4: Kafka Administration (CLI)",
         "topics": [
-          "Introduction to CI/CD",
-          "Jenkins Installation and Setup",
-          "Freestyle and Pipeline Jobs",
-          "Jenkins Slave Configuration",
-          "Groovy Scripting for Jenkins"
+          "Topic management (Replication factor, Partitions)",
+          "Console Producer",
+          "Console Consumer",
+          "Console Consumer Groups",
+          "Reset the offsets of a topic for a consumer group"
         ]
       },
       {
-        "title": "Module 5: Configuration Management with Ansible",
+        "title": "Module 5: Kafka Administration (GUI Tools)",
         "topics": [
-          "Introduction to Configuration Management",
-          "Ansible vs. Chef and Puppet",
-          "Ansible Installation and Setup",
-          "Ad-hoc Commands and Modules",
-          "Ansible Playbooks and Real-world Examples",
-          "Working with Variables and Loops",
-          "Handlers and Error Handling"
+          "OffSet Explorer (Kafka Tools)"
         ]
       },
       {
-        "title": "Module 6: Containerization with Docker",
+        "title": "Module 6: Kafka Topic Partition Reassignment",
         "topics": [
-          "Introduction to Microservices and Containers",
-          "Docker Installation and Commands",
-          "Writing Dockerfiles",
-          "Docker Volumes and Data Persistence",
-          "DockerHub Registry",
-          "Container Dependencies and Environment Variables",
-          "Docker Compose",
-          "Docker Networking",
-          "Container Orchestration with Docker Swarm"
+          "Setup a two brokers kafka cluster",
+          "Topic partition re-assignment"
         ]
       },
       {
-        "title": "Module 7: Logging and Monitoring",
+        "title": "Module 7: Kafka Configurations",
         "topics": [
-          "CloudWatch Logs",
-          "ELK Stack and Splunk",
-          "Infrastructure Monitoring Tools",
-          "Grafana and Prometheus Setup",
-          "Metrics Collection and Visualization"
+          "Broker level configurations",
+          "Topics configuration",
+          "Retention settings",
+          "Min.insync.replicas",
+          "Log Cleanup policies (Delete, Compact)"
         ]
       },
       {
-        "title": "Module 8: Agile Development",
+        "title": "Module 8: Kafka Connect",
         "topics": [
-          "Introduction to Agile Development",
-          "Jira for Project Management",
-          "Sprint Planning and Daily Standups",
-          "Agile Stories, Backlogs, and Retrospectives"
+          "Use of kafka-connect",
+          "Building a connector file with a simple json file",
+          "File stream source connector setup in distribution mode",
+          "Kafka connector status, start, stop, pause and resume scenarios"
         ]
       },
       {
-        "title": "Module 9: Azure DevOps",
+        "title": "Module 9: Schema Registry",
         "topics": [
-          "Introduction to Azure DevOps",
-          "Azure Boards, Repos, Pipelines, and Artifacts",
-          "Running Sample Jobs",
-          "Azure DevOps Integration"
+          "Use of Schema-Registry in kafka",
+          "Building a Schema in avro using avrc file",
+          "kafka-avro-console-producer use case",
+          "kafka-avro-console-consumer use case"
+        ]
+      },
+      {
+        "title": "Module 10: Kafka REST Proxy",
+        "topics": [
+          "Understanding REST Proxy",
+          "Configuring and spinning up a REST Proxy",
+          "Kafka topic end points with REST Proxy"
+        ]
+      },
+      {
+        "title": "Module 11: Kafka SSL Security",
+        "topics": [
+          "Encryption - SSL/TLS - setup",
+          "Authentication",
+          "Authorization (ACL)"
+        ]
+      },
+      {
+        "title": "Module 12: Confluent Kafka Multinode Installation",
+        "topics": [
+          "Linux Environment setup and Pre-requisites",
+          "Code download (Confluent community)",
+          "Multi-broker installation",
+          "Zookeeper configuration and setup",
+          "Kafka server configuration and setup"
         ]
       }
-    ],
-    "features": [
-      "Hands-on infrastructure automation",
-      "CI/CD pipeline implementation",
-      "Container orchestration practice",
-      "Configuration management exercises",
-      "End-to-end DevOps workflow experience"
+    ], "features": [
+      "Single-node and multi-node Kafka implementation",
+      "Administration through CLI and GUI tools",
+      "Connector integration and schema registry",
+      "Security implementation with SSL/TLS",
+      "Hands-on experience with Kafka Connect and REST Proxy",
+      "Advanced configuration settings and partition management",
+      "Data streaming capabilities and management"
     ]
+
   },
-  
-  dataScience: {
-    "title": "Data Science Training Program",
-  "subtitle": "Master End-to-End Data Science with Real-World Projects",
-  "description": "A comprehensive course covering Python, data collection, data cleaning, exploratory analysis, statistics, machine learning, deep learning, natural language processing, databases, and reporting tools with hands-on projects and interview preparation.",
-  "image": "/images/courses/data-science.jpg",
-  "duration": "90 Days",
-  "schedule": "Weekdays",
-  "level": "Beginner to Advanced",
-  "certification": "Certified Data Science Professional",
-  "brochurePath": "/placeholder.svg",
-  "syllabus": [
-    {
-      "title": "Module 1: Business Understanding & Python Basics",
-      "topics": [
-        "Understanding business goals",
-        "Feature and variable identification",
-        "Core Python: installation, syntax, data types",
-        "Control structures: conditions, loops",
-        "Data structures: list, tuple, dictionary, set",
-        "Functions, Lambda, Map, Filter, Reduce",
-        "OOP: classes, inheritance, polymorphism, etc.",
-        "Modules, exception handling, file handling",
-        "Multi-threading & multi-processing"
-      ]
-    },
-    {
-      "title": "Module 2: Data Collection and Cleaning",
-      "topics": [
-        "Manual and automated data collection",
-        "Sources: Kaggle, UCI, SQL, Web scraping",
-        "Data validation and normalization",
-        "Cleaning data: trimming, formatting"
-      ]
-    },
-    {
-      "title": "Module 3: Data Analysis and Visualization",
-      "topics": [
-        "Exploratory Data Analysis (EDA)",
-        "Univariate, Bivariate & Multivariate analysis",
-        "Descriptive statistics & distribution analysis",
-        "Visualization: bar, box, pie, histogram, scatter, heatmap"
-      ]
-    },
-    {
-      "title": "Module 4: Inferential Statistics",
-      "topics": [
-        "Sampling, population, distributions",
-        "Confidence intervals & hypothesis testing",
-        "Z-tests, ANOVA, Chi-square tests",
-        "Central Limit Theorem, probability, z-scores"
-      ]
-    },
-    {
-      "title": "Module 5: Data Preparation & Feature Engineering",
-      "topics": [
-        "Handling missing values & outliers",
-        "Feature selection, generation, modification",
-        "Scaling and encoding techniques",
-        "Avoiding data leakage"
-      ]
-    },
-    {
-      "title": "Module 6: Predictive Modeling and Machine Learning",
-      "topics": [
-        "Supervised learning: Regression & Classification",
-        "Linear, Logistic, Decision Trees, SVM, KNN, Random Forest",
-        "Ensemble methods: Bagging & Boosting",
-        "Model evaluation metrics & cross-validation",
-        "Bias-variance tradeoff & hyperparameter tuning"
-      ]
-    },
-    {
-      "title": "Module 7: Unsupervised Learning",
-      "topics": [
-        "Clustering: K-Means, Hierarchical, DBSCAN",
-        "Dimensionality Reduction: PCA",
-        "Applications and project use-cases"
-      ]
-    },
-    {
-      "title": "Module 8: Deep Learning",
-      "topics": [
-        "Neural Networks: ANN, CNN, RNN",
-        "Forward & Backpropagation",
-        "CNN for image classification",
-        "RNN/LSTM for sequence modeling",
-        "YOLO, Object detection, Transfer Learning"
-      ]
-    },
-    {
-      "title": "Module 9: Natural Language Processing (NLP)",
-      "topics": [
-        "Text data collection and cleaning",
-        "Tokenization, Stop words, Lemmatization",
-        "Text vectorization: TF-IDF, Word2Vec",
-        "Sentiment analysis and text classification",
-        "Sequence modeling with RNN/LSTM"
-      ]
-    },
-    {
-      "title": "Module 10: Databases & Reporting Tools",
-      "topics": [
-        "SQL (DDL, DML, joins, group by, filters)",
-        "NoSQL (MongoDB, CRUD operations)",
-        "Reporting with Tableau/Power BI",
-        "Dashboards and storytelling with data"
-      ]
-    }
-  ],
-  "features": [
-    "Hands-on Python coding and data projects",
-    "Real-world EDA and statistical analysis",
-    "Model building and deployment training",
-    "Deep learning and NLP implementation",
-    "Database and reporting integration"
-  ]
-  },
-  
-  sql: {
-    "title": "SQL Server Training Program",
-  "subtitle": "Master Microsoft SQL Server for Database Management & Development",
-  "description": "This course provides comprehensive training on Microsoft SQL Server covering database fundamentals, advanced querying, stored procedures, triggers, error handling, and more. Designed to equip you with the skills required for real-world database development and interviews.",
-  "image": "/images/courses/sql-server.jpg",
-  "duration": "30 Days",
-  "schedule": "Weekdays",
-  "level": "Beginner to Intermediate",
-  "certification": "Microsoft SQL Server Certified Developer",
-  "brochurePath": "/placeholder.svg",
-  "syllabus": [
-    {
-      "title": "Module 1: Introduction to SQL Server",
-      "topics": [
-        "Overview of SQL Server",
-        "SQL Server Editions and Tools",
-        "Understanding Databases and Tables"
-      ]
-    },
-    {
-      "title": "Module 2: Constraints in SQL Server",
-      "topics": [
-        "Primary Key, Foreign Key",
-        "Unique, Not Null, Check Constraints",
-        "Default Constraints"
-      ]
-    },
-    {
-      "title": "Module 3: Normalization & Denormalization",
-      "topics": [
-        "Normal Forms (1NF to 5NF)",
-        "Normalization Rules",
-        "When and How to Denormalize"
-      ]
-    },
-    {
-      "title": "Module 4: SQL Clauses",
-      "topics": [
-        "SELECT, WHERE, ORDER BY, GROUP BY, HAVING",
-        "TOP, DISTINCT, BETWEEN, LIKE, IN, EXISTS"
-      ]
-    },
-    {
-      "title": "Module 5: Indexes",
-      "topics": [
-        "Clustered vs. Non-clustered Indexes",
-        "Composite Indexes",
-        "Index Management and Performance"
-      ]
-    },
-    {
-      "title": "Module 6: Joins",
-      "topics": [
-        "Inner Join, Left Join, Right Join, Full Outer Join",
-        "Self Join, Cross Join",
-        "Practical Scenarios"
-      ]
-    },
-    {
-      "title": "Module 7: Sequence & Identity",
-      "topics": [
-        "Difference Between Sequence and Identity",
-        "Implementing Auto-Increment Columns"
-      ]
-    },
-    {
-      "title": "Module 8: Inbuilt Functions",
-      "topics": [
-        "String Functions",
-        "Date and Time Functions",
-        "Aggregate Functions (SUM, COUNT, AVG, etc.)"
-      ]
-    },
-    {
-      "title": "Module 9: Temporary Tables",
-      "topics": [
-        "Local and Global Temporary Tables",
-        "Table Variables",
-        "Use Cases and Performance"
-      ]
-    },
-    {
-      "title": "Module 10: Views",
-      "topics": [
-        "Simple Views",
-        "Complex Views",
-        "Materialized Views (Indexed Views)"
-      ]
-    },
-    {
-      "title": "Module 11: CTE, Derived Tables & Table Variables",
-      "topics": [
-        "Common Table Expressions (CTE)",
-        "Derived Tables",
-        "Using Table Variables Effectively"
-      ]
-    },
-    {
-      "title": "Module 12: Subqueries & Correlated Queries",
-      "topics": [
-        "Types of Subqueries",
-        "Scalar and Multi-Row Subqueries",
-        "Correlated Subqueries"
-      ]
-    },
-    {
-      "title": "Module 13: Pivot & Unpivot",
-      "topics": [
-        "Data Transformation using Pivot",
-        "Unpivot for Tabular Representation"
-      ]
-    },
-    {
-      "title": "Module 14: Error Handling",
-      "topics": [
-        "TRY...CATCH Block",
-        "Transaction Rollback",
-        "RAISERROR Function"
-      ]
-    },
-    {
-      "title": "Module 15: Triggers",
-      "topics": [
-        "DML Triggers (AFTER, INSTEAD OF)",
-        "DDL Triggers",
-        "Nested Triggers and Usage"
-      ]
-    },
-    {
-      "title": "Module 16: User Defined Functions",
-      "topics": [
-        "Scalar Functions",
-        "Table-Valued Functions",
-        "Deterministic vs. Non-Deterministic Functions"
-      ]
-    },
-    {
-      "title": "Module 17: Stored Procedures",
-      "topics": [
-        "Creating and Executing Stored Procedures",
-        "Input and Output Parameters",
-        "Benefits of Using Procedures"
-      ]
-    },
-    {
-      "title": "Module 18: Cursors",
-      "topics": [
-        "Types of Cursors",
-        "Declaring and Using Cursors",
-        "Performance Implications"
-      ]
-    },
-    {
-      "title": "Module 19: Transactions",
-      "topics": [
-        "ACID Properties",
-        "BEGIN, COMMIT, ROLLBACK",
-        "Nested Transactions"
-      ]
-    },
-    {
-      "title": "Module 20: Interview Preparation",
-      "topics": [
-        "Commonly Asked SQL Server Interview Questions",
-        "Problem-Solving Practice",
-        "Mock Interviews"
-      ]
-    }
-  ],
-  "features": [
-    "Real-time database scenario discussions",
-    "Hands-on SQL coding labs",
-    "Performance tuning tips and tricks",
-    "Interview preparation and resume building",
-    "Practical use of stored procedures, views, triggers"
-  ]
-  },
-  
-  snowflake: {
+  snowflake:{
     "title": "Snowflake on AWS",
-    "subtitle": "Cloud Data Warehousing and Analytics",
-    "description": "Comprehensive Snowflake training focusing on cloud data warehousing architecture, AWS integration, performance optimization, and data sharing. Learn to design, implement, and manage enterprise-grade data solutions with Snowflake's cloud-native platform.",
+    "subtitle": "Cloud Data Warehousing Solutions",
+    "description": "Comprehensive Snowflake training covering data warehousing fundamentals, Snowflake architecture, advanced features, and AWS integration. Learn to design, implement, and optimize data solutions while understanding Snowflake's unique pricing model and performance capabilities.",
     "image": "/images/courses/snowflake.jpg",
-    "duration": "4 Weeks",
-    "schedule": "Weekdays",
-    "level": "Intermediate",
+    "duration": "60 Days",
+    "schedule": "Weekdays/Weekends",
+    "level": "Beginner to Advanced",
     "certification": "SnowPro Core Certification",
     "brochurePath": "/placeholder.svg",
     "syllabus": [
       {
-        "title": "Module 1: Introduction to Datawarehouse and its Basics",
+        "title": "Pre-requisites",
+        "topics": [
+          "Basic Of SQL",
+          "Datawarehousing basics",
+          "Cloud Exposure"
+        ]
+      },
+      {
+        "title": "Module 1: Introduction of Datawarehouse and its Basics",
         "topics": [
           "What is Datawarehouse",
           "Dimensional & Fact tables",
@@ -662,7 +277,7 @@ const courses = {
         ]
       },
       {
-        "title": "Module 4: Table types in snowflake",
+        "title": "Module 4: Table types in Snowflake",
         "topics": [
           "Permanent table",
           "Transient table",
@@ -673,7 +288,7 @@ const courses = {
         ]
       },
       {
-        "title": "Module 5: View types in snowflake",
+        "title": "Module 5: View types in Snowflake",
         "topics": [
           "Standard Views",
           "Secure Views",
@@ -701,16 +316,15 @@ const courses = {
         "title": "Module 8: Stages, Data Loading & Unloading",
         "topics": [
           "FileFormats",
-          "Internal (Table, User & Named) & External Stages",
+          "Internal & External Stages",
           "Data Loading Considerations",
           "Preparing to Load Data",
           "Data Load using Web UI",
           "Data load using Copy Command",
-          "Data load Using SnowSQL (Snowflake CLI Client)",
-          "Snowpipe (Snowflake Continuous stream data integrations)",
+          "Data load Using SnowSQL",
+          "Snowpipe Continuous Stream Data Integration",
           "Bulk loading",
-          "Data Unloading into Internal Stages",
-          "Data Unloading into External Stages"
+          "Data Unloading into Internal and External Stages"
         ]
       },
       {
@@ -751,7 +365,7 @@ const courses = {
         ]
       },
       {
-        "title": "Module 13: Interview Preparation",
+        "title": "Additional Resources",
         "topics": [
           "Realtime Scenarios",
           "Interview Questions & Answers",
@@ -759,22 +373,567 @@ const courses = {
           "Sample Tests & Quiz"
         ]
       }
+    ],"features": [
+      "Cloud data warehousing architecture and design",
+      "AWS services integration capabilities",
+      "Data loading and optimization techniques",
+      "Performance tuning and resource management",
+      "Advanced data sharing and security implementation",
+      "Micro-partitioning and clustering optimization",
+      "Real-time scenario training and certification preparation"
+    ]
+
+  },
+  python_full_stack:{
+    "title": "Python Full Stack Development",
+    "subtitle": "Master Web Development with Python & Modern Frameworks",
+    "description": "Comprehensive full-stack Python development course covering frontend technologies (HTML, CSS, JavaScript), core Python programming, database interaction, and backend frameworks like Django/Flask. Learn to build complete web applications with modern responsive designs and RESTful APIs.",
+    "image": "/images/courses/pythonfullstack.jpg",
+    "duration": "150 Days",
+    "schedule": "Flexible",
+    "level": "Beginner to Advanced",
+    "certification": "Python Full Stack Developer Certification",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Frontend Development",
+        "topics": [
+          "HTML 5 Fundamentals and Semantic Elements",
+          "Document structure and formatting",
+          "Tables, Lists, and Links",
+          "Image Handling and Frames",
+          "HTML Forms and Input Elements",
+          "CSS 3 Basics and Selectors",
+          "Text Formatting, Fonts, and Colors",
+          "Borders, Backgrounds, and Shadows",
+          "Bootstrap Framework",
+          "Responsive Web Design with Bootstrap Grid System"
+        ]
+      },
+      {
+        "title": "Module 2: JavaScript & TypeScript",
+        "topics": [
+          "JavaScript ES6 Features",
+          "Variable Declarations (var, let, const)",
+          "Arrow Functions and Template Strings",
+          "Object Destructuring and Spread/Rest Operators",
+          "Asynchronous Programming with Promises",
+          "TypeScript Fundamentals",
+          "Types, Custom Objects, and Interfaces",
+          "Classes and Decorators",
+          "Object-Oriented Programming in TypeScript"
+        ]
+      },
+      {
+        "title": "Module 3: Core Python Programming",
+        "topics": [
+          "Python Introduction and Environment Setup",
+          "Variables, Data Types, and Operators",
+          "Control Flow (Conditionals and Loops)",
+          "String Manipulation and Formatting",
+          "Data Structures (Lists, Tuples, Sets, Dictionaries)",
+          "Functions and Lambda Expressions",
+          "File I/O Operations",
+          "Object-Oriented Programming Concepts",
+          "Exception Handling",
+          "Regular Expressions",
+          "Multi-threaded Programming"
+        ]
+      },
+      {
+        "title": "Module 4: Database & SQL Fundamentals",
+        "topics": [
+          "Relational Database Concepts",
+          "Basic SQL Commands (SELECT, INSERT, UPDATE, DELETE)",
+          "Filtering and Sorting Results",
+          "Joins and Relationships",
+          "Group By and Aggregate Functions",
+          "Python Database Connectivity (PDBC)",
+          "Performing CRUD Operations with Python"
+        ]
+      },
+      {
+        "title": "Module 5: Django/Flask Framework",
+        "topics": [
+          "Django Installation and Project Setup",
+          "Django Project Structure and Admin Interface",
+          "Django Commands and Shell",
+          "URL Routing and Views",
+          "Django Templates and Forms",
+          "Django ORM and Database Migrations",
+          "Authentication and Authorization",
+          "RESTful API Development with Django REST Framework",
+          "Flask Alternative for Lightweight Applications"
+        ]
+      },
+      {
+        "title": "Module 6: Angular Framework",
+        "topics": [
+          "Angular Introduction and Environment Setup",
+          "Angular CLI and Project Structure",
+          "Components and Modules",
+          "Data Binding and Directives",
+          "Services and Dependency Injection",
+          "Forms (Template-Driven and Reactive)",
+          "Routing and Navigation",
+          "HTTP Requests and Observables",
+          "Component Lifecycle Hooks"
+        ]
+      }
+    ], "features": [
+      "End-to-end web application development skills",
+      "Frontend and backend integration expertise",
+      "Database management and API development",
+      "Responsive web design with modern frameworks",
+      "JavaScript/TypeScript and Angular integration",
+      "Object-oriented programming implementation",
+      "RESTful API development with Django REST Framework"
+    ]
+
+  },
+  aws_devops:{
+    "title": "AWS & DevOps",
+    "subtitle": "Cloud Infrastructure Automation & Continuous Delivery",
+    "description": "Comprehensive AWS and DevOps course covering cloud infrastructure, automation tools, containerization, and CI/CD pipelines. Learn to implement infrastructure as code with Terraform, configuration management with Ansible, continuous integration with Jenkins, and container orchestration with Docker.",
+    "image": "/images/courses/awsdevops.jpg",
+    "duration": "60-90 Days",
+    "schedule": "Weekdays",
+    "level": "Intermediate",
+    "certification": "AWS DevOps Engineer Professional",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: DevOps Fundamentals",
+        "topics": [
+          "What is DevOps",
+          "Tools used in DevOps Process",
+          "DevOps Culture and Practices"
+        ]
+      },
+      {
+        "title": "Module 2: Source Code Management",
+        "topics": [
+          "Github, Git Client",
+          "Gitlab, Bitbucket and Azure Repos",
+          "Github actions",
+          "Commonly used Git commands",
+          "Git Branching and Workflows"
+        ]
+      },
+      {
+        "title": "Module 3: Infrastructure as Code with Terraform",
+        "topics": [
+          "Intro to Terraform, Advantages",
+          "Terraform Providers",
+          "Terraform Commands",
+          "Terraform Backend and State Management",
+          "Terraform Modules and Best Practices"
+        ]
+      },
+      {
+        "title": "Module 4: CI/CD with Jenkins",
+        "topics": [
+          "Intro to CI/CD, Jenkins",
+          "Installation and Setup of Jenkins",
+          "Jenkins Jobs - Freestyle and Pipeline Jobs",
+          "Jenkins Slave Setup",
+          "Jenkins Groovy Scripting"
+        ]
+      },
+      {
+        "title": "Module 5: Configuration Management with Ansible",
+        "topics": [
+          "Intro to Config Management Tools",
+          "Advantages of using Config Management",
+          "Ansible Installation and Setup",
+          "Ansible Adhoc Commands",
+          "Ansible Modules - Shell, File, Copy and Apt",
+          "Ansible Playbooks",
+          "Ansible Variables - Global, Play, Group and Host vars",
+          "Loops in Ansible",
+          "Handlers and Error/Exception Handling"
+        ]
+      },
+      {
+        "title": "Module 6: Containerization with Docker",
+        "topics": [
+          "Intro to Microservices and Docker",
+          "Docker Installation and Commands",
+          "Sample Docker File",
+          "Docker Volume",
+          "Dockerhub Registry",
+          "Dependent Containers",
+          "Docker Env Variables",
+          "Docker Compose",
+          "Docker Networking",
+          "Container Orchestration",
+          "Docker Swarm"
+        ]
+      },
+      {
+        "title": "Module 7: Logging and Monitoring",
+        "topics": [
+          "Cloudwatch Logs",
+          "Logging Tools - ELK, Splunk",
+          "Monitoring Tools - Grafana, Prometheus, Nagios, Zabbix",
+          "Grafana and Prometheus Setup"
+        ]
+      },
+      {
+        "title": "Module 8: Agile Development",
+        "topics": [
+          "Intro to Agile and Project Development",
+          "Jira Tool",
+          "Sprint Planning, Daily Standup",
+          "Agile Story, Backlog, Sprint, Retro"
+        ]
+      },
+      {
+        "title": "Module 9: Azure DevOps",
+        "topics": [
+          "Intro to Azure DevOps",
+          "Azure Boards, Repos, Pipelines, Artifacts",
+          "Running a Sample Job"
+        ]
+      },
+      {
+        "title": "Module 10: AWS Cloud Fundamentals",
+        "topics": [
+          "Cloud Computing Concepts",
+          "AWS Services Overview",
+          "AWS Region, AZ, Edge Location",
+          "AWS Pricing Models"
+        ]
+      },
+      {
+        "title": "Module 11: AWS Compute and Networking",
+        "topics": [
+          "EC2 and Instance Types",
+          "Security Groups",
+          "VPC and Subnets",
+          "Internet and NAT Gateway",
+          "Load Balancer Types"
+        ]
+      },
+      {
+        "title": "Module 12: AWS Storage and Image Management",
+        "topics": [
+          "AMI and Marketplace",
+          "AWS Metadata and Userdata",
+          "EBS and Instance Store",
+          "EBS Types",
+          "Storage Services and Classes"
+        ]
+      },
+      {
+        "title": "Module 13: Infrastructure as Code in AWS",
+        "topics": [
+          "AWS CLI Install and Setup",
+          "CloudFormation Templates",
+          "YAML and JSON Templates"
+        ]
+      },
+      {
+        "title": "Module 14: AWS Database Services",
+        "topics": [
+          "RDS Overview",
+          "DB Engine Options",
+          "RDS Backup and Snapshots",
+          "DynamoDB, ElastiCache"
+        ]
+      },
+      {
+        "title": "Module 15: AWS Identity and Management",
+        "topics": [
+          "IAM Overview",
+          "IAM Users, Roles and Policies",
+          "IAM Best Practices",
+          "IAM Access Keys"
+        ]
+      },
+      {
+        "title": "Module 16: AWS Monitoring and Route Services",
+        "topics": [
+          "CloudWatch",
+          "CloudTrail",
+          "VPC Flow Logs",
+          "Route53 and DNS",
+          "Routing Policies"
+        ]
+      },
+      {
+        "title": "Module 17: AWS Serverless Services",
+        "topics": [
+          "Lambda Functions",
+          "Step Functions",
+          "API Gateway",
+          "AWS Athena",
+          "Event Bridge"
+        ]
+      }
+    ],  "features": [
+      "Continuous integration and deployment pipeline implementation",
+      "Infrastructure as code with Terraform",
+      "Configuration management with Ansible",
+      "Containerization with Docker and orchestration",
+      "Monitoring and logging implementation",
+      "Cloud infrastructure design and management",
+      "Serverless application development"
+    ]
+
+  },
+  oracle_apex:{
+    "title": "Oracle APEX",
+    "subtitle": "Low-Code Application Development Platform",
+    "description": "Comprehensive Oracle APEX course covering application development concepts, SQL Workshop, page building, and security implementation. Learn to create interactive reports, forms, and secure data-driven applications with minimal coding requirements using Oracle's enterprise-grade development platform.",
+    "image": "/images/courses/oracleapex.jpg",
+    "duration": "45 Days",
+    "schedule": "Flexible",
+    "level": "Beginner to Intermediate",
+    "certification": "Oracle APEX Developer Certification",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Introduction To Oracle Application Express",
+        "topics": [
+          "What is Oracle Application Express (Oracle APEX)?",
+          "Oracle APEX Architecture",
+          "APEX Benefits and Use Cases"
+        ]
+      },
+      {
+        "title": "Module 2: APEX Demonstration Application",
+        "topics": [
+          "Creating and logging onto APEX workspace",
+          "Running APEX demonstration application",
+          "Understanding APEX interface"
+        ]
+      },
+      {
+        "title": "Module 3: APEX Application Builder Concepts",
+        "topics": [
+          "Page processing and Rendering in APEX",
+          "Substitution strings & URL syntax in APEX",
+          "Application Components"
+        ]
+      },
+      {
+        "title": "Module 4: Using SQL Workshop In APEX",
+        "topics": [
+          "Using Object Browser, SQL Commands",
+          "Create, edit and drop database objects in APEX",
+          "Using SQL Scripts to create, edit, delete and run SQL & PL/SQL scripts"
+        ]
+      },
+      {
+        "title": "Module 5: Understanding Pages and Regions",
+        "topics": [
+          "What is a Page & Region in APEX",
+          "APEX Page Processing",
+          "Shared Components",
+          "Region Types and Properties"
+        ]
+      },
+      {
+        "title": "Module 6: Creating Reports and Forms",
+        "topics": [
+          "Creating Interactive Reports in APEX",
+          "Interactive APEX Report & Column Attributes",
+          "Creating Simple Forms, Tabular Forms, Master-Detail Forms"
+        ]
+      },
+      {
+        "title": "Module 7: Working With Items & Buttons",
+        "topics": [
+          "Creating Different Types of Items (Text, Text Area, Checkbox, Select List, Radio Group)",
+          "Understanding Buttons in APEX",
+          "Creating Tabs, Lists and Breadcrumbs, List of Values"
+        ]
+      },
+      {
+        "title": "Module 8: APEX Shared Components",
+        "topics": [
+          "Understanding Different Attributes of APEX Shared Components",
+          "Navigation and User Interface Components",
+          "Logic and Validation Components"
+        ]
+      },
+      {
+        "title": "Module 9: Page Processing in APEX",
+        "topics": [
+          "Dynamic Actions, Validations and Computations",
+          "Advanced Computations",
+          "JavaScript in APEX"
+        ]
+      },
+      {
+        "title": "Module 10: Themes & Templates",
+        "topics": [
+          "Understanding Themes & Templates in APEX",
+          "Customizing Templates",
+          "Responsive Design Implementation"
+        ]
+      },
+      {
+        "title": "Module 11: Oracle APEX Security",
+        "topics": [
+          "Understanding Different Authentication & Authorization Options",
+          "Security Best Practices",
+          "Access Control Implementation"
+        ]
+      }
+    ],  "features": [
+      "Low-code application development expertise",
+      "Interactive report and form creation",
+      "Templates and themes customization",
+      "Security implementation and access control",
+      "SQL workshop and database integration",
+      "Responsive design implementation",
+      "Dynamic actions and JavaScript integration"
+    ]
+
+  },
+  dataScience:{
+    "title": "Data Science Complete Course",
+    "subtitle": "Master Data Science with Python, Machine Learning, Deep Learning & Visualization",
+    "description": "An end-to-end Data Science training covering Python, statistics, data wrangling, machine learning, deep learning, databases, NLP, and BI tools. Includes real-world projects and interview preparation.",
+    "image": "/images/courses/datascience.jpg",
+    "duration": "45 Days",
+    "schedule": "Weekdays and Weekends",
+    "level": "Beginner to Advanced",
+    "certification": "Data Scientist Professional Certification",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Python Programming for Data Science",
+        "topics": [
+          "Core Python Basics and Installation",
+          "Data Types, Variables, Operators",
+          "Conditionals and Loops",
+          "Data Structures: List, Tuple, Dict, Set",
+          "Functions, Lambda, Map/Filter/Reduce",
+          "OOPs Concepts, Modules and Libraries",
+          "Exception and File Handling",
+          "Multithreading and Multiprocessing"
+        ]
+      },
+      {
+        "title": "Module 2: Data Collection & Cleaning",
+        "topics": [
+          "Primary and Secondary Data Sources",
+          "Kaggle, UCI ML Repositories",
+          "SQL Import/Export, Web Scraping",
+          "Data Validation & Normalization",
+          "Handling Spaces, Nulls, and Duplicates"
+        ]
+      },
+      {
+        "title": "Module 3: Exploratory Data Analysis (EDA)",
+        "topics": [
+          "Univariate, Bivariate, and Multivariate Analysis",
+          "Descriptive Statistics and Distributions",
+          "Skewness, Kurtosis, Correlation & Covariance",
+          "Data Visualization using Matplotlib, Seaborn",
+          "Plots: Histogram, Boxplot, Heatmap, Pairplot"
+        ]
+      },
+      {
+        "title": "Module 4: Inferential Statistics",
+        "topics": [
+          "Population vs Sample, Probability Distributions",
+          "Z-scores, Confidence Intervals",
+          "Hypothesis Testing: Z-Test, ANOVA, Chi-Square"
+        ]
+      },
+      {
+        "title": "Module 5: Data Preparation & Feature Engineering",
+        "topics": [
+          "Handling Missing Values and Outliers",
+          "Feature Selection, Generation, and Modification",
+          "Scaling Techniques and Encoding Methods",
+          "Avoiding Data Leakage"
+        ]
+      },
+      {
+        "title": "Module 6: Machine Learning Algorithms",
+        "topics": [
+          "Supervised Learning Overview",
+          "Regression Models: Linear, Polynomial, Lasso, Ridge",
+          "Classification: Logistic, KNN, SVM, Naïve Bayes",
+          "Ensemble: Random Forest, Boosting, Bagging",
+          "Model Evaluation and Hyperparameter Tuning",
+          "Cross Validation and Bias-Variance Trade-off"
+        ]
+      },
+      {
+        "title": "Module 7: Unsupervised Learning",
+        "topics": [
+          "Dimensionality Reduction with PCA",
+          "Clustering: K-Means, Hierarchical, DBSCAN"
+        ]
+      },
+      {
+        "title": "Module 8: Deep Learning with Neural Networks",
+        "topics": [
+          "Neural Network Basics and Architecture",
+          "ANN for Regression and Classification",
+          "CNN for Image Classification",
+          "Object Detection: YOLO, R-CNN",
+          "Transfer Learning Techniques"
+        ]
+      },
+      {
+        "title": "Module 9: Natural Language Processing (NLP)",
+        "topics": [
+          "Text Data Collection and Cleaning",
+          "Tokenization, Stop Words, Lemmatization",
+          "Text Vectorization: BOW, TF-IDF, Word2Vec",
+          "Text Classification and Sentiment Analysis",
+          "RNN & LSTM for Sequence Models"
+        ]
+      },
+      {
+        "title": "Module 10: Databases for Data Science",
+        "topics": [
+          "Basics of DBMS and RDBMS (MySQL)",
+          "SQL Queries: DDL, DML, Joins, Aggregations",
+          "NoSQL with MongoDB: CRUD Operations"
+        ]
+      },
+      {
+        "title": "Module 11: BI Tools - Tableau or Power BI",
+        "topics": [
+          "Introduction and Installation",
+          "Connecting Data Sources",
+          "Creating Visualizations and Dashboards",
+          "Storytelling with Data",
+          "Case Study on Data Visualization"
+        ]
+      },
+      {
+        "title": "Module 12: Projects and Interview Preparation",
+        "topics": [
+          "End-to-End Regression and Classification Projects",
+          "Image and Text Data Projects",
+          "Case Studies on Real-World Data",
+          "Mock Interviews and Q&A Sessions"
+        ]
+      }
     ],
     "features": [
-      "Hands-on Snowflake environment practice",
-      "AWS integration exercises",
-      "Performance optimization techniques",
-      "Data loading and transformation scenarios",
-      "Certification preparation materials"
+      "Hands-on Python and ML Labs",
+      "Project-based Learning with Real Datasets",
+      "Advanced Deep Learning and NLP Coverage",
+      "Database and BI Tool Integration",
+      "Interview Preparation and Certification Support"
     ]
   },
-  
   softwareTesting: {
-    "title": "Software Testing Training Program",
+  "title": "Software Testing Training Program",
   "subtitle": "Master Manual and Automated Testing with Real-Time Projects",
   "description": "Comprehensive training in manual testing, automation with Selenium, BDD with Cucumber, SQL, Git, Jenkins, and more. Includes hands-on project work, resume preparation, and mock interviews to help you become job-ready.",
-  "image": "/images/courses/software-testing.jpg",
-  "duration": "60 Days",
+  "image": "/images/courses/softwaretesting.jpg",
+  "duration": "60-90 Days",
   "schedule": "Weekdays",
   "level": "Beginner to Advanced",
   "certification": "Certified Software Testing Professional",
@@ -890,260 +1049,498 @@ const courses = {
     "Resume and Interview Readiness"
   ]
   },
-  
-  kafka: {
-    "title": "Confluent Kafka Certification",
-    "subtitle": "Master Event Streaming Platform for Modern Applications",
-    "description": "Comprehensive Confluent Kafka training covering architecture, installation, administration, and advanced features including Schema Registry, REST Proxy, and security. Gain hands-on experience with Kafka Connect, multi-node clusters, and real-time data streaming implementations.",
-    "image": "/images/courses/kafka.jpg",
-    "duration": "8 Weeks",
-    "schedule": "Weekdays & Weekends",
-    "level": "Intermediate to Advanced",
-    "certification": "Confluent Kafka Developer Certification",
-    "brochurePath": "/placeholder.svg",
-    "syllabus": [
-      {
-        "title": "Module 1: Introduction to Kafka",
-        "topics": [
-          "What is Kafka",
-          "Kafka Features and terminologies",
-          "High-level kafka architecture",
-          "Real-life Kafka Case Studies"
-        ]
-      },
-      {
-        "title": "Module 2: Kafka components",
-        "topics": [
-          "Broker",
-          "Zookeeper",
-          "Topics",
-          "Partition",
-          "Replication",
-          "Producer",
-          "Consumer"
-        ]
-      },
-      {
-        "title": "Module 3: Confluent Kafka Single-node Installation",
-        "topics": [
-          "Linux Environment setup and Pre-requisites",
-          "Code download (Confluent community)",
-          "Single broker installation",
-          "Kafka broker and controller configuration and setup"
-        ]
-      },
-      {
-        "title": "Module 4: Kafka Administration (Using CLI)",
-        "topics": [
-          "Topics - Replication factor and Partitions",
-          "Console Producer",
-          "Console Consumer",
-          "Console Consumer Groups",
-          "Reset the offsets of a topic for a consumer group"
-        ]
-      },
-      {
-        "title": "Module 5: Kafka Administration (using GUI Tools)",
-        "topics": [
-          "OffSet Explorer (Kafka Tools)"
-        ]
-      },
-      {
-        "title": "Module 6: Kafka topic partition reassignment",
-        "topics": [
-          "Setup a two brokers kafka cluster",
-          "Topic partition re-assignment"
-        ]
-      },
-      {
-        "title": "Module 7: Kafka Configurations",
-        "topics": [
-          "Broker level configurations (log.retention.hours, message.max.bytes, auto.create.topics.enable)",
-          "Topics configuration (Changing a topic configuration, Retention time, Retention bytes, Min.insync.replicas)",
-          "Log Cleanup policies (Delete, Compact)"
-        ]
-      },
-      {
-        "title": "Module 8: Kafka - Connect",
-        "topics": [
-          "Use of kafka -- connect",
-          "Building a connector file with a simple json file",
-          "File stream source connector setup in distribution mode",
-          "Kafka connector status, start, stop, pause and resume scenarios"
-        ]
-      },
-      {
-        "title": "Module 9: Schema - Registry",
-        "topics": [
-          "Use of Schema -- Registry in kafka",
-          "Building a Schema in avro using avrc file",
-          "kafka-avro-console-producer use case",
-          "kafka-avro-console-consumer use case"
-        ]
-      },
-      {
-        "title": "Module 10: Kafka Rest Proxy",
-        "topics": [
-          "Understanding REST Proxy",
-          "Configuring and spinning up a REST Proxy",
-          "Kafka topic end points with REST Proxy"
-        ]
-      },
-      {
-        "title": "Module 11: Kafka SSL Security",
-        "topics": [
-          "Encryption - SSL/TLS - setup",
-          "Authentication",
-          "Authorization (ACL)"
-        ]
-      },
-      {
-        "title": "Module 12: Confluent Kafka Multinode Installation",
-        "topics": [
-          "Linux Environment setup and Pre-requisites",
-          "Code download (Confluent community)",
-          "Zookeeper configuration and setup",
-          "Kafka server configuration and setup"
-        ]
-      }
-    ],
-    "features": [
-      "Hands-on Kafka cluster setup",
-      "Data streaming implementations",
-      "Schema Registry integration",
-      "Security configuration practice",
-      "Multi-node cluster deployment"
-    ]
-  },
-  ibmMQCourse: {
-    "title": "WebSphere IBM MQ Training",
-  "subtitle": "Master Enterprise Messaging for Mission-Critical Applications",
-  "description": "Comprehensive IBM MQ training covering installation, configuration, administration, security, performance tuning, and troubleshooting. Learn how to implement high-availability messaging solutions and integrate with cloud and hybrid environments through hands-on labs and real-world scenarios.",
-  "image": "/images/courses/ibm-mq.jpg",
-  "duration": "45 Days",
-  "schedule": "Weekdays",
-  "level": "Intermediate to Advanced",
-  "certification": "IBM Certified Administrator - WebSphere MQ",
+  javafullstack:{
+    "title": "Java Full Stack Development",
+  "subtitle": "Master Java Programming with Core Concepts and Real-Time Projects",
+  "description": "Comprehensive training in Java, covering core concepts, web technologies, frameworks, database handling, and much more. Includes hands-on projects, career readiness, and interview preparation.",
+  "image": "/images/courses/javafullstack.jpg",
+  "duration": "90 Days",
+  "schedule": "Weekdays and Weekends",
+  "level": "Beginner to Advanced",
+  "certification": "Certified Java Developer",
   "brochurePath": "/placeholder.svg",
   "syllabus": [
     {
-      "title": "Module 1: Introduction to IBM MQ",
+      "title": "Module 1: Core Java",
       "topics": [
-        "What is IBM MQ and message-oriented middleware",
-        "Role in enterprise messaging systems",
-        "Key components: Queue Manager, Queues, Channels",
-        "Message types and formats",
-        "Message persistence and durability",
-        "IBM MQ architecture overview",
-        "Basic operations with MQ Explorer"
+        "Introduction to Java",
+        "Data Types and Variables",
+        "Classes and Objects",
+        "Object Oriented Programming",
+        "Constructors",
+        "Control Statements",
+        "Abstract Classes",
+        "Interfaces",
+        "Packages",
+        "Exception Handling",
+        "Multi-threading",
+        "Collection Framework",
+        "Generics",
+        "Input Output Streams",
+        "Java 8 Features"
       ]
     },
     {
-      "title": "Module 2: Installation and Configuration",
+      "title": "Module 2: JDBC",
       "topics": [
-        "Prerequisites and system requirements",
-        "Installation on Windows and Linux platforms",
-        "Creating and configuring Queue Managers",
-        "Setting up system and user queues",
-        "Defining channels and connections",
-        "Multi-Queue Manager configuration",
-        "One-to-Many and Many-to-One configurations"
+        "Introduction to SQL",
+        "Introduction to JDBC",
+        "Architecture of JDBC",
+        "Types of Drivers",
+        "JDBC-ODBC Bridge Driver",
+        "Native-API Driver",
+        "Network Protocol Driver",
+        "Thin Driver",
+        "CRUD Operations using JDBC in Java",
+        "Batch Processing",
+        "Transaction Management"
       ]
     },
     {
-      "title": "Module 3: Advanced IBM MQ Concepts",
+      "title": "Module 3: Servlets",
       "topics": [
-        "IBM MQ clustering fundamentals",
-        "Benefits of clustering in message routing",
-        "Cluster Queue Managers and cluster channels",
-        "Troubleshooting MQ clusters",
-        "High availability implementation",
-        "Multi-instance queue managers",
-        "Running and standby Queue Manager setup"
+        "Introduction to Web Technologies",
+        "Ways to create a Servlet",
+        "Implementing Servlet Interface",
+        "Extending GenericServlet",
+        "Extending HttpServlet",
+        "Html with Servlet Communication",
+        "Html with Servlet and Database Communication",
+        "Servlet with Servlet Communication",
+        "ServletConfig & ServletContext",
+        "Session Tracking"
       ]
     },
     {
-      "title": "Module 4: IBM MQ Security",
+      "title": "Module 4: JSP",
       "topics": [
-        "Authentication and authorization mechanisms",
-        "SSL/TLS encryption for secure communications",
-        "Defining and managing security policies",
-        "Securing MQ Channels",
-        "User permissions and access control lists",
-        "Role-based security in MQ",
-        "Auditing, compliance, and event log management"
+        "Introduction to JSP",
+        "Architecture of JSP",
+        "JSP Scripting Elements",
+        "Scriplet Tag",
+        "Expression Tag",
+        "Declaration Tag",
+        "JSP Directive Elements",
+        "page Directive",
+        "include Directive",
+        "taglib Directive",
+        "JSP Action Elements",
+        "forward",
+        "include",
+        "bean",
+        "setProperty",
+        "getProperty",
+        "JSP Implicit objects",
+        "request",
+        "response",
+        "config",
+        "application",
+        "session",
+        "pageContext",
+        "page",
+        "exception",
+        "JSP and JDBC"
       ]
     },
     {
-      "title": "Module 5: Performance Tuning",
+      "title": "Module 5: Hibernate",
       "topics": [
-        "Performance monitoring tools (AMQMON, MQ Explorer)",
-        "IBM MQ Performance Tuning Guide overview",
-        "Optimizing queue performance",
-        "Configuring channel buffers and timeouts",
-        "Diagnosing performance issues",
-        "Analyzing trace logs and error logs",
-        "Resolving common MQ performance bottlenecks"
+        "Introduction to Hibernate",
+        "Architecture of Hibernate",
+        "Database CRUD Operations",
+        "Inheritance",
+        "Table per Hierarchy",
+        "Table per Sub Class",
+        "Table per Concrete Class",
+        "Hibernate Relationships",
+        "One-to-one",
+        "One-to-many",
+        "Many-to-one",
+        "Many-to-many",
+        "HQL and Restrictions",
+        "Criteria in Hibernate"
       ]
     },
     {
-      "title": "Module 6: Integrating IBM MQ with Other Systems",
+      "title": "Module 6: Spring Framework",
       "topics": [
-        "IBM MQ client and server applications",
-        "Message listeners and automated processing",
-        "IBM MQ on cloud platforms",
-        "Configuring MQ in hybrid cloud architectures",
-        "Integration patterns and best practices"
+        "Introduction to Spring",
+        "Spring Core (Basic Concepts)",
+        "Spring Core (Advanced Concepts)",
+        "Spring Core (3.0 Annotations)",
+        "Spring MVC",
+        "Spring AOP",
+        "Spring ORM",
+        "Spring Transaction",
+        "Spring JDBC",
+        "Creating Views in Spring MVC"
       ]
     },
     {
-      "title": "Module 7: Troubleshooting and Best Practices",
+      "title": "Module 7: Spring Boot & REST API",
       "topics": [
-        "Connection issues and channel failures",
-        "Message loss and duplication problems",
-        "Dead-letter queues and backout queues",
-        "Error handling and recovery strategies",
-        "Common issues and resolution techniques"
+        "Spring Boot Introduction",
+        "Spring Boot + Maven – Hello World Example",
+        "Creating a RESTful Web Service Example",
+        "Common Application Properties",
+        "How to Change Default Tomcat Server Port",
+        "How to Change Default Context Path",
+        "How to Reload Changes Without Restarting the Server",
+        "How to Create/Configure a Data Source",
+        "How to Configure Multiple Data Source",
+        "Spring Boot + Spring Security – RESTful Web Service with basic Authentication",
+        "Spring Boot + Spring Security – RESTful Web Service with Database Authentication",
+        "Spring Boot + Spring MVC + JSP Hello World Example",
+        "Spring Boot - RESTful Web Service with POST Request in JSON Example"
       ]
     },
     {
-      "title": "Module 8: Migration and Upgrade to IBM MQ 9.2+",
+      "title": "Module 8: Microservices",
       "topics": [
-        "Steps for upgrading from previous versions",
-        "Compatibility considerations",
-        "Migration toolkit and utilities",
-        "New features in IBM MQ 9.2+",
-        "Multi-cloud environments and IBM MQ on Kubernetes"
+        "Introduction to Microservices Architecture",
+        "Fundamentals of RESTful Services",
+        "Java Microservices with Spring Boot",
+        "Building and Deploying Microservices",
+        "Communication Between Microservices",
+        "Microservices Data Management",
+        "API Gateway and Service Discovery",
+        "Security in Microservices",
+        "Monitoring and Logging",
+        "Testing Microservices",
+        "Scaling Microservices",
+        "DevOps and CI/CD for Microservices"
       ]
     },
     {
-      "title": "Module 9: Hands-on Labs",
+      "title": "Module 9: Agile Methodology",
       "topics": [
-        "Setting up a basic IBM MQ environment",
-        "Configuring security settings and user roles",
-        "Implementing a clustered MQ setup",
-        "Integrating MQ with sample applications",
-        "Performance tuning exercises"
+        "Agile Methodology Introduction",
+        "Advantages & Disadvantages of Agile",
+        "Agile Manifesto",
+        "Agile Characteristics",
+        "Agile SDLC",
+        "Agile Scrum",
+        "Agile Daily stand-up",
+        "Product Management"
       ]
     },
     {
-      "title": "Module 10: Interview Preparation",
+      "title": "Module 10: Tools and Technologies",
       "topics": [
-        "Resume preparation and optimization",
-        "Job portal strategies",
-        "Technical introduction techniques",
-        "Common interview questions and answers",
-        "Career path planning for MQ specialists"
+        "Maven",
+        "JUnit",
+        "Log4J",
+        "GitHub",
+        "Jira"
+      ]
+    },
+    {
+      "title": "Module 11: Databases",
+      "topics": [
+        "MongoDB",
+        "MySQL"
+      ]
+    },
+    {
+      "title": "Module 12: UI Technologies",
+      "topics": [
+        "Html",
+        "JavaScript",
+        "TypeScript",
+        "React JS"
+      ]
+    },
+    {
+      "title": "Module 13: React JS",
+      "topics": [
+        "Introduction to React JS",
+        "JSX",
+        "Components",
+        "State and Props",
+        "React Hooks",
+        "Forms in React",
+        "React Router",
+        "Redux for State Management",
+        "API Integration",
+        "Performance Optimisation",
+        "Testing React Apps"
+      ]
+    },
+    {
+      "title": "Module 14: AI for Java",
+      "topics": [
+        "Introduction to AI",
+        "Why use Java for AI?",
+        "Machine Learning Basics",
+        "Data Handling and Preprocessing",
+        "Building Machine Learning Models in Java",
+        "Neural Networks in Java",
+        "Natural Language Processing (NLP) with Java",
+        "AI in Real-Time Applications",
+        "AI and Java for Image Recognition"
+      ]
+    },
+    {
+      "title": "Module 15: AWS Cloud Fundamentals",
+      "topics": [
+        "AWS Cloud Practitioner Essentials",
+        "Introduction to Amazon Web Services",
+        "Compute in the Cloud",
+        "Global Infrastructure and Reliability",
+        "Networking",
+        "Storage and Databases",
+        "Security"
+      ]
+    },
+    {
+      "title": "Module 16: DevOps Fundamentals",
+      "topics": [
+        "Introduction to DevOps",
+        "DevOps Architecture",
+        "DevOps Lifecycle",
+        "Pipeline and Methodology",
+        "Jenkins"
       ]
     }
   ],
   "features": [
-    "Hands-on IBM MQ environment setup",
-    "Security configuration practice",
-    "Performance tuning exercises",
-    "High availability implementation",
-    "Real-world troubleshooting scenarios"
+    "Complete Java Programming Coverage",
+    "Real-Time Project Work",
+    "Java Frameworks and Tools Integration",
+    "Database and Cloud Integration",
+    "Agile Methodology and Scrum Practices",
+    "Career Readiness and Mock Interviews"
   ]
+  },
+  sqlServer: {
+    "title": "SQL Server Training Program",
+    "subtitle": "Master SQL Server Database Management and Azure Data Pipelines",
+    "description": "Comprehensive course covering SQL Server fundamentals, database operations, and Azure Data Factory for ETL pipeline development. Ideal for aspiring data engineers and analysts.",
+   "image": "/images/courses/sqlserver.jpg",
+    "duration": "45 Days",
+    "schedule": "Weekdays",
+    "level": "Beginner to Intermediate",
+    "certification": "Certified SQL Server & ADF Professional",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Getting started with the database",
+        "topics": ["Database and its overview"]
+      },
+      {
+        "title": "Module 2: Creating, Dropping & Restoring Sql server database",
+        "topics": ["Download & Restore Adventure Works"]
+      },
+      {
+        "title": "Module 3: Creating and working with tables",
+        "topics": []
+      },
+      {
+        "title": "Module 4: Constraints and working with Identity Column",
+        "topics": []
+      },
+      {
+        "title": "Module 5: Data types and built-in functions",
+        "topics": []
+      },
+      {
+        "title": "Module 6: Working with data (Insert, Update, Delete)",
+        "topics": []
+      },
+      {
+        "title": "Module 7: Retrieving data using SELECT Statement",
+        "topics": []
+      },
+      {
+        "title": "Module 8: Filtering data using WHERE clause",
+        "topics": []
+      },
+      {
+        "title": "Module 9: Using Operators in queries",
+        "topics": []
+      },
+      {
+        "title": "Module 10: Sorting and Pagination",
+        "topics": []
+      },
+      {
+        "title": "Module 11: Joins and Subqueries",
+        "topics": []
+      },
+      {
+        "title": "Module 12: Grouping and Aggregating Data",
+        "topics": []
+      },
+      {
+        "title": "Module 13: Views and Indexes",
+        "topics": []
+      },
+      {
+        "title": "Module 14: Stored Procedures and Functions",
+        "topics": []
+      },
+      {
+        "title": "Module 15: Triggers and Transactions",
+        "topics": []
+      },
+      {
+        "title": "Module 16: Introduction to Azure Data Factory",
+        "topics": ["What is Cloud", "Create resource group", "Azure Data Factory UI Walkthrough", "Create Free Azure Subscription"]
+      },
+      {
+        "title": "Module 17: Key concepts of Azure Data Factory",
+        "topics": ["Integration Runtime, Linked Services, Datasets, Activities, Pipelines, Triggers"]
+      },
+      {
+        "title": "Module 18: Data Flow Activities",
+        "topics": ["Mapping Data Flows", "Data Transformations", "Data Sink and Data Source"]
+      },
+      {
+        "title": "Module 19: Parameters, Variables, Expressions",
+        "topics": ["Dynamic Content", "Pipeline Parameters", "Data Flow Parameters"]
+      },
+      {
+        "title": "Module 20: Real-Time Project using ADF",
+        "topics": ["ETL Scenario Implementation", "Debugging & Monitoring", "CI/CD Integration"]
+      }
+    ],
+    "features": [
+      "End-to-End SQL Server & ADF Training",
+      "Hands-on Database Management Practice",
+      "Real-Time Data Flow Projects in Azure",
+      "Resume and Interview Support",
+      "Industry-Relevant Use Cases"
+    ]
+  },
+  azureADF: {
+    "title": "Azure Data Factory Training Program",
+    "subtitle": "Master Azure Data Engineering Workflows",
+    "description": "A comprehensive hands-on course to master Azure Data Factory pipelines, data flows, triggers, Databricks integration, and real-time project experience.",
+    "image": "/images/courses/azuredatafactory.jpg",
+    "duration": "30 Days",
+    "schedule": "Weekdays",
+    "level": "Intermediate",
+    "certification": "Certified Azure Data Engineer",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Introduction to Azure Data Factory",
+        "topics": [
+          "What is Cloud",
+          "Create resource group",
+          "Azure Data Factory UI Walkthrough",
+          "Create Free Azure Subscription"
+        ]
+      },
+      {
+        "title": "Module 2: Key Concepts of Azure Data Factory",
+        "topics": [
+          "Integration Runtime",
+          "Linked Services",
+          "Datasets",
+          "Activities",
+          "Pipelines",
+          "Triggers"
+        ]
+      },
+      {
+        "title": "Module 3: Variable & Parameters",
+        "topics": []
+      },
+      {
+        "title": "Module 4: Activities in ADF",
+        "topics": [
+          "Copy Data",
+          "Join",
+          "Conditional Split",
+          "Exists",
+          "Union",
+          "Lookup",
+          "Derived Column",
+          "Select",
+          "Aggregate",
+          "Surrogate Key",
+          "Pivot",
+          "Unpivot Key",
+          "Window",
+          "Rank",
+          "External Call",
+          "Cast",
+          "Flatten",
+          "Parse",
+          "Stringify",
+          "Filter",
+          "Sort",
+          "Alter Row",
+          "Assert",
+          "Flowlet",
+          "Sink"
+        ]
+      },
+      {
+        "title": "Module 5: General Activities",
+        "topics": [
+          "Append Variable",
+          "Delete",
+          "Execute Pipeline",
+          "Execute SSIS Package",
+          "Fail",
+          "Get Metadata",
+          "Lookup",
+          "Stored Procedure",
+          "Script",
+          "Set Variable",
+          "Validation",
+          "Web"
+        ]
+      },
+      {
+        "title": "Module 6: Iteration & Conditionals",
+        "topics": [
+          "Filter",
+          "For Each",
+          "If Condition",
+          "Switch",
+          "Until"
+        ]
+      },
+      {
+        "title": "Module 7: Databricks Integration",
+        "topics": [
+          "Notebook",
+          "Jar",
+          "Python",
+          "Job"
+        ]
+      },
+      {
+        "title": "Module 8: Azure Key Vault",
+        "topics": []
+      },
+      {
+        "title": "Module 9: Change Data Capture",
+        "topics": []
+      },
+      {
+        "title": "Module 10: Code Repository",
+        "topics": []
+      },
+      {
+        "title": "Module 11: Real-Time Interview Questions",
+        "topics": []
+      },
+      {
+        "title": "Module 12: Mini Project on ADF",
+        "topics": []
+      }
+    ],
+    "features": [
+      "Hands-on ADF Pipeline Design",
+      "Extensive Coverage of Data Flow & Control Flow",
+      "Databricks and Azure Integration",
+      "Mini Project for Real-World Experience",
+      "Interview Preparation Support"
+    ]
   }
 }
 

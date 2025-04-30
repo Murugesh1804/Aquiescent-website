@@ -27,26 +27,23 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { CaseStudyModal } from "@/components/case-study-modal"
 
 export function ServicesContent() {
-  // Track which service card is being hovered
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [activeTab, setActiveTab] = useState<string>("training")
+  const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false)
 
-  // Ref for the services section to track scroll position
   const servicesRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(servicesRef, { once: false, margin: "-100px" })
 
-  // Refs for scroll-triggered animations
   const headerRef = useRef<HTMLDivElement>(null)
   const headerInView = useInView(headerRef, { once: true })
 
-  // Parallax scroll effect for header
   const { scrollY } = useScroll()
   const headerY = useTransform(scrollY, [0, 500], [0, 150])
   const headerOpacity = useTransform(scrollY, [0, 300], [1, 0.6])
 
-  // Programming languages with icons
   const programmingLanguages = [
     { name: "JavaScript", icon: <FileCode className="h-6 w-6" /> },
     { name: "Python", icon: <Terminal className="h-6 w-6" /> },
@@ -122,7 +119,6 @@ export function ServicesContent() {
     ],
   }
 
-  // Main service categories with images
   const mainServices = [
     {
       id: "training",
@@ -156,7 +152,6 @@ export function ServicesContent() {
     },
   ]
 
-  // Interactive hover state handlers
   const handleMouseEnter = (index: number) => {
     setHoveredIndex(index)
   }
@@ -165,7 +160,6 @@ export function ServicesContent() {
     setHoveredIndex(null)
   }
 
-  // Marquee animation variants
   const marqueeVariants = {
     animate: {
       x: [0, -2000],
@@ -279,7 +273,6 @@ export function ServicesContent() {
       <section className="w-full py-8 bg-gray-50 overflow-hidden">
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-gray-50 via-transparent to-gray-50 z-10 pointer-events-none w-full h-full" />
-
           <div className="flex space-x-4 whitespace-nowrap">
             <motion.div className="flex space-x-8 items-center" variants={marqueeVariants} animate="animate">
               {[...programmingLanguages, ...programmingLanguages].map((lang, index) => (
@@ -455,6 +448,7 @@ export function ServicesContent() {
                   className="bg-white text-primary hover:bg-white/90 rounded-full px-6 py-2"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => window.location.href = "/contact"}
                 >
                   Schedule a Consultation
                 </Button>
@@ -463,6 +457,7 @@ export function ServicesContent() {
                   className="bg-white text-primary hover:bg-white/90 rounded-full px-6 py-2"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => setIsCaseStudyOpen(true)}
                 >
                   View Case Studies
                 </Button>
@@ -485,6 +480,9 @@ export function ServicesContent() {
           </div>
         </div>
       </section>
+
+      {/* Case Study Modal */}
+      <CaseStudyModal isOpen={isCaseStudyOpen} onClose={() => setIsCaseStudyOpen(false)} />
     </div>
   )
 }
