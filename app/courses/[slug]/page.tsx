@@ -11,12 +11,12 @@ import { DownloadBrochureButton } from "@/components/DownloadBrochure";
 
 // Course data
 const courses = {
-  aws_security:{
+  awsSecurity:{
     "title": "AWS Security Engineer",
     "subtitle": "Master Cloud Security on AWS Platform",
     "description": "Comprehensive AWS security training covering the shared responsibility model, IAM, network security, data protection, compliance frameworks, and incident response. Gain hands-on experience with security tools and implement best practices for securing AWS infrastructure.",
     "image": "/images/courses/awssecurity.jpg",
-    "duration": "12 Days",
+    "duration": "60 Days",
     "schedule": "Weekdays",
     "level": "Intermediate to Advanced",
     "certification": "AWS Security Specialty",
@@ -84,14 +84,23 @@ const courses = {
           "Review of tools like Wiz, Panaseer, Aikido"
         ]
       }
+    ],"features": [
+      "Comprehensive coverage of AWS security services and frameworks",
+      "Hands-on experience with security tools and infrastructure",
+      "In-depth IAM policy management and implementation",
+      "Network security configurations including VPC, security groups, and NACLs",
+      "Data protection strategies with KMS and encryption techniques",
+      "Compliance frameworks and auditing implementation",
+      "Incident response automation and monitoring"
     ]
+
   },
-  confluent_kafka:{
+  confluenKafka:{
     "title": "Confluent Kafka",
     "subtitle": "Master Distributed Event Streaming Platform",
     "description": "Comprehensive Confluent Kafka training covering architecture, implementation, administration, and security. Learn to set up, configure, and manage Kafka clusters while integrating with various data sources using connectors, schema registry, and REST proxy.",
     "image": "/images/courses/kafka.jpg",
-    "duration": "12 Modules",
+   "duration": "45 Days",
     "schedule": "Flexible",
     "level": "Intermediate",
     "certification": "Confluent Certified Developer for Apache Kafka",
@@ -204,14 +213,23 @@ const courses = {
           "Kafka server configuration and setup"
         ]
       }
+    ], "features": [
+      "Single-node and multi-node Kafka implementation",
+      "Administration through CLI and GUI tools",
+      "Connector integration and schema registry",
+      "Security implementation with SSL/TLS",
+      "Hands-on experience with Kafka Connect and REST Proxy",
+      "Advanced configuration settings and partition management",
+      "Data streaming capabilities and management"
     ]
+
   },
-  snowflake_aws:{
+  snowflake:{
     "title": "Snowflake on AWS",
     "subtitle": "Cloud Data Warehousing Solutions",
     "description": "Comprehensive Snowflake training covering data warehousing fundamentals, Snowflake architecture, advanced features, and AWS integration. Learn to design, implement, and optimize data solutions while understanding Snowflake's unique pricing model and performance capabilities.",
     "image": "/images/courses/snowflake.jpg",
-    "duration": "10 Modules",
+    "duration": "60 Days",
     "schedule": "Weekdays/Weekends",
     "level": "Beginner to Advanced",
     "certification": "SnowPro Core Certification",
@@ -355,14 +373,23 @@ const courses = {
           "Sample Tests & Quiz"
         ]
       }
+    ],"features": [
+      "Cloud data warehousing architecture and design",
+      "AWS services integration capabilities",
+      "Data loading and optimization techniques",
+      "Performance tuning and resource management",
+      "Advanced data sharing and security implementation",
+      "Micro-partitioning and clustering optimization",
+      "Real-time scenario training and certification preparation"
     ]
+
   },
   python_full_stack:{
     "title": "Python Full Stack Development",
     "subtitle": "Master Web Development with Python & Modern Frameworks",
     "description": "Comprehensive full-stack Python development course covering frontend technologies (HTML, CSS, JavaScript), core Python programming, database interaction, and backend frameworks like Django/Flask. Learn to build complete web applications with modern responsive designs and RESTful APIs.",
     "image": "/images/courses/pythonfullstack.jpg",
-    "duration": "16 Weeks",
+    "duration": "150 Days",
     "schedule": "Flexible",
     "level": "Beginner to Advanced",
     "certification": "Python Full Stack Developer Certification",
@@ -453,14 +480,23 @@ const courses = {
           "Component Lifecycle Hooks"
         ]
       }
+    ], "features": [
+      "End-to-end web application development skills",
+      "Frontend and backend integration expertise",
+      "Database management and API development",
+      "Responsive web design with modern frameworks",
+      "JavaScript/TypeScript and Angular integration",
+      "Object-oriented programming implementation",
+      "RESTful API development with Django REST Framework"
     ]
+
   },
   aws_devops:{
     "title": "AWS & DevOps",
     "subtitle": "Cloud Infrastructure Automation & Continuous Delivery",
     "description": "Comprehensive AWS and DevOps course covering cloud infrastructure, automation tools, containerization, and CI/CD pipelines. Learn to implement infrastructure as code with Terraform, configuration management with Ansible, continuous integration with Jenkins, and container orchestration with Docker.",
     "image": "/images/courses/awsdevops.jpg",
-    "duration": "22 Days",
+    "duration": "60-90 Days",
     "schedule": "Weekdays",
     "level": "Intermediate",
     "certification": "AWS DevOps Engineer Professional",
@@ -635,14 +671,23 @@ const courses = {
           "Event Bridge"
         ]
       }
+    ],  "features": [
+      "Continuous integration and deployment pipeline implementation",
+      "Infrastructure as code with Terraform",
+      "Configuration management with Ansible",
+      "Containerization with Docker and orchestration",
+      "Monitoring and logging implementation",
+      "Cloud infrastructure design and management",
+      "Serverless application development"
     ]
+
   },
   oracle_apex:{
     "title": "Oracle APEX",
     "subtitle": "Low-Code Application Development Platform",
     "description": "Comprehensive Oracle APEX course covering application development concepts, SQL Workshop, page building, and security implementation. Learn to create interactive reports, forms, and secure data-driven applications with minimal coding requirements using Oracle's enterprise-grade development platform.",
     "image": "/images/courses/oracleapex.jpg",
-    "duration": "11 Modules",
+    "duration": "45 Days",
     "schedule": "Flexible",
     "level": "Beginner to Intermediate",
     "certification": "Oracle APEX Developer Certification",
@@ -737,9 +782,18 @@ const courses = {
           "Access Control Implementation"
         ]
       }
+    ],  "features": [
+      "Low-code application development expertise",
+      "Interactive report and form creation",
+      "Templates and themes customization",
+      "Security implementation and access control",
+      "SQL workshop and database integration",
+      "Responsive design implementation",
+      "Dynamic actions and JavaScript integration"
     ]
+
   },
-  data_science:{
+  dataScience:{
     "title": "Data Science Complete Course",
     "subtitle": "Master Data Science with Python, Machine Learning, Deep Learning & Visualization",
     "description": "An end-to-end Data Science training covering Python, statistics, data wrangling, machine learning, deep learning, databases, NLP, and BI tools. Includes real-world projects and interview preparation.",
@@ -879,7 +933,7 @@ const courses = {
   "subtitle": "Master Manual and Automated Testing with Real-Time Projects",
   "description": "Comprehensive training in manual testing, automation with Selenium, BDD with Cucumber, SQL, Git, Jenkins, and more. Includes hands-on project work, resume preparation, and mock interviews to help you become job-ready.",
   "image": "/images/courses/softwaretesting.jpg",
-  "duration": "60 Days",
+  "duration": "60-90 Days",
   "schedule": "Weekdays",
   "level": "Beginner to Advanced",
   "certification": "Certified Software Testing Professional",
@@ -994,7 +1048,500 @@ const courses = {
     "CI/CD Integration using Jenkins & Git",
     "Resume and Interview Readiness"
   ]
-  },  
+  },
+  javafullstack:{
+    "title": "Java Full Stack Development",
+  "subtitle": "Master Java Programming with Core Concepts and Real-Time Projects",
+  "description": "Comprehensive training in Java, covering core concepts, web technologies, frameworks, database handling, and much more. Includes hands-on projects, career readiness, and interview preparation.",
+  "image": "/images/courses/javafullstack.jpg",
+  "duration": "90 Days",
+  "schedule": "Weekdays and Weekends",
+  "level": "Beginner to Advanced",
+  "certification": "Certified Java Developer",
+  "brochurePath": "/placeholder.svg",
+  "syllabus": [
+    {
+      "title": "Module 1: Core Java",
+      "topics": [
+        "Introduction to Java",
+        "Data Types and Variables",
+        "Classes and Objects",
+        "Object Oriented Programming",
+        "Constructors",
+        "Control Statements",
+        "Abstract Classes",
+        "Interfaces",
+        "Packages",
+        "Exception Handling",
+        "Multi-threading",
+        "Collection Framework",
+        "Generics",
+        "Input Output Streams",
+        "Java 8 Features"
+      ]
+    },
+    {
+      "title": "Module 2: JDBC",
+      "topics": [
+        "Introduction to SQL",
+        "Introduction to JDBC",
+        "Architecture of JDBC",
+        "Types of Drivers",
+        "JDBC-ODBC Bridge Driver",
+        "Native-API Driver",
+        "Network Protocol Driver",
+        "Thin Driver",
+        "CRUD Operations using JDBC in Java",
+        "Batch Processing",
+        "Transaction Management"
+      ]
+    },
+    {
+      "title": "Module 3: Servlets",
+      "topics": [
+        "Introduction to Web Technologies",
+        "Ways to create a Servlet",
+        "Implementing Servlet Interface",
+        "Extending GenericServlet",
+        "Extending HttpServlet",
+        "Html with Servlet Communication",
+        "Html with Servlet and Database Communication",
+        "Servlet with Servlet Communication",
+        "ServletConfig & ServletContext",
+        "Session Tracking"
+      ]
+    },
+    {
+      "title": "Module 4: JSP",
+      "topics": [
+        "Introduction to JSP",
+        "Architecture of JSP",
+        "JSP Scripting Elements",
+        "Scriplet Tag",
+        "Expression Tag",
+        "Declaration Tag",
+        "JSP Directive Elements",
+        "page Directive",
+        "include Directive",
+        "taglib Directive",
+        "JSP Action Elements",
+        "forward",
+        "include",
+        "bean",
+        "setProperty",
+        "getProperty",
+        "JSP Implicit objects",
+        "request",
+        "response",
+        "config",
+        "application",
+        "session",
+        "pageContext",
+        "page",
+        "exception",
+        "JSP and JDBC"
+      ]
+    },
+    {
+      "title": "Module 5: Hibernate",
+      "topics": [
+        "Introduction to Hibernate",
+        "Architecture of Hibernate",
+        "Database CRUD Operations",
+        "Inheritance",
+        "Table per Hierarchy",
+        "Table per Sub Class",
+        "Table per Concrete Class",
+        "Hibernate Relationships",
+        "One-to-one",
+        "One-to-many",
+        "Many-to-one",
+        "Many-to-many",
+        "HQL and Restrictions",
+        "Criteria in Hibernate"
+      ]
+    },
+    {
+      "title": "Module 6: Spring Framework",
+      "topics": [
+        "Introduction to Spring",
+        "Spring Core (Basic Concepts)",
+        "Spring Core (Advanced Concepts)",
+        "Spring Core (3.0 Annotations)",
+        "Spring MVC",
+        "Spring AOP",
+        "Spring ORM",
+        "Spring Transaction",
+        "Spring JDBC",
+        "Creating Views in Spring MVC"
+      ]
+    },
+    {
+      "title": "Module 7: Spring Boot & REST API",
+      "topics": [
+        "Spring Boot Introduction",
+        "Spring Boot + Maven – Hello World Example",
+        "Creating a RESTful Web Service Example",
+        "Common Application Properties",
+        "How to Change Default Tomcat Server Port",
+        "How to Change Default Context Path",
+        "How to Reload Changes Without Restarting the Server",
+        "How to Create/Configure a Data Source",
+        "How to Configure Multiple Data Source",
+        "Spring Boot + Spring Security – RESTful Web Service with basic Authentication",
+        "Spring Boot + Spring Security – RESTful Web Service with Database Authentication",
+        "Spring Boot + Spring MVC + JSP Hello World Example",
+        "Spring Boot - RESTful Web Service with POST Request in JSON Example"
+      ]
+    },
+    {
+      "title": "Module 8: Microservices",
+      "topics": [
+        "Introduction to Microservices Architecture",
+        "Fundamentals of RESTful Services",
+        "Java Microservices with Spring Boot",
+        "Building and Deploying Microservices",
+        "Communication Between Microservices",
+        "Microservices Data Management",
+        "API Gateway and Service Discovery",
+        "Security in Microservices",
+        "Monitoring and Logging",
+        "Testing Microservices",
+        "Scaling Microservices",
+        "DevOps and CI/CD for Microservices"
+      ]
+    },
+    {
+      "title": "Module 9: Agile Methodology",
+      "topics": [
+        "Agile Methodology Introduction",
+        "Advantages & Disadvantages of Agile",
+        "Agile Manifesto",
+        "Agile Characteristics",
+        "Agile SDLC",
+        "Agile Scrum",
+        "Agile Daily stand-up",
+        "Product Management"
+      ]
+    },
+    {
+      "title": "Module 10: Tools and Technologies",
+      "topics": [
+        "Maven",
+        "JUnit",
+        "Log4J",
+        "GitHub",
+        "Jira"
+      ]
+    },
+    {
+      "title": "Module 11: Databases",
+      "topics": [
+        "MongoDB",
+        "MySQL"
+      ]
+    },
+    {
+      "title": "Module 12: UI Technologies",
+      "topics": [
+        "Html",
+        "JavaScript",
+        "TypeScript",
+        "React JS"
+      ]
+    },
+    {
+      "title": "Module 13: React JS",
+      "topics": [
+        "Introduction to React JS",
+        "JSX",
+        "Components",
+        "State and Props",
+        "React Hooks",
+        "Forms in React",
+        "React Router",
+        "Redux for State Management",
+        "API Integration",
+        "Performance Optimisation",
+        "Testing React Apps"
+      ]
+    },
+    {
+      "title": "Module 14: AI for Java",
+      "topics": [
+        "Introduction to AI",
+        "Why use Java for AI?",
+        "Machine Learning Basics",
+        "Data Handling and Preprocessing",
+        "Building Machine Learning Models in Java",
+        "Neural Networks in Java",
+        "Natural Language Processing (NLP) with Java",
+        "AI in Real-Time Applications",
+        "AI and Java for Image Recognition"
+      ]
+    },
+    {
+      "title": "Module 15: AWS Cloud Fundamentals",
+      "topics": [
+        "AWS Cloud Practitioner Essentials",
+        "Introduction to Amazon Web Services",
+        "Compute in the Cloud",
+        "Global Infrastructure and Reliability",
+        "Networking",
+        "Storage and Databases",
+        "Security"
+      ]
+    },
+    {
+      "title": "Module 16: DevOps Fundamentals",
+      "topics": [
+        "Introduction to DevOps",
+        "DevOps Architecture",
+        "DevOps Lifecycle",
+        "Pipeline and Methodology",
+        "Jenkins"
+      ]
+    }
+  ],
+  "features": [
+    "Complete Java Programming Coverage",
+    "Real-Time Project Work",
+    "Java Frameworks and Tools Integration",
+    "Database and Cloud Integration",
+    "Agile Methodology and Scrum Practices",
+    "Career Readiness and Mock Interviews"
+  ]
+  },
+  sqlServer: {
+    "title": "SQL Server Training Program",
+    "subtitle": "Master SQL Server Database Management and Azure Data Pipelines",
+    "description": "Comprehensive course covering SQL Server fundamentals, database operations, and Azure Data Factory for ETL pipeline development. Ideal for aspiring data engineers and analysts.",
+   "image": "/images/courses/sqlserver.jpg",
+    "duration": "45 Days",
+    "schedule": "Weekdays",
+    "level": "Beginner to Intermediate",
+    "certification": "Certified SQL Server & ADF Professional",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Getting started with the database",
+        "topics": ["Database and its overview"]
+      },
+      {
+        "title": "Module 2: Creating, Dropping & Restoring Sql server database",
+        "topics": ["Download & Restore Adventure Works"]
+      },
+      {
+        "title": "Module 3: Creating and working with tables",
+        "topics": []
+      },
+      {
+        "title": "Module 4: Constraints and working with Identity Column",
+        "topics": []
+      },
+      {
+        "title": "Module 5: Data types and built-in functions",
+        "topics": []
+      },
+      {
+        "title": "Module 6: Working with data (Insert, Update, Delete)",
+        "topics": []
+      },
+      {
+        "title": "Module 7: Retrieving data using SELECT Statement",
+        "topics": []
+      },
+      {
+        "title": "Module 8: Filtering data using WHERE clause",
+        "topics": []
+      },
+      {
+        "title": "Module 9: Using Operators in queries",
+        "topics": []
+      },
+      {
+        "title": "Module 10: Sorting and Pagination",
+        "topics": []
+      },
+      {
+        "title": "Module 11: Joins and Subqueries",
+        "topics": []
+      },
+      {
+        "title": "Module 12: Grouping and Aggregating Data",
+        "topics": []
+      },
+      {
+        "title": "Module 13: Views and Indexes",
+        "topics": []
+      },
+      {
+        "title": "Module 14: Stored Procedures and Functions",
+        "topics": []
+      },
+      {
+        "title": "Module 15: Triggers and Transactions",
+        "topics": []
+      },
+      {
+        "title": "Module 16: Introduction to Azure Data Factory",
+        "topics": ["What is Cloud", "Create resource group", "Azure Data Factory UI Walkthrough", "Create Free Azure Subscription"]
+      },
+      {
+        "title": "Module 17: Key concepts of Azure Data Factory",
+        "topics": ["Integration Runtime, Linked Services, Datasets, Activities, Pipelines, Triggers"]
+      },
+      {
+        "title": "Module 18: Data Flow Activities",
+        "topics": ["Mapping Data Flows", "Data Transformations", "Data Sink and Data Source"]
+      },
+      {
+        "title": "Module 19: Parameters, Variables, Expressions",
+        "topics": ["Dynamic Content", "Pipeline Parameters", "Data Flow Parameters"]
+      },
+      {
+        "title": "Module 20: Real-Time Project using ADF",
+        "topics": ["ETL Scenario Implementation", "Debugging & Monitoring", "CI/CD Integration"]
+      }
+    ],
+    "features": [
+      "End-to-End SQL Server & ADF Training",
+      "Hands-on Database Management Practice",
+      "Real-Time Data Flow Projects in Azure",
+      "Resume and Interview Support",
+      "Industry-Relevant Use Cases"
+    ]
+  },
+  azureADF: {
+    "title": "Azure Data Factory Training Program",
+    "subtitle": "Master Azure Data Engineering Workflows",
+    "description": "A comprehensive hands-on course to master Azure Data Factory pipelines, data flows, triggers, Databricks integration, and real-time project experience.",
+    "image": "/images/courses/azuredatafactory.jpg",
+    "duration": "30 Days",
+    "schedule": "Weekdays",
+    "level": "Intermediate",
+    "certification": "Certified Azure Data Engineer",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "Module 1: Introduction to Azure Data Factory",
+        "topics": [
+          "What is Cloud",
+          "Create resource group",
+          "Azure Data Factory UI Walkthrough",
+          "Create Free Azure Subscription"
+        ]
+      },
+      {
+        "title": "Module 2: Key Concepts of Azure Data Factory",
+        "topics": [
+          "Integration Runtime",
+          "Linked Services",
+          "Datasets",
+          "Activities",
+          "Pipelines",
+          "Triggers"
+        ]
+      },
+      {
+        "title": "Module 3: Variable & Parameters",
+        "topics": []
+      },
+      {
+        "title": "Module 4: Activities in ADF",
+        "topics": [
+          "Copy Data",
+          "Join",
+          "Conditional Split",
+          "Exists",
+          "Union",
+          "Lookup",
+          "Derived Column",
+          "Select",
+          "Aggregate",
+          "Surrogate Key",
+          "Pivot",
+          "Unpivot Key",
+          "Window",
+          "Rank",
+          "External Call",
+          "Cast",
+          "Flatten",
+          "Parse",
+          "Stringify",
+          "Filter",
+          "Sort",
+          "Alter Row",
+          "Assert",
+          "Flowlet",
+          "Sink"
+        ]
+      },
+      {
+        "title": "Module 5: General Activities",
+        "topics": [
+          "Append Variable",
+          "Delete",
+          "Execute Pipeline",
+          "Execute SSIS Package",
+          "Fail",
+          "Get Metadata",
+          "Lookup",
+          "Stored Procedure",
+          "Script",
+          "Set Variable",
+          "Validation",
+          "Web"
+        ]
+      },
+      {
+        "title": "Module 6: Iteration & Conditionals",
+        "topics": [
+          "Filter",
+          "For Each",
+          "If Condition",
+          "Switch",
+          "Until"
+        ]
+      },
+      {
+        "title": "Module 7: Databricks Integration",
+        "topics": [
+          "Notebook",
+          "Jar",
+          "Python",
+          "Job"
+        ]
+      },
+      {
+        "title": "Module 8: Azure Key Vault",
+        "topics": []
+      },
+      {
+        "title": "Module 9: Change Data Capture",
+        "topics": []
+      },
+      {
+        "title": "Module 10: Code Repository",
+        "topics": []
+      },
+      {
+        "title": "Module 11: Real-Time Interview Questions",
+        "topics": []
+      },
+      {
+        "title": "Module 12: Mini Project on ADF",
+        "topics": []
+      }
+    ],
+    "features": [
+      "Hands-on ADF Pipeline Design",
+      "Extensive Coverage of Data Flow & Control Flow",
+      "Databricks and Azure Integration",
+      "Mini Project for Real-World Experience",
+      "Interview Preparation Support"
+    ]
+  }
 }
 
 // Generate metadata for each course page
