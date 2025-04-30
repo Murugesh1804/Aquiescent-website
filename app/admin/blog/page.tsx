@@ -104,46 +104,47 @@ export default function BlogsManager() {
             <tbody className="divide-y divide-gray-200">
               {blogs.map((blog) => (
                 <tr key={blog._id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    {blog.featuredImage ? (
-                      <img 
-                        src={blog.featuredImage} 
-                        alt={blog.title}
-                        className="h-16 w-24 object-cover rounded"
-                      />
-                    ) : (
-                      <div className="h-16 w-24 bg-gray-200 flex items-center justify-center rounded">
-                        No image
-                      </div>
-                    )}
-                  </td>
-                  <td className="px-6 py-4">
-                    <div className="font-medium text-gray-900">{blog.title}</div>
-                    <div className="text-sm text-gray-500 truncate max-w-xs">{blog.excerpt}</div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">{blog.author?.name || "Unknown"}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                      blog.status === 'published' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
-                    }`}>
-                      {blog.status}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <button
-                      onClick={() => handleEdit(blog)}
-                      className="text-indigo-600 hover:text-indigo-900 mr-4"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDelete(blog._id)}
-                      className="text-red-600 hover:text-red-900"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
+  <td className="px-6 py-4 whitespace-nowrap">
+    {blog.featuredImage ? (
+      <img 
+        src={`https://api.acquiescent.in/uploads/blogs/${blog.featuredImage}`} 
+        alt={blog.title}
+        className="h-16 w-24 object-cover rounded"
+      />
+    ) : (
+      <div className="h-16 w-24 bg-gray-200 flex items-center justify-center rounded">
+        No image
+      </div>
+    )}
+  </td>
+  <td className="px-6 py-4">
+    <div className="font-medium text-gray-900">{blog.title}</div>
+    <div className="text-sm text-gray-500 truncate max-w-xs">{blog.excerpt}</div>
+  </td>
+  <td className="px-6 py-4 whitespace-nowrap">{blog.author?.name || "Unknown"}</td>
+  <td className="px-6 py-4 whitespace-nowrap">
+    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+      blog.status === 'published' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+    }`}>
+      {blog.status}
+    </span>
+  </td>
+  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+    <button
+      onClick={() => handleEdit(blog)}
+      className="text-indigo-600 hover:text-indigo-900 mr-4"
+    >
+      Edit
+    </button>
+    <button
+      onClick={() => handleDelete(blog._id)}
+      className="text-red-600 hover:text-red-900"
+    >
+      Delete
+    </button>
+  </td>
+</tr>
+
               ))}
             </tbody>
           </table>
@@ -199,6 +200,17 @@ function AddPostModal({ initialData, onClose }) {
     setFormData({ ...formData, [name]: value });
   };
 
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState('');
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedImage(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
@@ -211,16 +223,31 @@ function AddPostModal({ initialData, onClose }) {
         return;
       }
   
+      const formDataToSend = new FormData();
+      formDataToSend.append('title', formData.title);
+      formDataToSend.append('content', formData.content);
+      formDataToSend.append('excerpt', formData.excerpt);
+      formDataToSend.append('author', formData.author);
+      formDataToSend.append('status', formData.status);
+      formDataToSend.append('slug', formData.slug);
+      
+      if (selectedImage) {
+        formDataToSend.append('featuredImage', selectedImage);
+      } else if (formData.featuredImage) {
+        formDataToSend.append('featuredImage', formData.featuredImage);
+      }
+  
       let response;
       
       if (initialData) {
         // Update existing blog
         response = await axios.put(
           `https://api.acquiescent.in/api/blogs/update/${initialData._id}`, 
-          formData, 
+          formDataToSend, 
           {
             headers: {
               Authorization: `Bearer ${token}`,
+              'Content-Type': 'multipart/form-data',
             },
           }
         );
@@ -228,10 +255,11 @@ function AddPostModal({ initialData, onClose }) {
         // Create new blog
         response = await axios.post(
           "https://api.acquiescent.in/api/blogs/create", 
-          formData, 
+          formDataToSend, 
           {
             headers: {
               Authorization: `Bearer ${token}`,
+              'Content-Type': 'multipart/form-data',
             },
           }
         );
@@ -250,87 +278,121 @@ function AddPostModal({ initialData, onClose }) {
   };
 
   return (
-    <div>
-      {error && <p className="text-red-500 mb-4">{error}</p>}
-      {success && <p className="text-green-500 mb-4">{success}</p>}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        <textarea
-          name="content"
-          placeholder="Content"
-          value={formData.content}
-          onChange={handleChange}
-          required
-          rows={6}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="text"
-          name="excerpt"
-          placeholder="Excerpt"
-          value={formData.excerpt}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="text"
-          name="author"
-          placeholder="Author"
-          value={formData.author}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="text"
-          name="featuredImage"
-          placeholder="Featured Image URL"
-          value={formData.featuredImage}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="text"
-          name="slug"
-          placeholder="Slug"
-          value={formData.slug}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
-        <select
-          name="status"
-          value={formData.status}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        >
-          <option value="draft">Draft</option>
-          <option value="published">Published</option>
-        </select>
-        <div className="flex justify-end space-x-2 pt-4">
-          <button
-            type="button"
-            onClick={() => onClose()}
-            className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          >
-            {initialData ? "Update Post" : "Add Post"}
-          </button>
-        </div>
-      </form>
-    </div>
-  );
+      <div>
+        {error && <p className="text-red-500 mb-4">{error}</p>}
+        {success && <p className="text-green-500 mb-4">{success}</p>}
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-2 gap-6">
+            {/* Left Column */}
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  value={formData.title}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-2 border rounded"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Author</label>
+                <input
+                  type="text"
+                  name="author"
+                  value={formData.author}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-2 border rounded"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Slug</label>
+                <input
+                  type="text"
+                  name="slug"
+                  value={formData.slug}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-2 border rounded"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                <select
+                  name="status"
+                  value={formData.status}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded"
+                >
+                  <option value="draft">Draft</option>
+                  <option value="published">Published</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Featured Image</label>
+                {(imagePreview || formData.featuredImage) && (
+                  <div className="mb-2">
+                    <img 
+                      src={imagePreview || `https://api.acquiescent.in/${formData.featuredImage}`} 
+                      alt="Preview" 
+                      className="h-32 w-48 object-cover rounded"
+                    />
+                  </div>
+                )}
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="w-full p-2 border rounded"
+                />
+              </div>
+            </div>
+            
+            {/* Right Column */}
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Content</label>
+                <textarea
+                  name="content"
+                  value={formData.content}
+                  onChange={handleChange}
+                  required
+                  rows={12}
+                  className="w-full p-2 border rounded"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Excerpt</label>
+                <textarea
+                  name="excerpt"
+                  value={formData.excerpt}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full p-2 border rounded"
+                />
+              </div>
+            </div>
+          </div>
+          
+          {/* Submit Buttons */}
+          <div className="flex justify-end space-x-3 mt-6 pt-4 border-t">
+            <button
+              type="button"
+              onClick={() => onClose()}
+              className="px-4 py-2 border rounded-md text-gray-700 hover:bg-gray-50"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            >
+              {initialData ? "Update Blog Post" : "Create Blog Post"}
+            </button>
+          </div>
+        </form>
+      </div>
+    );
 }

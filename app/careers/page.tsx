@@ -1,12 +1,14 @@
+"use client"
+
 import Link from "next/link"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronRight, MapPin, Clock, Briefcase } from "lucide-react"
+import { useState } from "react"
+import { ApplyPopup } from "@/components/apply-popup"
 
-export const metadata = {
-  title: "Careers | Acquiescent Consultancy Services",
-  description: "Join our team at Acquiescent Consultancy Services and build your career with us",
-}
+// Remove metadata since it's not supported in client components
+// We'll move it to a separate layout.tsx file
 
 export default function CareersPage() {
   const jobOpenings = [
@@ -93,6 +95,8 @@ export default function CareersPage() {
     },
   ]
 
+  const [selectedJob, setSelectedJob] = useState<string | null>(null)
+
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
@@ -152,8 +156,8 @@ export default function CareersPage() {
                   </div>
                 </CardContent>
                 <CardFooter className="p-6">
-                  <Button asChild>
-                    <Link href={`/contact`}>Apply Now <ChevronRight className="ml-2 h-4 w-4" /></Link>
+                  <Button onClick={() => setSelectedJob(job.title)}>
+                    Apply Now <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardFooter>
               </Card>
@@ -162,34 +166,12 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="w-full py-12 md:py-24 bg-primary text-white">
-  <div className="container px-4 md:px-6">
-    <div className="flex flex-col items-center justify-center space-y-4 text-center">
-      <div className="space-y-2">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-          Don't See a Perfect Match?
-        </h2>
-        <p className="mx-auto max-w-[700px] text-white/80 md:text-xl">
-          We're always looking for talented individuals to join our team. Send us your resume and we'll keep you
-          in mind for future opportunities.
-        </p>
-        <p className="mx-auto max-w-[700px] text-white/80 md:text-lg">
-          You can also email us directly at <a href="mailto:hr@acquiescent.in" className="underline">hr@acquiescent.in</a>
-        </p>
-      </div>
-      <div className="flex flex-col sm:flex-row gap-4">
-        <Button variant="secondary" asChild>
-          <Link href="/contact">Submit Your Resume</Link>
-        </Button>
-        <Button variant="outline" className="bg-white/10 text-white border-white/20 hover:bg-white/20" asChild>
-          <Link href="/contact">Contact Us</Link>
-        </Button>
-      </div>
-    </div>
-  </div>
-</section>
-
+      {/* Apply Popup */}
+      <ApplyPopup
+        isOpen={!!selectedJob}
+        onClose={() => setSelectedJob(null)}
+        jobTitle={selectedJob || ""}
+      />
     </main>
   )
 }

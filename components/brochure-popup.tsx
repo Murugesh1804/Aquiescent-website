@@ -60,10 +60,10 @@ export function BrochurePopup() {
       const response = await axios.post('https://api.acquiescent.in/api/brochure/save', formData)
 
       // Download the file
-      const pdfUrl = '/placeholder.svg' // Replace with your actual PDF URL
+      const pdfUrl = '/Acquiescent_Brochure_c2c.pdf' 
       const link = document.createElement('a')
       link.href = pdfUrl
-      link.download = 'Company-Brochure-2025.pdf'
+      link.download = 'Acquiescent_Brochure_2025.pdf'
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)

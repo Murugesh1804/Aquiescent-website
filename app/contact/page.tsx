@@ -181,7 +181,7 @@ export default function ContactPage() {
                     <Mail className="h-6 w-6 text-primary mr-4 mt-1" />
                     <div>
                       <h3 className="font-semibold mb-1">Email Address</h3>
-                      <p className="text-gray-600">info@acquiescents.in</p>
+                      <p className="text-gray-600">info@acquiescent.in</p>
                     </div>
                   </div>
                   <div className="flex items-start">

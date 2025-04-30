@@ -96,6 +96,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       submenuItems: [
         { title: "All Users", path: "/admin/users" }
       ],
+    },
+    {
+      title: "Job Applications",
+      icon: <Users className="h-5 w-5" />,
+      submenu: true,
+      submenuItems: [
+        { title: "Applicants", path: "/admin/jobs" }
+      ],
     }
   ]
 
