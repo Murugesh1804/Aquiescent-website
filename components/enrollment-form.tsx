@@ -106,13 +106,18 @@ export function EnrollmentForm({ courseName = "" }) {
   };
 
   const courses = [
-    "Software Testing & Automation",
-    "DevOps Engineering",
-    "SQL Server Mastery",
-    "Python Programming",
-    "AWS Cloud Fundamentals",
-    "Snowflake on AWS"
-  ];
+    "AWS Security Engineer",
+    "Confluent Kafka",
+    "Snowflake on AWS",
+    "Python Full Stack Development",
+    "AWS & DevOps",
+    "Oracle APEX",
+    "Software Testing Training Program",
+    "Data Science Professional",
+    "Java Full Stack Development",
+    "SQL Server Training Program",
+    "Azure Data Factory Training Program"
+  ];  
 
   return (
     <div className="w-full max-w-md mx-auto">

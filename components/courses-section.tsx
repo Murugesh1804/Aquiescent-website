@@ -17,53 +17,81 @@ import { Button } from "@/components/ui/button"
 export function CoursesSection() {
   const courses = [
     {
-      icon: <Braces className="h-10 w-10 text-[#f89820]" />, // Java color
-      title: "Java",
-      slug: "java",
+      icon:<img width="64" height="64" src="https://img.icons8.com/color/96/amazon-web-services.png" alt="amazon-web-services"/>,
+      title: "AWS Security Engineer",
+      slug: "awsSecurity",
       description:
-        "Comprehensive Java programming from basics to advanced concepts including Spring, Hibernate, and microservices architecture.",
+      "Master cloud security on AWS platform with comprehensive training on IAM, network security, and best practices.",
     },
     {
-      icon: <TestTube2 className="h-10 w-10 text-[#2fc781]" />, // Testing icon in green
+      icon: <img width="64" height="64" src="https://img.icons8.com/nolan/64/apache-kafka.png" alt="apache-kafka"/>, // Kafka black
+      title: "Confluent Kafka",
+      slug: "confluenKafka",
+      description:
+      "Learn distributed event streaming with Kafka, covering architecture, implementation, and administration.",
+    },
+    {
+      icon:<img width="64" height="64" src="https://img.icons8.com/windows/62/snowflake.png" alt="snowflake"/>, // Snowflake blue
+      title: "Snowflake on AWS",
+      slug: "snowflake",
+      description:
+      "Master cloud data warehousing with Snowflake, focusing on architecture and AWS integration.",
+    },
+    {
+      icon: <img width="64" height="64" src="https://img.icons8.com/color/64/python--v1.png" alt="python--v1"/>, // Python blue
+      title: "Python Full Stack",
+      slug: "python_full_stack",
+      description:
+      "Complete full-stack development training with Python, Django, and modern web technologies.",
+    },
+    {
+      icon: <img width="60" height="60" src="https://img.icons8.com/external-flat-juicy-fish/60/external-dev-coding-and-development-flat-flat-juicy-fish.png" alt="external-dev-coding-and-development-flat-flat-juicy-fish"/>, // DevOps blue
+      title: "AWS & DevOps",
+      slug: "aws_devops",
+      description:
+      "Learn cloud infrastructure and DevOps practices with AWS, Docker, and CI/CD pipelines.",
+    },
+    {
+      icon: <img width="96" height="96" src="https://img.icons8.com/color/96/oracle-logo.png" alt="oracle-logo"/>, // Oracle red
+      title: "Oracle APEX",
+      slug: "oracle_apex",
+      description:
+      "Build enterprise applications with Oracle's low-code development platform.",
+    },
+    {
+      icon: <img width="66" height="66" src="https://img.icons8.com/pulsar-gradient/96/test-results.png" alt="test-results"/>, // Testing green
       title: "Software Testing",
-      slug: "software-testing",
+      slug: "softwareTesting",
       description:
-        "Learn manual and automation testing methodologies, tools, and best practices for quality assurance.",
+      "Comprehensive training in manual and automated testing with industry-standard tools.",
     },
     {
-      icon: <LineChart className="h-10 w-10 text-[#000000]" />, // Kafka black
-      title: "Apache Kafka",
-      slug: "apache-kafka",
+      icon: <img width="64" height="64" src="https://img.icons8.com/external-solidglyph-m-oki-orlando/64/external-data-science-data-engineering-solid-solidglyph-m-oki-orlando.png" alt="external-data-science-data-engineering-solid-solidglyph-m-oki-orlando"/>, // Brain coral
+      title: "Data Science",
+      slug: "dataScience",
       description:
-        "Master distributed event streaming platform for high-performance data pipelines and streaming analytics.",
+      "Master data science with Python, machine learning, and advanced analytics.",
     },
     {
-      icon: <LayoutDashboard className="h-10 w-10 text-[#2496ED]" />, // Docker blue for DevOps
-      title: "DevOps",
-      slug: "devops",
+      icon: <img width="96" height="96" src="https://img.icons8.com/color/96/java-coffee-cup-logo--v1.png" alt="java-coffee-cup-logo--v1"/>, // Java blue
+      title: "Java Full Stack",
+      slug: "javafullstack",
       description:
-        "Comprehensive training on DevOps practices, tools, and methodologies for continuous integration and deployment.",
+      "Complete Java development training from core concepts to enterprise applications.",
     },
     {
-      icon: <Database className="h-10 w-10 text-[#00758F]" />, // Database blue
-      title: "Data Engineer",
-      slug: "data-engineer",
+      icon: <img width="96" height="96" src="https://img.icons8.com/fluency/144/my-sql.png" alt="my-sql"/>, // SQL Server red
+      title: "SQL Server",
+      slug: "sqlServer",
       description:
-        "Learn to design, build and maintain data pipelines and infrastructure for efficient data processing.",
+      "Learn database management and operations with Microsoft SQL Server.",
     },
     {
-      icon: <Brain className="h-10 w-10 text-[#FF6B6B]" />, // Brain in coral color
-      title: "Data Scientist",
-      slug: "data-scientist",
+      icon: <img width="96" height="96" src="https://img.icons8.com/color/144/azure-1.png" alt="azure-1"/>, // Azure blue
+      title: "Azure Data Factory",
+      slug: "azureADF",
       description:
-        "Master data analysis, machine learning, and statistical modeling to extract insights from complex datasets.",
-    },
-    {
-      icon: <FileCode className="h-10 w-10 text-[#3776AB]" />, // Python blue
-      title: "Python",
-      slug: "python",
-      description:
-        "Learn Python programming for web development, data analysis, automation, and artificial intelligence.",
+      "Master data integration and ETL pipelines with Azure Data Factory.",
     },
   ]
 
