@@ -93,6 +93,14 @@ export function CoursesSection() {
       description:
       "Master data integration and ETL pipelines with Azure Data Factory.",
     },
+    {
+      icon: <img width="144" height="144" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/MERN-logo.png/960px-MERN-logo.png?20200328184328" alt="mernstack" />, // React icon for MERN
+      title: "MERN Stack Development",
+      slug: "mern",
+      description:
+        "Master full stack web development using MongoDB, Express.js, React.js, and Node.js.",
+    }
+    
   ]
 
   return (

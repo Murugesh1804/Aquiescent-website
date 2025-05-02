@@ -116,7 +116,8 @@ export function EnrollmentForm({ courseName = "" }) {
     "Data Science Professional",
     "Java Full Stack Development",
     "SQL Server Training Program",
-    "Azure Data Factory Training Program"
+    "Azure Data Factory Training Program",
+    "MERN Stack Developer Course",
   ];  
 
   return (
