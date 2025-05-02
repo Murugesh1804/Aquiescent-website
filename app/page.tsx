@@ -52,7 +52,7 @@ export default function Home() {
               className="space-y-6"
             >
               <p className="text-lg text-gray-700">
-                Acquiescent (Acquiescent) was established in 2010 in Bangalore. All offices of Acquiescent
+                Acquiescent was established in 2010 in Bangalore. All offices of Acquiescent
                 staffing and training solutions are owned and operated by experienced business executives who have
                 provided staffing to major corporations.
               </p>
