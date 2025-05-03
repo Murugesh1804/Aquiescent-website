@@ -1,101 +1,44 @@
 "use client"
 
 import Link from "next/link"
+import { useEffect, useState } from "react"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronRight, MapPin, Clock, Briefcase } from "lucide-react"
-import { useState } from "react"
 import { ApplyPopup } from "@/components/apply-popup"
 
-// Remove metadata since it's not supported in client components
-// We'll move it to a separate layout.tsx file
+type Job = {
+  title: string
+  location: string
+  type: string
+  experience: string
+  description: string
+  requirements: string[]
+  slug: string
+}
 
 export default function CareersPage() {
-  const jobOpenings = [
-    {
-      title: "Lead Automation Engineer – Playwright",
-      location: "Anywhere, India",
-      type: "Full-time",
-      experience: "7–10 years (1–2 years Playwright)",
-      description: "Lead automation testing efforts, design frameworks, and ensure high-quality product delivery using Playwright.",
-      requirements: [
-        "Strong programming skills in JavaScript/TypeScript or any modern language",
-        "In-depth knowledge of Playwright and automation frameworks",
-        "Hands-on API testing and automation integration",
-        "CI/CD pipeline setup with Jenkins, GitHub Actions, or Azure DevOps",
-        "Database testing and SQL proficiency",
-      ],
-      slug: "lead-automation-engineer-playwright",
-    },
-    {
-      title: "Java Developer",
-      location: "Anywhere, India",
-      type: "Full-time",
-      experience: "5–10 years",
-      description: "Maintain and support business applications in a Run-The-Bank model focusing on automation and ML-driven monitoring.",
-      requirements: [
-        "5–10 years of Java/J2EE development",
-        "Spring Boot and MongoDB exposure preferred",
-        "SQL/PLSQL in Sybase, DB2, or DynamoDB",
-        "Docker microservices and RESTful API architecture",
-      ],
-      slug: "java-developer",
-    },
-    {
-      title: "Java Developer + Cloud Experience",
-      location: "Anywhere, India",
-      type: "Full-time",
-      experience: "5–10 years",
-      description: "Develop microservices with cloud infrastructure design and provisioning using Terraform on AWS.",
-      requirements: [
-        "SQL/PLSQL in Sybase, DB2, or DynamoDB",
-        "Docker microservices and RESTful API architecture",
-        "AWS core services: EC2, S3, ALB, NATGW, EFS, Lambda, APIGW",
-        "Design DR strategies and AWS infrastructure",
-        "Terraform provisioning on AWS",
-      ],
-      slug: "java-cloud-developer",
-    },
-    {
-      title: "UI Developer",
-      location: "Anywhere, India",
-      type: "Full-time",
-      experience: "2+ years",
-      description: "Build dynamic user interfaces using modern frameworks like Angular or React.",
-      requirements: [
-        "2+ years experience with Angular or React",
-      ],
-      slug: "ui-developer",
-    },
-    {
-      title: "Project Manager",
-      location: "Anywhere, India",
-      type: "Full-time",
-      experience: "5–8 years",
-      description: "Manage record keeping, retention, and governance initiatives within projects.",
-      requirements: [
-        "5–8 years in records management or information governance",
-      ],
-      slug: "project-manager",
-    },
-    {
-      title: "Java Developer",
-      location: "Anywhere, India",
-      type: "Full-time",
-      experience: "3–6 years",
-      description: "Provide application and production support, automate monitoring, and manage incidents.",
-      requirements: [
-        "3–6 years in application and production support",
-        "Proficiency in Java programming and complex algorithms",
-        "Strong SQL skills for database troubleshooting",
-        "Linux/UNIX and shell scripting experience",
-        "Debugging and issue resolution skills",
-      ],
-      slug: "java-application-support",
-    },
-  ]
-
+  const [jobOpenings, setJobOpenings] = useState<Job[]>([])
   const [selectedJob, setSelectedJob] = useState<string | null>(null)
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const res = await fetch("http://localhost:3500/api/careers/get")
+        if (!res.ok) throw new Error("Failed to fetch job openings.")
+        const data = await res.json()
+        setJobOpenings(data)
+      } catch (err: any) {
+        setError(err.message || "An error occurred.")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchJobs()
+  }, [])
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -127,42 +70,48 @@ export default function CareersPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {jobOpenings.map((job) => (
-              <Card key={job.slug} className="h-full hover:shadow-lg transition-all">
-                <CardHeader className="p-6">
-                  <h3 className="text-xl font-bold">{job.title}</h3>
-                  <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-500">
-                    <div className="flex items-center">
-                      <MapPin className="h-4 w-4 mr-1" />{job.location}
+          {loading ? (
+            <p className="text-center text-gray-500">Loading job openings...</p>
+          ) : error ? (
+            <p className="text-center text-red-500">{error}</p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {jobOpenings.map((job) => (
+                <Card key={job.slug} className="h-full hover:shadow-lg transition-all">
+                  <CardHeader className="p-6">
+                    <h3 className="text-xl font-bold">{job.title}</h3>
+                    <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-500">
+                      <div className="flex items-center">
+                        <MapPin className="h-4 w-4 mr-1" />{job.location}
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="h-4 w-4 mr-1" />{job.type}
+                      </div>
+                      <div className="flex items-center">
+                        <Briefcase className="h-4 w-4 mr-1" />{job.experience}
+                      </div>
                     </div>
-                    <div className="flex items-center">
-                      <Clock className="h-4 w-4 mr-1" />{job.type}
+                  </CardHeader>
+                  <CardContent className="p-6 pt-0">
+                    <p className="text-gray-600 mb-4">{job.description}</p>
+                    <div>
+                      <h4 className="font-semibold mb-2">Requirements:</h4>
+                      <ul className="list-disc pl-5 space-y-1 text-gray-600">
+                        {job.requirements.map((req, idx) => (
+                          <li key={idx}>{req}</li>
+                        ))}
+                      </ul>
                     </div>
-                    <div className="flex items-center">
-                      <Briefcase className="h-4 w-4 mr-1" />{job.experience}
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-6 pt-0">
-                  <p className="text-gray-600 mb-4">{job.description}</p>
-                  <div>
-                    <h4 className="font-semibold mb-2">Requirements:</h4>
-                    <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                      {job.requirements.map((req, idx) => (
-                        <li key={idx}>{req}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-                <CardFooter className="p-6">
-                  <Button onClick={() => setSelectedJob(job.title)}>
-                    Apply Now <ChevronRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                  <CardFooter className="p-6">
+                    <Button onClick={() => setSelectedJob(job.title)}>
+                      Apply Now <ChevronRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
