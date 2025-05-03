@@ -95,6 +95,91 @@ const courses = {
     ]
 
   },
+  mern: {
+    "title": "MERN Stack Developer Course",
+    "subtitle": "Become a Professional MERN Stack Developer",
+    "description": "A structured, module-wise MERN Stack curriculum covering frontend, backend, and database technologies. Gain hands-on experience in full stack development using MongoDB, Express.js, React.js, and Node.js.",
+    "image": "/images/courses/mern.jpg",
+    "duration": "90 Days",
+    "schedule": "Weekdays and Weekends",
+    "level": "Beginner to Advanced",
+    "certification": "MERN Stack Developer",
+    "brochurePath": "/placeholder.svg",
+    "syllabus": [
+      {
+        "title": "HTML & CSS",
+        "topics": [
+          "Introduction to Web Technology and HTML",
+          "HTML Tags, Elements, Forms, Tables, Semantic Tags",
+          "CSS Basics, Selectors, Box Model, Flexbox, Grid, Media Queries",
+          "Transitions, Animations, and Responsive Design"
+        ]
+      },
+      {
+        "title": "JavaScript & Advanced JavaScript",
+        "topics": [
+          "JavaScript Syntax, Variables, Data Types, Functions, DOM & Events",
+          "ES6 Features, Closures, Callbacks, Promises, Async/Await",
+          "Form Validation, Regular Expressions, Local & Session Storage"
+        ]
+      },
+      {
+        "title": "Bootstrap",
+        "topics": [
+          "Bootstrap Setup and Grid System",
+          "Responsive Tables, Forms, Modals, Accordions",
+          "Project-based UI development"
+        ]
+      },
+      {
+        "title": "React.js",
+        "topics": [
+          "JSX, Components, Props, State, Lifecycle",
+          "Hooks (useState, useEffect, useContext, etc.)",
+          "Routing, Forms, CRUD with APIs, Redux Toolkit"
+        ]
+      },
+      {
+        "title": "Node.js & Express.js",
+        "topics": [
+          "Node.js Basics, Modules, NPM, Express Framework",
+          "HTTP Methods, Routing, Middleware",
+          "Building REST APIs, JWT Authentication"
+        ]
+      },
+      {
+        "title": "MongoDB",
+        "topics": [
+          "NoSQL Concepts, CRUD Operations",
+          "Indexing, Aggregation, Mongoose ODM",
+          "Integration with Express and Node"
+        ]
+      },
+      {
+        "title": "Version Control with Git & GitHub",
+        "topics": [
+          "Git Basics, Cloning, Branching, Pushing",
+          "Collaboration, GitHub Workflows"
+        ]
+      },
+      {
+        "title": "Deployment",
+        "topics": [
+          "Hosting Frontend and Backend",
+          "Working with GitHub Pages, Heroku, Vercel, or Netlify"
+        ]
+      }
+    ],
+    "features": [
+      "Complete Frontend and Backend Coverage",
+      "Hands-on Project Development",
+      "Modern JavaScript and React Hooks",
+      "RESTful API Design with Node and Express",
+      "MongoDB Database Integration",
+      "Real-world Deployment Strategies",
+      "Version Control using Git & GitHub"
+    ]
+  },
   confluenKafka:{
     "title": "Confluent Kafka",
     "subtitle": "Master Distributed Event Streaming Platform",

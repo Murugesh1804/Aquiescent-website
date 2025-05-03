@@ -106,14 +106,16 @@ export default function BlogsManager() {
                 <tr key={blog._id} className="hover:bg-gray-50">
   <td className="px-6 py-4 whitespace-nowrap">
     {blog.featuredImage ? (
+      <div className="w-24">
       <img 
-        src={`https://api.acquiescent.in/uploads/blogs/${blog.featuredImage}`} 
+        src={`https://api.acquiescent.in${blog.featuredImage}`}
         alt={blog.title}
-        className="h-16 w-24 object-cover rounded"
+        className="h-16 w-full object-cover rounded"
       />
+      </div>
     ) : (
-      <div className="h-16 w-24 bg-gray-200 flex items-center justify-center rounded">
-        No image
+      <div className="h-16 w-24 bg-gray-200 flex items-center justify-center rounded text-sm text-gray-500">
+      No image
       </div>
     )}
   </td>

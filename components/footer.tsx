@@ -79,33 +79,63 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Our Courses</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/courses/softwareTesting" className="text-gray-400 hover:text-white transition-colors">
-                Software Testing & Automation
+                <Link href="/courses/awsSecurity" className="text-gray-400 hover:text-white transition-colors">
+                AWS Security Engineer
                 </Link>
               </li>
               <li>
-                <Link href="/courses/devops" className="text-gray-400 hover:text-white transition-colors">
-                DevOps Engineering
-                </Link>
-              </li>
-              <li>
-                <Link href="/courses/sql" className="text-gray-400 hover:text-white transition-colors">
-                SQL Server Mastery
-                </Link>
-              </li>
-              <li>
-                <Link href="/courses/python" className="text-gray-400 hover:text-white transition-colors">
-                Python Programming
-                </Link>
-              </li>
-              <li>
-                <Link href="/courses/aws" className="text-gray-400 hover:text-white transition-colors">
-                AWS Cloud Fundamentals
+                <Link href="/courses/confluenKafka" className="text-gray-400 hover:text-white transition-colors">
+                Confluent Kafka
                 </Link>
               </li>
               <li>
                 <Link href="/courses/snowflake" className="text-gray-400 hover:text-white transition-colors">
                 Snowflake on AWS
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/python_full_stack" className="text-gray-400 hover:text-white transition-colors">
+                Python Full Stack Development
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/aws_devops" className="text-gray-400 hover:text-white transition-colors">
+                AWS & DevOps
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/oracle_apex" className="text-gray-400 hover:text-white transition-colors">
+                Oracle APEX
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/softwareTesting" className="text-gray-400 hover:text-white transition-colors">
+                Software Testing Training Program
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/dataScience" className="text-gray-400 hover:text-white transition-colors">
+                Data Science Professional
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/javafullstack" className="text-gray-400 hover:text-white transition-colors">
+                Java Full Stack Development
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/sqlServer" className="text-gray-400 hover:text-white transition-colors">
+                SQL Server Training Program
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/azureADF" className="text-gray-400 hover:text-white transition-colors">
+                Azure Data Factory Training Program
+                </Link>
+              </li>
+              <li>
+                <Link href="/courses/mern" className="text-gray-400 hover:text-white transition-colors">
+                MERN Stack Developer Course
                 </Link>
               </li>
             </ul>
@@ -127,12 +157,6 @@ export function Footer() {
                 <Mail className="h-5 w-5 mr-2 text-gray-400 flex-shrink-0" />
                 <Link href="mailto:info@acquiescent.in" className="text-gray-400 hover:text-white transition-colors">
                 info@acquiescent.in
-                </Link>
-              </li>
-              <li className="flex">
-                <Mail className="h-5 w-5 mr-2 text-gray-400 flex-shrink-0" />
-                <Link href="mailto:info@acquiescents.in" className="text-gray-400 hover:text-white transition-colors">
-                info@acquiescents.in
                 </Link>
               </li>
             </ul>

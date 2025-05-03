@@ -44,7 +44,7 @@ export default function BlogPostPage() {
         </div>
         {blog.featuredImage && (
           <div className="relative w-full h-64 md:h-96 mb-6">
-            <Image src={blog.featuredImage} alt={blog.title} fill className="object-cover rounded-lg" />
+            <Image src={`https://api.acquiescent.in${blog.featuredImage}`} alt={blog.title} fill className="object-cover rounded-lg" />
           </div>
         )}
         <p className="text-gray-700 text-lg">{blog.content}</p>

@@ -119,7 +119,18 @@ const courses = [
     "schedule": "Weekdays",
     "level": "Intermediate",
     "slug": "azureADF"
+    },
+    {
+      "title": "MERN Full Stack Development",
+      "subtitle": "Master Full Stack Web Development with MongoDB, Express, React, and Node.js",
+      "description": "Complete MERN stack training from basics to deployment. Covers HTML, CSS, JavaScript, Bootstrap, React.js, Node.js, Express.js, MongoDB, GitHub, and deployment practices. Includes real-world projects and hands-on sessions.",
+      "image": "/images/courses/mern.jpg",
+      "duration": "90 Days",
+      "schedule": "Weekdays and Weekends",
+      "level": "Beginner to Advanced",
+      "slug": "mern"
     }
+    
 ]
 
 export default function CoursesPage() {

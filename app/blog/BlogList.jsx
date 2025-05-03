@@ -17,6 +17,7 @@ export default function BlogList() {
       try {
         const response = await axios.get("https://api.acquiescent.in/api/blogs/all");
         console.log(response.data);
+
         setBlogs(response.data.blogs);
       } catch (error) {
         console.error("Failed to fetch blogs:", error);
@@ -41,7 +42,7 @@ export default function BlogList() {
         <Card key={blog.slug} className="h-full overflow-hidden hover:shadow-lg transition-all">
           <div className="relative h-48 w-full overflow-hidden">
             <Image
-              src={blog.featuredImage || "/default-image.jpg"}
+              src={`https://api.acquiescent.in${blog.featuredImage}`}
               alt={blog.title}
               fill
               className="object-cover transition-transform hover:scale-105 duration-500"
