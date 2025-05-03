@@ -95,7 +95,7 @@ const courses = [
       "subtitle": "Master Java Programming with Core Concepts and Real-Time Projects",
       "description": "Comprehensive training in Java, covering core concepts, web technologies, frameworks, database handling, and much more. Includes hands-on projects, career readiness, and interview preparation.",
       "image": "/images/courses/javafullstack.jpg",
-      "duration": "90 Days",
+      "duration": "150 Days",
       "schedule": "Weekdays and Weekends",
       "level": "Beginner to Advanced",
       "slug": "javafullstack"
@@ -105,7 +105,7 @@ const courses = [
     "subtitle": "Master SQL Server Database Management and Azure Data Pipelines",
     "description": "Comprehensive course covering SQL Server fundamentals, database operations, and Azure Data Factory for ETL pipeline development. Ideal for aspiring data engineers and analysts.",
     "image": "/images/courses/sqlserver.jpg",
-    "duration": "45 Days",
+    "duration": "30 Days",
     "schedule": "Weekdays",
     "level": "Beginner to Intermediate",
     "slug": "sqlServer"
@@ -125,7 +125,7 @@ const courses = [
       "subtitle": "Master Full Stack Web Development with MongoDB, Express, React, and Node.js",
       "description": "Complete MERN stack training from basics to deployment. Covers HTML, CSS, JavaScript, Bootstrap, React.js, Node.js, Express.js, MongoDB, GitHub, and deployment practices. Includes real-world projects and hands-on sessions.",
       "image": "/images/courses/mern.jpg",
-      "duration": "90 Days",
+      "duration": "180 Days",
       "schedule": "Weekdays and Weekends",
       "level": "Beginner to Advanced",
       "slug": "mern"

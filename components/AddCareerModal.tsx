@@ -47,8 +47,8 @@ export default function AddCareerModal({ job, onClose }: Props) {
     try {
       const res = await fetch(
         job
-          ? `http://localhost:3500/api/careers/update/${job._id}`
-          : 'http://localhost:3500/api/careers/create',
+          ? `https://api.acquiescent.in/api/careers/update/${job._id}`
+          : 'https://api.acquiescent.in/api/careers/create',
         {
           method: job ? 'PUT' : 'POST',
           headers: {

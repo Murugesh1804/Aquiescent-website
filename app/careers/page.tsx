@@ -1,48 +1,23 @@
 "use client"
 
-import Link from "next/link"
-import { useEffect, useState } from "react"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ChevronRight, MapPin, Clock, Briefcase } from "lucide-react"
-import { ApplyPopup } from "@/components/apply-popup"
-
-type Job = {
-  title: string
-  location: string
-  type: string
-  experience: string
-  description: string
-  requirements: string[]
-  slug: string
-}
+import { useEffect, useState } from "react";
+import { MdLocationOn, MdWork, MdBusinessCenter } from "react-icons/md";
+import { FaRupeeSign } from "react-icons/fa";
+import { FiUser, FiList, FiBriefcase } from "react-icons/fi";
 
 export default function CareersPage() {
-  const [jobOpenings, setJobOpenings] = useState<Job[]>([])
-  const [selectedJob, setSelectedJob] = useState<string | null>(null)
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const res = await fetch("http://localhost:3500/api/careers/get")
-        if (!res.ok) throw new Error("Failed to fetch job openings.")
-        const data = await res.json()
-        setJobOpenings(data)
-      } catch (err: any) {
-        setError(err.message || "An error occurred.")
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchJobs()
-  }, [])
+    fetch("https://api.acquiescent.in/api/careers/get")
+      .then((res) => res.json())
+      .then((data) => setJobs(data))
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col">
-      {/* Hero Section */}
       <section className="w-full py-20 bg-primary text-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -56,7 +31,6 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Current Openings */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
@@ -71,56 +45,55 @@ export default function CareersPage() {
           </div>
 
           {loading ? (
-            <p className="text-center text-gray-500">Loading job openings...</p>
-          ) : error ? (
-            <p className="text-center text-red-500">{error}</p>
+            <div>Loading...</div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {jobOpenings.map((job) => (
-                <Card key={job.slug} className="h-full hover:shadow-lg transition-all">
-                  <CardHeader className="p-6">
-                    <h3 className="text-xl font-bold">{job.title}</h3>
-                    <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-500">
-                      <div className="flex items-center">
-                        <MapPin className="h-4 w-4 mr-1" />{job.location}
-                      </div>
-                      <div className="flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />{job.type}
-                      </div>
-                      <div className="flex items-center">
-                        <Briefcase className="h-4 w-4 mr-1" />{job.experience}
-                      </div>
+              {jobs.map((job) => (
+                <div key={job.slug} className="border rounded-lg p-6 shadow hover:shadow-lg transition-all">
+                  <h3 className="text-xl font-bold flex items-center gap-2">
+                    <FiBriefcase className="inline-block text-primary" /> {job.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-500">
+                    <div className="flex items-center gap-1">
+                      <MdLocationOn /> {job.location}
                     </div>
-                  </CardHeader>
-                  <CardContent className="p-6 pt-0">
-                    <p className="text-gray-600 mb-4">{job.description}</p>
-                    <div>
-                      <h4 className="font-semibold mb-2">Requirements:</h4>
-                      <ul className="list-disc pl-5 space-y-1 text-gray-600">
+                    <div className="flex items-center gap-1">
+                      <MdWork /> {job.experience}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <MdBusinessCenter /> {job.workModel}
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mt-2">{job.description}</p>
+                  <div className="mt-2 space-y-1">
+                    <div className="flex items-center gap-1">
+                      <FiUser /> <strong>Client:</strong> {job.client}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <FiBriefcase /> <strong>Position:</strong> {job.position}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <FaRupeeSign /> <strong>Package:</strong> {job.package}
+                    </div>
+                  </div>
+                  {job.requirements && job.requirements.length > 0 && (
+                    <div className="mt-2">
+                      <div className="flex items-center gap-1 font-semibold">
+                        <FiList /> Requirements:
+                      </div>
+                      <ul className="list-disc pl-5">
                         {job.requirements.map((req, idx) => (
                           <li key={idx}>{req}</li>
                         ))}
                       </ul>
                     </div>
-                  </CardContent>
-                  <CardFooter className="p-6">
-                    <Button onClick={() => setSelectedJob(job.title)}>
-                      Apply Now <ChevronRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardFooter>
-                </Card>
+                  )}
+                </div>
               ))}
             </div>
           )}
         </div>
       </section>
-
-      {/* Apply Popup */}
-      <ApplyPopup
-        isOpen={!!selectedJob}
-        onClose={() => setSelectedJob(null)}
-        jobTitle={selectedJob || ""}
-      />
     </main>
-  )
+  );
 }
