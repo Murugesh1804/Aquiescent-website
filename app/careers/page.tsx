@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import { MdLocationOn, MdWork, MdBusinessCenter } from "react-icons/md";
 import { FaRupeeSign } from "react-icons/fa";
 import { FiUser, FiList, FiBriefcase } from "react-icons/fi";
+import { ApplyPopup } from "@/components/apply-popup"; // <-- Import the popup
 
 export default function CareersPage() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [selectedJobTitle, setSelectedJobTitle] = useState("");
 
   useEffect(() => {
     fetch("https://api.acquiescent.in/api/careers/get")
@@ -15,6 +18,16 @@ export default function CareersPage() {
       .then((data) => setJobs(data))
       .finally(() => setLoading(false));
   }, []);
+
+  const handleApplyClick = (jobTitle: string) => {
+    setSelectedJobTitle(jobTitle);
+    setPopupOpen(true);
+  };
+
+  const handlePopupClose = () => {
+    setPopupOpen(false);
+    setSelectedJobTitle("");
+  };
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -88,11 +101,26 @@ export default function CareersPage() {
                       </ul>
                     </div>
                   )}
+                  {/* --- Apply Button --- */}
+                  <div className="mt-4 flex justify-end">
+                    <button
+                      className="bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition"
+                      onClick={() => handleApplyClick(job.title)}
+                    >
+                      Apply
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
           )}
         </div>
+        {/* --- Apply Popup Modal --- */}
+        <ApplyPopup
+          isOpen={popupOpen}
+          onClose={handlePopupClose}
+          jobTitle={selectedJobTitle}
+        />
       </section>
     </main>
   );
