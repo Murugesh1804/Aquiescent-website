@@ -75,7 +75,7 @@
                 <th className="px-4 py-2">Experience</th>
                 <th className="px-4 py-2">Location</th>
                 <th className="px-4 py-2">Work Model</th>
-                <th className="px-4 py-2">Client</th>
+                {/* <th className="px-4 py-2">Client</th> */}
                 <th className="px-4 py-2">Position</th>
                 <th className="px-4 py-2">Package</th>
                 <th className="px-4 py-2">Actions</th>
@@ -88,7 +88,7 @@
                   <td className="px-4 py-2">{job.experience}</td>
                   <td className="px-4 py-2">{job.location}</td>
                   <td className="px-4 py-2">{job.workModel}</td>
-                  <td className="px-4 py-2">{job.client}</td>
+                  {/* <td className="px-4 py-2">{job.client}</td> */}
                   <td className="px-4 py-2">{job.position}</td>
                   <td className="px-4 py-2">{job.package}</td>
                   <td className="px-4 py-2">
@@ -123,7 +123,7 @@
     location: string;
     description: string;
     workModel: string;
-    client: string;
+    // client: string;
     position: string;
     package: string;
     requirements?: string; // comma-separated string for simplicity
@@ -142,7 +142,7 @@
       location: '',
       description: '',
       workModel: '',
-      client: '',
+      // client: '',
       position: '',
       package: '',
       requirements: '',
@@ -265,7 +265,7 @@
               placeholder="e.g. Remote, Onsite, Hybrid"
             />
           </div>
-          <div>
+          {/* <div>
             <label className="block text-sm">Client</label>
             <input
               name="client"
@@ -274,7 +274,7 @@
               required
               className="w-full p-2 border rounded"
             />
-          </div>
+          </div> */}
           <div>
             <label className="block text-sm">Position</label>
             <input
