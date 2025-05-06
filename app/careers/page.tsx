@@ -79,9 +79,9 @@ export default function CareersPage() {
                   </div>
                   <p className="text-gray-600 mt-2">{job.description}</p>
                   <div className="mt-2 space-y-1">
-                    <div className="flex items-center gap-1">
+                    {/* <div className="flex items-center gap-1">
                       <FiUser /> <strong>Client:</strong> {job.client}
-                    </div>
+                    </div> */}
                     <div className="flex items-center gap-1">
                       <FiBriefcase /> <strong>Position:</strong> {job.position}
                     </div>
