@@ -60,11 +60,6 @@ export function WhyChooseUs() {
                                 </CardHeader>
                                 <CardContent className="p-6 text-center">
                                     <p className="text-gray-600">{feature.description}</p>
-                                    <div className="flex justify-center mt-4">
-                                        <Button variant="link" className="text-primary hover:text-primary/80 transition">
-                                            Learn More →
-                                        </Button>
-                                    </div>
                                 </CardContent>
                             </Card>
                         </motion.div>
