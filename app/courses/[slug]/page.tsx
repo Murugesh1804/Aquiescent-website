@@ -20,7 +20,7 @@ const courses = {
     "schedule": "Weekdays",
     "level": "Intermediate to Advanced",
     "certification": "AWS Security Specialty",
-    "brochurePath": "/placeholder.svg",
+    "brochurePath": "/brochure/AWS Security Engineer.pdf",
     "syllabus": [
       {
         "title": "Module 1: Introduction to AWS Security",
@@ -104,7 +104,7 @@ const courses = {
     "schedule": "Weekdays and Weekends",
     "level": "Beginner to Advanced",
     "certification": "MERN Stack Developer",
-    "brochurePath": "/placeholder.svg",
+    "brochurePath": "/brochure/MernStack.pdf",
     "syllabus": [
       {
         "title": "HTML & CSS",
@@ -189,7 +189,7 @@ const courses = {
     "schedule": "Flexible",
     "level": "Intermediate",
     "certification": "Confluent Certified Developer for Apache Kafka",
-    "brochurePath": "/placeholder.svg",
+    "brochurePath": "/brochure/Kafka.pdf",
     "syllabus": [
       {
         "title": "Module 1: Introduction to Kafka",
@@ -318,7 +318,7 @@ const courses = {
     "schedule": "Weekdays/Weekends",
     "level": "Beginner to Advanced",
     "certification": "SnowPro Core Certification",
-    "brochurePath": "/placeholder.svg",
+    "brochurePath": "/brochure/SNOWFLAKE.pdf",
     "syllabus": [
       {
         "title": "Pre-requisites",
@@ -478,7 +478,7 @@ const courses = {
     "schedule": "Flexible",
     "level": "Beginner to Advanced",
     "certification": "Python Full Stack Developer Certification",
-    "brochurePath": "/placeholder.svg",
+    "brochurePath": "/brochure/Python FSD.pdf",
     "syllabus": [
       {
         "title": "Module 1: Frontend Development",
@@ -585,7 +585,7 @@ const courses = {
     "schedule": "Weekdays",
     "level": "Intermediate",
     "certification": "AWS DevOps Engineer Professional",
-    "brochurePath": "/placeholder.svg",
+    "brochurePath": "/brochure/AWS_DevOps .pdf",
     "syllabus": [
       {
         "title": "Module 1: DevOps Fundamentals",
@@ -776,7 +776,7 @@ const courses = {
     "schedule": "Flexible",
     "level": "Beginner to Intermediate",
     "certification": "Oracle APEX Developer Certification",
-    "brochurePath": "/placeholder.svg",
+    "brochurePath": "/brochure/OracleApex.pdf",
     "syllabus": [
       {
         "title": "Module 1: Introduction To Oracle Application Express",
@@ -887,7 +887,7 @@ const courses = {
     "schedule": "Weekdays and Weekends",
     "level": "Beginner to Advanced",
     "certification": "Data Scientist Professional Certification",
-    "brochurePath": "/placeholder.svg",
+    "brochurePath": "/brochure/Datascience.pdf",
     "syllabus": [
       {
         "title": "Module 1: Python Programming for Data Science",
@@ -1022,7 +1022,7 @@ const courses = {
   "schedule": "Weekdays",
   "level": "Beginner to Advanced",
   "certification": "Certified Software Testing Professional",
-  "brochurePath": "/placeholder.svg",
+  "brochurePath": "/brochure/Softwaretesting.pdf",
   "syllabus": [
     {
       "title": "Module 1: Manual Testing",
@@ -1143,7 +1143,7 @@ const courses = {
   "schedule": "Weekdays and Weekends",
   "level": "Beginner to Advanced",
   "certification": "Certified Java Developer",
-  "brochurePath": "/placeholder.svg",
+  "brochurePath": "/brochure/JAVA.pdf",
   "syllabus": [
     {
       "title": "Module 1: Core Java",
@@ -1406,7 +1406,7 @@ const courses = {
     "schedule": "Weekdays",
     "level": "Beginner to Intermediate",
     "certification": "Certified SQL Server & ADF Professional",
-    "brochurePath": "/placeholder.svg",
+    "brochurePath": "/brochure/Sql server.pdf",
     "syllabus": [
       {
         "title": "Module 1: Getting started with the database",
@@ -1506,7 +1506,7 @@ const courses = {
     "schedule": "Weekdays",
     "level": "Intermediate",
     "certification": "Certified Azure Data Engineer",
-    "brochurePath": "/placeholder.svg",
+    "brochurePath": "/brochure/Azure Data Factory.pdf",
     "syllabus": [
       {
         "title": "Module 1: Introduction to Azure Data Factory",
