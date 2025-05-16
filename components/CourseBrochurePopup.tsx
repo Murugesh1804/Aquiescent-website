@@ -1,0 +1,226 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { X, FileDown, User, Mail, Phone } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import axios from "axios"
+
+interface CourseBrochurePopupProps {
+  isOpen: boolean
+  onClose: () => void
+  courseTitle: string
+  brochurePath: string
+}
+
+export function CourseBrochurePopup({ isOpen, onClose, courseTitle, brochurePath }: CourseBrochurePopupProps) {
+  const [step, setStep] = useState("form") // "form", "success"
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    course: ""
+  })
+  const [errors, setErrors] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // Set course name when component mounts or courseTitle changes
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      course: courseTitle
+    }))
+  }, [courseTitle])
+
+  const validateForm = () => {
+    const newErrors = {}
+    if (!formData.name.trim()) newErrors.name = "Name is required"
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required"
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Email is invalid"
+    }
+    if (!formData.phone.trim()) newErrors.phone = "Phone is required"
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleDownload = async (e) => {
+    e.preventDefault()
+    
+    if (!validateForm()) return
+    
+    setIsSubmitting(true)
+    
+    try {
+      // Send form data to backend
+      await axios.post('https://api.acquiescent.in/api/brochure/save', formData)
+
+      // Download the file
+      const link = document.createElement('a')
+      link.href = brochurePath
+      link.download = `${courseTitle.replace(/\s+/g, '-').toLowerCase()}-brochure.pdf`
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      
+      // Show success message
+      setStep("success")
+      
+      // Close popup after delay
+      setTimeout(() => {
+        onClose()
+        setTimeout(() => {
+          setStep("form")
+          setFormData({ name: "", email: "", phone: "", course: courseTitle })
+        }, 500)
+      }, 3000)
+    } catch (error) {
+      console.error('Error:', error)
+      alert('Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+          onClick={onClose}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ type: "spring", damping: 20 }}
+            className="bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative">
+              <div className="absolute top-2 right-2">
+                <Button variant="ghost" size="icon" className="rounded-full h-8 w-8" onClick={onClose}>
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+              <div className="bg-primary text-white p-4 text-center">
+                <h3 className="text-xl font-bold">{courseTitle} Brochure</h3>
+              </div>
+              <div className="p-6">
+                {step === "form" ? (
+                  <form onSubmit={handleDownload}>
+                    <div className="flex justify-center mb-4">
+                      <div className="bg-blue-100 p-3 rounded-full">
+                        <FileDown className="h-6 w-6 text-blue-600" />
+                      </div>
+                    </div>
+                    <h4 className="text-center text-xl font-bold mb-2">Download Course Brochure</h4>
+                    <p className="text-gray-600 mb-6 text-center">
+                      Enter your details to get instant access to our {courseTitle} course brochure.
+                    </p>
+                    
+                    <div className="space-y-4 mb-6">
+                      <div className="space-y-1">
+                        <Label htmlFor="name">Name</Label>
+                        <div className="relative">
+                          <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <Input 
+                            id="name"
+                            name="name"
+                            className="pl-10 text-black"
+                            placeholder="Enter your name" 
+                            value={formData.name}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <Label htmlFor="email">Email</Label>
+                        <div className="relative">
+                          <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <Input 
+                            id="email"
+                            name="email"
+                            type="email"
+                            className="pl-10 text-black"
+                            placeholder="Enter your email" 
+                            value={formData.email}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <Label htmlFor="phone">Phone Number</Label>
+                        <div className="relative">
+                          <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <Input 
+                            id="phone"
+                            name="phone"
+                            className="pl-10 text-black"
+                            placeholder="Enter your phone number"
+                            maxLength={10}
+                            pattern="[0-9]{10}"
+                            value={formData.phone}
+                            onChange={(e) => {
+                              const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                              setFormData(prev => ({
+                                ...prev,
+                                phone: value
+                              }));
+                            }}
+                          />
+                        </div>
+                        {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+                      </div>
+                    </div>
+                    
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button 
+                        type="submit" 
+                        className="w-full font-semibold"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? "Processing..." : "Download Brochure"}
+                      </Button>
+                    </motion.div>
+                  </form>
+                ) : (
+                  <div className="py-6 text-center">
+                    <div className="flex justify-center mb-4">
+                      <div className="bg-green-100 p-3 rounded-full">
+                        <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h4 className="text-xl font-bold mb-2">Thank You!</h4>
+                    <p className="text-gray-600">Your brochure is being downloaded.</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}

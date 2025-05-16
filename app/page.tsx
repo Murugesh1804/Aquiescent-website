@@ -129,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* <CoursePopup /> */}
-      <BrochurePopup />
+      {/* <BrochurePopup /> */}
     </main>
   )
 }
