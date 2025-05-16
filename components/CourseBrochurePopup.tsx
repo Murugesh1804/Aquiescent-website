@@ -65,7 +65,12 @@ export function CourseBrochurePopup({ isOpen, onClose, courseTitle, brochurePath
     
     try {
       // Send form data to backend
-      await axios.post('https://api.acquiescent.in/api/brochure/save', formData)
+      await axios.post('https://api.acquiescent.in/api/brochure/save', {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        course: formData.course
+      })
 
       // Download the file
       const link = document.createElement('a')
