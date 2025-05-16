@@ -22,7 +22,7 @@ export function BrochurePopup() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true)
-    }, 10000)
+    }, 5000)
     return () => clearTimeout(timer)
   }, [])
 
