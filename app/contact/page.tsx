@@ -164,8 +164,7 @@ export default function ContactPage() {
                       <h3 className="font-semibold mb-1">Our Location</h3>
                       <p className="text-gray-600">
                       Plot No. 26, H.No. 2-53/1/4, Ground Floor,<br /> LAXMI ENCLAVE, Gachibowli, near EPTRI,<br /> Ranga Reddy District, Hyderabad - 500032
-                        <br />
-                        (Opp.udipi Garden Busstop)
+
                       </p>
                     </div>
                   </div>
