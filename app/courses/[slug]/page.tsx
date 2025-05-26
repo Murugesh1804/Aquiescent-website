@@ -1687,6 +1687,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               <DownloadBrochureButton 
                 brochurePath={course.brochurePath} 
                 courseTitle={course.title} 
+                courseSlug={params.slug}
               />
             </div>
             <div className="md:w-1/2">

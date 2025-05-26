@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { CourseBrochurePopup } from "@/components/CourseBrochurePopup";
 
-export function DownloadBrochureButton({ brochurePath, courseTitle }) {
+export function DownloadBrochureButton({ brochurePath, courseTitle, courseSlug }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const handleOpenPopup = () => {
@@ -31,6 +31,7 @@ export function DownloadBrochureButton({ brochurePath, courseTitle }) {
         onClose={handleClosePopup}
         courseTitle={courseTitle}
         brochurePath={brochurePath}
+        courseSlug={courseSlug}
       />
     </>
   );

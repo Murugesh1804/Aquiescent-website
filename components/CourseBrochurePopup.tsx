@@ -7,15 +7,18 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import axios from "axios"
+import { useRouter } from "next/navigation"
 
 interface CourseBrochurePopupProps {
   isOpen: boolean
   onClose: () => void
   courseTitle: string
   brochurePath: string
+  courseSlug: string
 }
 
-export function CourseBrochurePopup({ isOpen, onClose, courseTitle, brochurePath }: CourseBrochurePopupProps) {
+export function CourseBrochurePopup({ isOpen, onClose, courseTitle, brochurePath, courseSlug }: CourseBrochurePopupProps) {
+  const router = useRouter()
   const [step, setStep] = useState("form") // "form", "success"
   const [formData, setFormData] = useState({
     name: "",
@@ -83,14 +86,18 @@ export function CourseBrochurePopup({ isOpen, onClose, courseTitle, brochurePath
       // Show success message
       setStep("success")
       
-      // Close popup after delay
+      // Close popup and redirect after delay
       setTimeout(() => {
         onClose()
+        // Redirect to thank-you page
+        router.push(`/courses/${courseSlug}/thank-you`)
+        
+        // Reset form after redirect
         setTimeout(() => {
           setStep("form")
           setFormData({ name: "", email: "", phone: "", course: courseTitle })
         }, 500)
-      }, 3000)
+      }, 2000) // Reduced from 3000 to 2000 ms for better UX
     } catch (error) {
       console.error('Error:', error)
       alert('Something went wrong. Please try again.')

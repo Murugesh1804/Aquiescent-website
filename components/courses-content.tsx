@@ -42,7 +42,7 @@ const CoursesContent = () => {
                   "SnowPro Certification Guidelines",
                 ]}
                 date="24 MAR | 7:00 PM"
-                phone="91770 89287"
+                phone="7829889287"
                 website="www.acquiescents.in"
               />
             </motion.div>
@@ -66,7 +66,7 @@ const CoursesContent = () => {
                   "AI in Testing – Explore AI-driven testing tools",
                 ]}
                 date="24 MAR | 10:00 AM"
-                phone="91770 89287"
+                phone="7829889287"
                 website="www.Acquiescent.in"
               />
             </motion.div>
@@ -90,7 +90,7 @@ const CoursesContent = () => {
                   "Capstone Projects with Real-world Data",
                 ]}
                 date="28 MAR | 6:00 PM"
-                phone="91770 89287"
+                phone="7829889287"
                 website="www.Acquiescent.in"
               />
             </motion.div>
@@ -114,7 +114,7 @@ const CoursesContent = () => {
                   "Cloud Cost Optimization",
                 ]}
                 date="30 MAR | 6:00 PM"
-                phone="91770 89287"
+                phone="7829889287"
                 website="www.Acquiescent.in"
               />
             </motion.div>

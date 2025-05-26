@@ -26,7 +26,7 @@ export function Footer() {
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="https://api.whatsapp.com/send?phone=919177089287" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="https://api.whatsapp.com/send?phone=917829889287" className="text-gray-400 hover:text-white transition-colors">
                 <MessageCircle className="h-5 w-5" />
                 <span className="sr-only">Whatsapp</span>
               </Link>
@@ -149,8 +149,8 @@ export function Footer() {
               </li>
               <li className="flex">
                 <Phone className="h-5 w-5 mr-2 text-gray-400 flex-shrink-0" />
-                <Link href="tel:+919177089287" className="text-gray-400 hover:text-white transition-colors">
-                  +91 91770 89287 <br/> +91 90593 18889
+                <Link href="tel:+917829889287" className="text-gray-400 hover:text-white transition-colors">
+                  +91 78298 89287 <br/> +91 90593 18889
                 </Link>
               </li>
               <li className="flex">
@@ -164,6 +164,11 @@ export function Footer() {
         </div>
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
           <p>© {new Date().getFullYear()} Acquiescent Consultancy Services India Pvt. Ltd. All rights reserved.</p>
+          <div className="mt-4 flex justify-center space-x-6">
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

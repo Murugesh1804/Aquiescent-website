@@ -172,7 +172,7 @@ export default function ContactPage() {
                     <Phone className="h-6 w-6 text-primary mr-4 mt-1" />
                     <div>
                       <h3 className="font-semibold mb-1">Phone Number</h3>
-                      <p className="text-gray-600">+91 91770 89287</p>
+                      <p className="text-gray-600">+91 78298 89287 </p>
                       <p className="text-gray-600">+91 90593 18889</p>
                     </div>
                   </div>
